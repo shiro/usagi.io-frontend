@@ -20,6 +20,10 @@
     "jsx": "react",
     "baseUrl": "src"
   },
+  "paths": {
+    "@modules/*": ["rest/modules/*"],
+    "@services/*": ["services/*"]
+  },
   "include": [
     "src"
   ]
