@@ -6,10 +6,12 @@
   color: color(white);
 
   .description {
-    @include fluid-type($width-min-point, $width-max-point, 14px, 40px);
+    p {
+      @include fluid-type($width-min-point, $width-max-point, 14px, 40px);
 
-    &:not(:last-child) {
-      padding-bottom: 2vh;
+      &:not(:last-child) {
+        padding-bottom: 2vh;
+      }
     }
   }
 }
