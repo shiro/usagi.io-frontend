@@ -1,0 +1,34 @@
+@import "~master";
+
+.section {
+  background: color(black);
+  padding: 4vh 20vw;
+  color: color(white);
+
+  .titleContainer {
+    display: inline-block;
+
+    .title {
+      @include fluid-type($width-min-point, $width-max-point, 18px, 70px);
+      font-weight: 900;
+
+      // pad container for hr
+      padding: 0 30px;
+    }
+
+    .spacer {
+      margin: 3vh auto;
+      width: 100%;
+      border: none;
+      border-bottom: 5px solid color(white);
+    }
+  }
+
+  .description {
+    @include fluid-type($width-min-point, $width-max-point, 14px, 40px);
+
+    &:not(:last-child) {
+      padding-bottom: 2vh;
+    }
+  }
+}

@@ -1,3 +1,9 @@
+$width-min-point: 150px;
+$width-max-point: 3840px;
+$aspect: "max-aspect-ratio: 85/100";
+$aspect-very-tall: "max-aspect-ratio: 50/100";
+
+
 @function strip-unit($value) {
   @return $value / ($value * 0 + 1);
 }

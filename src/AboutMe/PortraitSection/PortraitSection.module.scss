@@ -1,11 +1,5 @@
 @import "~master";
 
-$gray: #858585;
-
-$width-min-point: 150px;
-$width-max-point: 3840px;
-$aspect: "max-aspect-ratio: 85/100";
-$aspect-very-tall: "max-aspect-ratio: 50/100";
 
 .section {
   height: 80vh;
@@ -49,7 +43,7 @@ $aspect-very-tall: "max-aspect-ratio: 50/100";
     .slogan {
       display: inline-block;
       white-space: nowrap;
-      color: $gray;
+      color: color(gray);
       @include fluid-type($width-min-point, $width-max-point, 15px, 130px);
 
       margin-left: $item-left-margin;
@@ -65,7 +59,7 @@ $aspect-very-tall: "max-aspect-ratio: 50/100";
     }
 
     .education{
-      color: $gray;
+      color: color(gray);
       @include fluid-type($width-min-point, $width-max-point, 16px * .8, 70px * .8);
       margin-left: $item-left-margin;
       &:not(:last-child) {
