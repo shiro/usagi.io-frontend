@@ -1,0 +1,24 @@
+@import "~master";
+
+.titleContainer {
+  display: inline-block;
+
+  .title {
+    @include fluid-type($width-min-point, $width-max-point, 18px, 70px);
+    font-weight: 900;
+
+    // pad container for hr
+    padding: 0 30px;
+  }
+
+  .spacer {
+    margin: 3vh auto;
+    width: 100%;
+    border: none;
+    border-bottom: 5px solid color(white);
+
+    &.dark{
+      border-color: color(black);
+    }
+  }
+}
