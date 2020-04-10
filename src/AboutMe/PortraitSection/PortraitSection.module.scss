@@ -1,0 +1,99 @@
+@import "~master";
+
+$gray: #858585;
+
+$width-min-point: 150px;
+$width-max-point: 3840px;
+$aspect: "max-aspect-ratio: 85/100";
+$aspect-very-tall: "max-aspect-ratio: 50/100";
+
+.section {
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 1fr minmax(min-content, 9fr) 8fr 1fr;
+  grid-template-rows: 1fr auto 3fr;
+  grid-template-areas:
+    ". .    image ."
+    ". text image ."
+    ". .    image .";
+
+
+  @media ($aspect) {
+    height: 60vh;
+    grid-template-columns: 1fr auto 3fr 1fr;
+    grid-template-rows: 1fr min-content minmax(auto, 11fr);
+
+    grid-template-areas:
+      ". .     . ."
+      ". text  . ."
+      ". image image .";
+  }
+
+  @media ($aspect-very-tall) {
+    height: 50vh;
+  }
+
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+    min-width: 100px;
+    @include debug-bg(yellow);
+    grid-area: text;
+
+    > * {
+      align-self: flex-start;
+    }
+    $item-left-margin: 20px;
+    $item-bottom-margin: 4%;
+
+    .slogan {
+      display: inline-block;
+      white-space: nowrap;
+      color: $gray;
+      @include fluid-type($width-min-point, $width-max-point, 15px, 130px);
+
+      margin-left: $item-left-margin;
+      margin-bottom: $item-bottom-margin;
+    }
+
+    .name {
+      background: black;
+      color: white;
+      padding: 10px 20px;
+      @include fluid-type($width-min-point, $width-max-point, 18px, 70px);
+      margin-bottom: $item-bottom-margin;
+    }
+
+    .education{
+      color: $gray;
+      @include fluid-type($width-min-point, $width-max-point, 16px * .8, 70px * .8);
+      margin-left: $item-left-margin;
+      &:not(:last-child) {
+        margin-bottom: $item-bottom-margin;
+      }
+    }
+  }
+}
+
+.portraitContainer {
+  min-width: 100px;
+  grid-area: image;
+  position: relative;
+
+  @include debug-bg(orange);
+
+  .portrait {
+    position: absolute;
+    bottom: 0;
+    left: -100px;
+    width: 100%;
+    max-height: 90%;
+    margin-top: auto;
+    object-fit: contain;
+
+    @media ($aspect) {
+      left:0;
+    }
+  }
+}
+

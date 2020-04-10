@@ -1,0 +1,16 @@
+$colors: (
+        white: #fff,
+        black: #000,
+        green: #4f8d4f,
+        green-light: #5c9d5c,
+        green-lighter: #7dd07d,
+        green-dark: #396d39,
+        green-darker: #325f32,
+);
+
+@function color($key){
+  @return map_get($colors, $key)
+}
+
+
+

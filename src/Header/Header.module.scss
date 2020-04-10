@@ -1,0 +1,37 @@
+@import "~master";
+
+$gray: #858585;
+
+.header {
+  width: 100%;
+  //padding: 30px 60px;
+
+  display: flex;
+  flex-direction: row;
+
+
+  .logo {
+    height: 80%;
+    fill: $gray;
+  }
+
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    margin: 0 20px;
+    font-size: 30px;
+  }
+
+  .navigationLink {
+    color: $gray;
+    text-underline: #000;
+    text-underline-offset: 30px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+}
+

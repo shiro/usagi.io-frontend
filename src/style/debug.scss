@@ -1,0 +1,7 @@
+$debug-enabled: false !default;
+
+@mixin debug-bg($color){
+  @if $debug-enabled {
+    background-color: $color;
+  }
+}

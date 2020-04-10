@@ -1,5 +1,6 @@
 import * as React from "react";
-import "./Bar.scss";
+import styles from "./Bar.module.scss";
+import Baz from "Baz/Baz";
 
 
 export interface IBar {
@@ -8,8 +9,9 @@ export interface IBar {
 
 const Bar: React.FC<IBar> = (props) => {
     return (
-        <div className="Bar">
+        <div className={styles.bg}>
             wow
+            <Baz />
         </div>
     );
 };

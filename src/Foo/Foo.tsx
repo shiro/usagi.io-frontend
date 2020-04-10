@@ -1,7 +1,7 @@
 import * as React from "react";
-import "./Foo.scss";
+import styles from "./Foo.module.scss";
 
-import Bar from "Bar/Bar";
+import Bib from "Bib/Bib";
 
 
 export interface IFoo {
@@ -10,9 +10,10 @@ export interface IFoo {
 
 const Foo: React.FC<IFoo> = (props) => {
     return (
-        <div className="Foo">
+        <div className={styles.bg}>
             hello world
-            <Bar />
+            <Bib />
+
         </div>
     );
 };
