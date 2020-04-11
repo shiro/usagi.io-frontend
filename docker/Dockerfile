@@ -1,6 +1,7 @@
 FROM node:11-alpine
 
 RUN apk add --no-cache \
+    python gcc make \
     bash gawk curl sed grep bc coreutils
 
 WORKDIR /opt/app/
