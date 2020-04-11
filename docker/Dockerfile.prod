@@ -1,4 +1,7 @@
-FROM node:9-alpine
+FROM node:11-alpine
+
+RUN apk add --no-cache \
+    python make
 
 WORKDIR /opt/app/
 
@@ -12,9 +15,8 @@ RUN yarn --check-files --frozen-lockfile && \
 COPY . ./
 
 # build the bundle and clean up
-RUN yarn prod:build && \
+RUN yarn build && \
     yarn install --production --ignore-scripts --prefer-offline && \
-    yarn cache clean && \
-    rm -rf src assets config
+    yarn cache clean
 
-CMD yarn prod:run
+CMD yarn serve
