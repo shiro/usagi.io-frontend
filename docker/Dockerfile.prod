@@ -1,22 +1,27 @@
 FROM node:11-alpine
 
 RUN apk add --no-cache \
-    python make
+    python gcc make
 
 WORKDIR /opt/app/
 
 COPY package.json yarn.lock ./
 
 # install dev dependencies
-RUN yarn --check-files --frozen-lockfile && \
+RUN yarn --frozen-lockfile && \
     chmod -R 777 node_modules
 
-# copy files
 COPY . ./
 
-# build the bundle and clean up
+# build and remove dev dependencies
 RUN yarn build && \
-    yarn install --production --ignore-scripts --offline && \
-    yarn cache clean
+    yarn install --production --prefer-offline
+
+FROM node:11-alpine
+
+WORKDIR /opt/app/
+COPY --from=0 /opt/app/package.json ./
+COPY --from=0 /opt/app/build build
+COPY --from=0 /opt/app/node_modules node_modules/
 
 CMD yarn serve
