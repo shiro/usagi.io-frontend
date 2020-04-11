@@ -2,16 +2,6 @@
 
 .section {
   background: color(black);
-  padding: 4vh 20vw;
+  padding: 6vh 20vw 8vh;
   color: color(white);
-
-  .description {
-    p {
-      @include fluid-type($width-min-point, $width-max-point, 14px, 40px);
-
-      &:not(:last-child) {
-        padding-bottom: 2vh;
-      }
-    }
-  }
 }

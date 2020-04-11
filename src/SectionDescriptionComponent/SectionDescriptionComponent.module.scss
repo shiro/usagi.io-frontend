@@ -1,0 +1,12 @@
+@import "~master";
+
+.description {
+  p {
+    @include fluid-type($width-min-point, $width-max-point, 14px, 30px);
+    text-align: left;
+
+    &:not(:last-child) {
+      padding-bottom: 3vh;
+    }
+  }
+}

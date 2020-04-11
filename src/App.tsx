@@ -14,8 +14,8 @@ function App() {
             <Header/>
             <PortraitSection/>
             <AboutMeSection/>
-            <DesignSection/>
             <ProgrammingSection/>
+            <DesignSection/>
             <ContactSection/>
         </div>
     );

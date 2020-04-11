@@ -3,9 +3,9 @@ import cn from "classnames";
 
 import css from "./AboutMeSection.module.scss";
 import SectionTitleComponent from "SectionTitleComponent/SectionTitleComponent";
-import ReactMarkdown from "react-markdown";
 /* eslint import/no-webpack-loader-syntax: off */
 import body from "!!raw-loader!AboutMeSection/aboutMeSectionBody.md";
+import SectionDescriptionComponent from "SectionDescriptionComponent/SectionDescriptionComponent";
 
 
 export interface IAboutMeSection {
@@ -17,10 +17,9 @@ const AboutMeSection: React.FC<IAboutMeSection> = (props) => {
         <section className={cn(css.section)}>
             <SectionTitleComponent title="About Me" variant="light"/>
 
-            <div className={cn(css.description)}>
-
-                <ReactMarkdown source={body} escapeHtml={false}/>
-            </div>
+            <SectionDescriptionComponent>
+                {body}
+            </SectionDescriptionComponent>
         </section>
     );
 };

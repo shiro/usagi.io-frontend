@@ -1,18 +1,22 @@
 @import "~master";
 
-$gray: #858585;
+//$debug-enabled: true;
 
 .header {
   width: 100%;
-  //padding: 30px 60px;
+  padding: 0 5vw;
+  @include debug-bg(rgba(orange, .3));
+  height: 8vh;
 
   display: flex;
   flex-direction: row;
+  align-items: center;
 
 
   .logo {
-    height: 80%;
-    fill: $gray;
+    height: 60%;
+    margin-right: 2vw;
+    fill: color(gray);
   }
 
   .navigation {
@@ -20,16 +24,24 @@ $gray: #858585;
     flex-direction: row;
     align-self: center;
     margin: 0 20px;
-    font-size: 30px;
   }
 
   .navigationLink {
-    color: $gray;
-    text-underline: #000;
-    text-underline-offset: 30px;
+    color: color(gray);
+    position: relative;
+    margin: 2vh 0;
+    @include fluid-type($width-min-point, $width-max-point, 20px, 30px);
 
-    &:hover {
-      text-decoration: underline;
+    // workaround until [text-underline-offset](https://developer.mozilla.org/en-US/docs/Web/CSS/text-underline-offset) is supported
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -35%;
+      height: 0;
+      margin: 0 auto;
+      border-bottom: 4px solid color(grey);
     }
   }
 

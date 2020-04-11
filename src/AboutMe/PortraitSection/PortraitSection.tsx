@@ -13,7 +13,7 @@ const PortraitSection: React.FC<IPortraitSection> = (props) => {
         <section className={cn(css.section)}>
             <div className={cn(css.textContainer)}>
             <h1 className={cn(css.slogan)}>Simplicity = Complex</h1>
-            <span className={cn(css.name)}>Matic Gačar 白兎</span>
+            <span className={cn(css.name)}>Matic Gačar <i className={cn(css.nameBarSymbol)} /> 白兎</span>
 
             <span className={cn(css.education)}>Software Engineering</span>
             <span className={cn(css.education)}>Web/UI/UX Design</span>

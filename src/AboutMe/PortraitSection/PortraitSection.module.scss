@@ -56,6 +56,14 @@
       padding: 10px 20px;
       @include fluid-type($width-min-point, $width-max-point, 18px, 70px);
       margin-bottom: $item-bottom-margin;
+
+      .nameBarSymbol{
+        height: 100%;
+        margin: 0 3px;
+        border-left: 3px solid color(white);
+        display: inline-block;
+        vertical-align: bottom;
+      }
     }
 
     .education{
