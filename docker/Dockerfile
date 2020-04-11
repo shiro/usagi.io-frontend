@@ -13,5 +13,4 @@ RUN yarn --check-files --frozen-lockfile && \
 
 COPY . ./
 
-CMD yarn start
-
+CMD yarn --check-files --frozen-lockfile && yarn start

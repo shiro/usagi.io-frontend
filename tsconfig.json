@@ -22,7 +22,8 @@
   },
   "paths": {
     "@modules/*": ["rest/modules/*"],
-    "@services/*": ["services/*"]
+    "@services/*": ["services/*"],
+    "~/*": ["src/*"]
   },
   "include": [
     "src"

@@ -6,7 +6,6 @@ module.exports = {
     plugins: [new TsconfigPathsPlugin()],
     alias: {
       '~': path.resolve(__dirname, './src/'),
-      'boo/': path.resolve(__dirname, './src/'),
   },
   }
 }
