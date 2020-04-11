@@ -7,16 +7,18 @@ This is my portfolio website.
 
 First it is necessary to setup the environment.  
 
-To setup the development environment run:
+To setup the development environment and get dependencies run:
 
 ```
 ./setup.sh dev
+yarn install
 ```
 
 To setup the production environment run:
 
 ```
 ./setup.sh prod
+yarn install
 ```
 
 ### Locally
