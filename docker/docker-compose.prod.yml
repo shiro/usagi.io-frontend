@@ -1,0 +1,6 @@
+version: "3"
+
+services:
+  fe:
+    build:
+      dockerfile: ./docker/fe/Dockerfile.prod

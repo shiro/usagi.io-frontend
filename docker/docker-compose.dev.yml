@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  fe:
+    build:
+      dockerfile: ./docker/Dockerfile
+    ports:
+      - 8080:3080
+    volumes:
+      - ./:/opt/app
+      - node_modules:/opt/app/node_modules
+
+volumes:
+  node_modules:
