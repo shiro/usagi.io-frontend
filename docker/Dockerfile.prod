@@ -16,7 +16,7 @@ COPY . ./
 
 # build the bundle and clean up
 RUN yarn build && \
-    yarn install --production --ignore-scripts --prefer-offline && \
+    yarn install --production --ignore-scripts --offline && \
     yarn cache clean
 
 CMD yarn serve
