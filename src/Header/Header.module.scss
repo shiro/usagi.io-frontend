@@ -6,6 +6,7 @@
   width: 100%;
   padding: 0 5vw;
   @include debug-bg(rgba(orange, .3));
+  min-height: 60px;
   height: 8vh;
 
   display: flex;
@@ -17,6 +18,10 @@
     height: 60%;
     margin-right: 2vw;
     fill: color(gray);
+
+    @media ($aspect) {
+      width: 3vw;
+    }
   }
 
   .navigation {
@@ -30,7 +35,7 @@
     color: color(gray);
     position: relative;
     margin: 2vh 0;
-    @include fluid-type($width-min-point, $width-max-point, 20px, 30px);
+    @include fluid-type($width-min-point, $width-max-point, 18px, 40px);
 
     // workaround until [text-underline-offset](https://developer.mozilla.org/en-US/docs/Web/CSS/text-underline-offset) is supported
     &:after {
