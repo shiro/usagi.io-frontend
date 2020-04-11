@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker-compose run fe 'yarn install --check-files'
+docker-compose run --rm fe yarn install --check-files
