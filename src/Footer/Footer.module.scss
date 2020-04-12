@@ -1,0 +1,19 @@
+@import "~master";
+
+.section{
+  padding: 2vh 20vw 2vh;
+  text-align: center;
+
+  @include fluid-type($width-min-point, $width-max-point, 14px, 30px);
+
+  a{
+    line-height: 1.7;
+
+    &:hover{
+      background: color(black);
+      color: color(white);
+      padding: 5px 7px;
+      border-radius: 5px;
+    }
+  }
+}

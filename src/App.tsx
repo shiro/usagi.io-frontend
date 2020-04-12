@@ -6,6 +6,7 @@ import ProgrammingSection from "ProgrammingSection/ProgrammingSection";
 import DesignSection from "DesignSection/DesignSection";
 import ContactSection from "ContactSection/ContactSection";
 import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
+import Footer from "Footer/Footer";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
                         <ProgrammingSection/>
                         <DesignSection/>
                         <ContactSection/>
+                        <Footer />
                     </div>
                 </Route>
                 <Route>
