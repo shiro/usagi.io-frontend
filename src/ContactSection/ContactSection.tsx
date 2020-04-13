@@ -2,7 +2,7 @@ import * as React from "react";
 import cn from "classnames";
 
 import css from "./ContactSection.module.scss";
-import SectionTitleComponent from "SectionTitleComponent/SectionTitleComponent";
+import SectionTitleComponent from "@/SectionTitleComponent/SectionTitleComponent";
 
 
 export interface IContactSection {

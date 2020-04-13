@@ -2,8 +2,9 @@ import * as React from "react";
 import cn from "classnames";
 
 import css from "./Header.module.scss";
-import {ReactComponent as Logo} from "logo.svg"
-import { Link } from "react-router-dom";
+// TODO unify assets
+import {ReactComponent as Logo} from "@/logo.svg"
+import {Link, NavLink} from "react-router-dom";
 
 
 export interface IHeader {
@@ -17,7 +18,8 @@ const Header: React.FC<IHeader> = (props) => {
                 <Logo className={cn(css.logo)} />
             </Link>
             <nav className={cn(css.navigation)}>
-                <Link className={cn(css.navigationLink)} to="/">Me</Link>
+                <NavLink className={cn(css.navigationLink)} activeClassName={cn(css.selected)} to="/me">Me</NavLink>
+                <NavLink className={cn(css.navigationLink)} activeClassName={cn(css.selected)} to="/gallery">Gallery</NavLink>
             </nav>
         </header>
     );

@@ -4,8 +4,9 @@ const path = require('path')
 module.exports = {
   resolve: {
     plugins: [new TsconfigPathsPlugin()],
-    alias: {
-      '~': path.resolve(__dirname, './src/'),
-  },
+  //   alias: {
+  //     '~': path.resolve(__dirname, './src/'),
+  //     'config': path.resolve(__dirname, './config/'),
+  // },
   }
 }

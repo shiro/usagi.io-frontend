@@ -2,10 +2,10 @@ import * as React from "react";
 import cn from "classnames";
 
 import css from "./DesignSection.module.scss";
-import SectionTitleComponent from "SectionTitleComponent/SectionTitleComponent";
+import SectionTitleComponent from "@/SectionTitleComponent/SectionTitleComponent";
 /* eslint import/no-webpack-loader-syntax: off */
-import body from "!!raw-loader!DesignSection/designSectionBody.md";
-import SectionDescriptionComponent from "SectionDescriptionComponent/SectionDescriptionComponent";
+import body from "@/DesignSection/designSectionBody.md";
+import SectionDescriptionComponent from "@/SectionDescriptionComponent/SectionDescriptionComponent";
 
 
 export interface IDesignSection {

@@ -2,10 +2,9 @@ import * as React from "react";
 import cn from "classnames";
 
 import css from "./ProgrammingSection.module.scss";
-import SectionTitleComponent from "SectionTitleComponent/SectionTitleComponent";
-/* eslint import/no-webpack-loader-syntax: off */
-import body from "!!raw-loader!ProgrammingSection/programmingSectionBody.md";
-import SectionDescriptionComponent from "SectionDescriptionComponent/SectionDescriptionComponent";
+import SectionTitleComponent from "@/SectionTitleComponent/SectionTitleComponent";
+import body from "@/ProgrammingSection/programmingSectionBody.md";
+import SectionDescriptionComponent from "@/SectionDescriptionComponent/SectionDescriptionComponent";
 
 
 

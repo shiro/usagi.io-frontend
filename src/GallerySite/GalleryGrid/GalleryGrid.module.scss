@@ -1,0 +1,29 @@
+@import "~@/master";
+
+.container {
+  width: 100%;
+  background: color(black);
+  color: color(white);
+  overflow: hidden;
+
+  .grid {
+    display: grid;
+    grid-template-rows: auto;
+    padding: 5vh 0;
+    margin: 0 auto;
+
+    width: 500px;
+
+
+
+    //grid-template: auto / repeat(auto-fill, 25%);
+    //@media ($aspect) {
+    //  grid-template: auto / repeat(auto-fill, 33%);
+    //}
+  }
+
+}
+
+.modal{
+  background: red;
+}

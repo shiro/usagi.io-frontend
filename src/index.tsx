@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'index.scss';
-import App from 'App';
-import * as serviceWorker from 'serviceWorker';
+import './index.scss';
+import App from '@/App';
+import * as serviceWorker from '@/serviceWorker';
 
 const rootEl = document.getElementById('root');
 
@@ -14,8 +14,8 @@ ReactDOM.render(
 );
 
 if (module.hot) {
-    module.hot.accept('App', () => {
-        const NextApp = require('App').default
+    module.hot.accept('~/App', () => {
+        const NextApp = require('~/App').default
         ReactDOM.render(
             <NextApp />,
             rootEl
