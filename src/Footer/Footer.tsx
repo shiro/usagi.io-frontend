@@ -12,7 +12,7 @@ export interface IFooter {}
 const Footer: React.FC<IFooter> = (props) => {
     return (
         <footer className={cn(css.section)}>
-            <a href="https://github.com/shiro/usagi.io-frontend" target="_blank"><FontAwesomeIcon icon={faGithub}/> Read my source code!</a>
+            <a href="https://github.com/shiro/usagi.io-frontend" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub}/> Read my source code!</a>
         </footer>
     );
 };
