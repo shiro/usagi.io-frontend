@@ -18,7 +18,7 @@ const GridTile: React.FC<IGridTile> = (props) => {
 
     return (
         <div className={cn(css.tile, {[css.wide]: wide, [css.tall]: tall})} onClick={onClick}>
-            <img className={cn(css.image)} src={`/gallery/sample${num}.jpg`} alt="sample"/>
+            <img className={cn(css.image)} src={`/assets/gallery/sample${num}.jpg`} alt="sample"/>
         </div>
     );
 };

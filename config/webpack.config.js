@@ -36,7 +36,7 @@ module.exports.stats = {
     builtAt: false,
     reasons: false,
     children: false,
-    warnings: false,
+    warnings: true,
 };
 
 module.exports.webpackPaths = {

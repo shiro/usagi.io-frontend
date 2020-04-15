@@ -21,7 +21,7 @@ const PortraitSection: React.FC<IPortraitSection> = (props) => {
 
 
             <div className={cn(css.portraitContainer)}>
-                <img className={cn(css.portrait)} src="/resources/portrait.png" alt="portrait"/>
+                <img className={cn(css.portrait)} src="/assets/resources/portrait.png" alt="portrait"/>
             </div>
         </section>
     );

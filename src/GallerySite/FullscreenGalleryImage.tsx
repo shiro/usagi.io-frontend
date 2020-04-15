@@ -29,7 +29,7 @@ const FullscreenGalleryImage: React.FC<IFullscreenGalleryImage> = (props) => {
             onAfterClose={() => { onClose?.() }}
         >
             {/* TODO alt text */}
-            <img className={cn(css.image)} src="/gallery/sample4.jpg" alt="something" onClick={onClose}/>
+            <img className={cn(css.image)} src="/assets/gallery/sample4.jpg" alt="something" onClick={onClose}/>
         </Modal>
     );
 };

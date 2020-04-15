@@ -1,16 +1,14 @@
 const path = require("path");
-// const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const postcssPresentEnv = require("postcss-preset-env");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-// const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-// const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const TerserJSPlugin = require("terser-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 const { appRoot, pathResolver, stats, webpackPaths, webpackFiles, babelOptions } = require("../config/webpack.config");
-// const { helpers } = require("./webpack.shared");
 
 
 module.exports = {
@@ -21,12 +19,12 @@ module.exports = {
     entry: [
         // "@babel/polyfill",
         path.join(appRoot, "src/index"),
-        // path.join(appRoot, "src/style/app.scss"),
+        // path.join(appRoot, "src/master.scss"),
     ],
     output: {
         filename: "[name].js",
         path: webpackPaths.clientDest,
-        publicPath: "/assets/",
+        publicPath: "/",
     },
     resolve: pathResolver,
     module: {
@@ -44,10 +42,10 @@ module.exports = {
                     {
                         loader: "css-loader",
                         options: {
-                            // camelCase: "dashes",
-                            modules: true,
+                            modules: {
+                                localIdentName: "[local]_[hash:base64:5]",
+                            },
                             sourceMap: true,
-                            // minimize: true,
                         },
                     },
                     {
@@ -73,14 +71,7 @@ module.exports = {
         ],
     },
     optimization: {
-        // minimizer: [
-        //     new UglifyJsPlugin({
-        //         cache: true,
-        //         parallel: true,
-        //         sourceMap: true,
-        //     }),
-        //     new OptimizeCSSAssetsPlugin({}),
-        // ],
+        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
         splitChunks: {
             cacheGroups: {
                 vendor: {
