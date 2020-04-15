@@ -43,14 +43,14 @@ module.exports.webpackPaths = {
     appRoot,
     serverDest: path.join(appRoot, "build_server"),
     clientDest: path.join(appRoot, "build"),
-    templateSrc: path.join(appRoot, "src/server/templates"),
     assetSrc: path.join(appRoot, "assets"),
     publicSrc: path.join(appRoot, "public"), // things like favicons, robots.txt and other static non-assets
+    templateSrc: path.join(appRoot, "public"), // html template directory
 };
 
 module.exports.webpackFiles = {
     serverDest: "server.js",
-    htmlTemplateSrc: "app.html",
-    htmlTemplateDest: "app.html",
+    htmlTemplateSrc: "index.html", // html template file
+    htmlTemplateDest: "index.html",
 };
 
