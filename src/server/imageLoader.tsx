@@ -34,8 +34,10 @@ export const initImages = async (baseUrl?: string) => {
     const sourcePath = serverConfig.path.gallery;
 
     // TODO move
-    if (!fsSync.existsSync(serverConfig.path.gallery))
+    if (!fsSync.existsSync(serverConfig.path.gallery)) {
         await fs.mkdir(serverConfig.path.gallery, {recursive: true});
+        console.warn(`warn: gallery folder did not exist: ${serverConfig.path.gallery}, but was created now`);
+    }
 
     if (!fsSync.existsSync(serverConfig.path.thumbnailCache))
         await fs.mkdir(serverConfig.path.thumbnailCache, {recursive: true});
@@ -54,7 +56,7 @@ export const initImages = async (baseUrl?: string) => {
             throw new Error("failed to retrieve image dimensions");
 
         {
-            const watermarkFile = path.join(serverConfig.path.root, "assets/resources/logo.svg")
+            const watermarkFile = serverConfig.files.watermark;
             const sourceFile = path.join(serverConfig.path.gallery, file);
             const destinationFile = path.join(serverConfig.path.pictureCache, file);
             const command = [

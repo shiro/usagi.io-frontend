@@ -10,7 +10,7 @@ const dev = {};
 
 const envConfig = process.env.NODE_ENV === "production" ? prod : dev;
 
-const {GALLERY_PATH, CACHE_PATH} = process.env;
+const {GALLERY_PATH, CACHE_PATH, WATERMARK_FILE} = process.env;
 
 const config = {
     path: (() => {
@@ -19,25 +19,27 @@ const config = {
     })()
 };
 
-export const serverConfig = objectAssignDeep(
-    {
-        path: (() => {
-            const cache = path.isAbsolute(CACHE_PATH) ? CACHE_PATH :
-                    path.join(webpackPaths.appRoot, CACHE_PATH);
+// use the path if its absolute else construct an absolute path from the app root
+const toAbsolutePath = (dest: string) => path.isAbsolute(dest) ? dest : path.join(webpackPaths.appRoot, dest);
 
-            return {
-                root: webpackPaths.appRoot,
-                // dist: webpackPaths.serverDest,
-                assets: webpackPaths.clientDest,
-                gallery: path.isAbsolute(GALLERY_PATH) ? GALLERY_PATH :
-                    path.join(webpackPaths.appRoot, GALLERY_PATH),
-                pictureCache: path.join(cache, "pictures"),
-                thumbnailCache: path.join(cache, "thumbnails"),
-            };
-        })(),
-        files: {
-            //     htmlTemplate: webpackFiles.htmlTemplateDest,
-        },
-    },
+export const serverConfig = objectAssignDeep(
+    (() => {
+        return {
+            path: (() => {
+                const cache = toAbsolutePath(CACHE_PATH);
+
+                return {
+                    root: webpackPaths.appRoot,
+                    assets: webpackPaths.clientDest,
+                    gallery: toAbsolutePath(GALLERY_PATH),
+                    pictureCache: path.join(cache, "pictures"),
+                    thumbnailCache: path.join(cache, "thumbnails"),
+                };
+            })(),
+            files: {
+                watermark: toAbsolutePath(WATERMARK_FILE),
+            },
+        };
+    })(),
     envConfig
 );

@@ -19,6 +19,7 @@ declare namespace NodeJS {
 
         readonly GALLERY_PATH: string;
         readonly CACHE_PATH: string;
+        readonly WATERMARK_FILE: string;
     }
 }
 
