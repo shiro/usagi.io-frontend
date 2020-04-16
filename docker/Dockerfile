@@ -1,7 +1,7 @@
-FROM node:11-alpine
+FROM node:13-alpine
 
 RUN apk add --no-cache \
-    python gcc make \
+    python gcc make imagemagick \
     bash gawk curl sed grep bc coreutils
 
 WORKDIR /opt/app/
@@ -13,4 +13,4 @@ RUN yarn --check-files --frozen-lockfile && \
 
 COPY . ./
 
-CMD yarn --check-files --frozen-lockfile && yarn start
+CMD yarn --check-files --frozen-lockfile && yarn dev

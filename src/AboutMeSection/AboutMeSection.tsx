@@ -2,10 +2,10 @@ import * as React from "react";
 import cn from "classnames";
 
 import css from "./AboutMeSection.module.scss";
-import SectionTitleComponent from "SectionTitleComponent/SectionTitleComponent";
+import SectionTitleComponent from "@/SectionTitleComponent/SectionTitleComponent";
 /* eslint import/no-webpack-loader-syntax: off */
-import body from "!!raw-loader!AboutMeSection/aboutMeSectionBody.md";
-import SectionDescriptionComponent from "SectionDescriptionComponent/SectionDescriptionComponent";
+import body from "@/AboutMeSection/aboutMeSectionBody.md";
+import SectionDescriptionComponent from "@/SectionDescriptionComponent/SectionDescriptionComponent";
 
 
 export interface IAboutMeSection {

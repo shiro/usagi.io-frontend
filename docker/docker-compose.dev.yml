@@ -4,6 +4,8 @@ services:
   fe:
     build:
       dockerfile: ./docker/Dockerfile
+    ports:
+      - 3000:4000
     volumes:
       - ./:/opt/app
       - node_modules:/opt/app/node_modules

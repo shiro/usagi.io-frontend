@@ -1,0 +1,9 @@
+type Image{
+  source: String!
+  thumb: String!
+}
+
+type Query {
+  helloWorld: String!
+  images: [Image]
+}

@@ -9,7 +9,8 @@
 /coverage
 
 # production
-/build
+build/
+build_server/
 
 # misc
 .DS_Store
@@ -25,3 +26,7 @@ yarn-error.log*
 .idea/workspace.xml
 
 docker-compose.override.yml
+
+assets/gallery/*
+local/
+.env

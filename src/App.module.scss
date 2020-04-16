@@ -1,0 +1,9 @@
+:global {
+  body {
+
+    &.ReactModal__Body--open #root {
+      filter: blur(2px);
+      transition: .2s filter ease-in-out;
+    }
+  }
+}
