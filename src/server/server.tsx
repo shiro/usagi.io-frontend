@@ -7,7 +7,6 @@ const server = http.createServer(currentApp);
 server.listen(3000);
 console.log("server started");
 
-
 if (module.hot) {
     console.log("hot reloading is enabled");
 

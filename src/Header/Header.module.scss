@@ -44,7 +44,7 @@
     @include fluid-type($width-min-point, $width-max-point, 18px, 40px);
 
     &:not(:last-child) {
-      margin-right: 1vw;
+      margin-right: 3vw;
     }
 
     // workaround until [text-underline-offset](https://developer.mozilla.org/en-US/docs/Web/CSS/text-underline-offset) is supported

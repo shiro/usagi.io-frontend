@@ -2,14 +2,14 @@ import * as React from "react";
 import cn from "classnames";
 
 import css from "./GridTile.module.scss";
-import {Picture} from "server/imageLoader";
+import {IPicture} from "server/imageLoader";
 
 
 export interface IGridTile {
     wide?: boolean,
     tall?: boolean,
-    onClick?: (picture: Picture) => void;
-    picture: Picture;
+    onClick?: (picture: IPicture) => void;
+    picture: IPicture;
 }
 
 
@@ -18,7 +18,7 @@ const GridTile: React.FC<IGridTile> = (props) => {
 
     return (
         <div className={cn(css.tile, {[css.wide]: wide, [css.tall]: tall})} onClick={() => {onClick?.(picture)}}>
-            <img className={cn(css.image)} src={picture.source} alt="sample"/>
+            <img className={cn(css.image)} src={picture.thumb} alt="gallery picture"/>
         </div>
     );
 };

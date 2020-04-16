@@ -1,10 +1,11 @@
 const path = require("path");
 const webpack = require("webpack");
 const StartServerPlugin = require("start-server-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+// const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
 
-const { appRoot, webpackPaths, webpackFiles } = require("../config/webpack.config");
+const { appRoot, webpackFiles } = require("../config/webpack.config");
 
 const webpackBase = require("./webpack.server.prod.config");
 
@@ -21,6 +22,8 @@ module.exports = {
     watch: true,
     optimization: {},
     plugins: [
+        new Dotenv({defaults: true, systemvars: true}),
+        new CleanWebpackPlugin(),
         // new CleanWebpackPlugin([webpackPaths.serverDest], {
         //     root: webpackPaths.appRoot,
         // }),

@@ -6,6 +6,7 @@ const HtmlWebpackHarddiskPlugin = require("html-webpack-harddisk-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
 
 const { webpackPaths, webpackFiles } = require("../config/webpack.config");
 const webpackBase = require("./webpack.client.prod.config");
@@ -45,6 +46,7 @@ module.exports = {
         },
     },
     plugins: [
+        new Dotenv({defaults: true, systemvars: true}),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin([
             { from: webpackPaths.assetSrc, to: "assets" },

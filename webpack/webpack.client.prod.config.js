@@ -4,11 +4,13 @@ const postcssPresentEnv = require("postcss-preset-env");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+// const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
 
-const { appRoot, pathResolver, stats, webpackPaths, webpackFiles, babelOptions } = require("../config/webpack.config");
+const { appRoot, stats, webpackPaths, webpackFiles } = require("../config/webpack.config");
+const { pathResolver } = require("./webpack.shared");
 
 
 module.exports = {
@@ -86,6 +88,7 @@ module.exports = {
     },
     plugins: [
         // new ForkTsCheckerWebpackPlugin({ checkSyntacticErrors: true }),
+        new Dotenv({defaults: true, systemvars: true}),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin([
             { from: webpackPaths.assetSrc, to: "assets" },

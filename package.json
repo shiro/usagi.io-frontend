@@ -10,9 +10,12 @@
     "test": "react-scripts test",
     "prod:server:build": "webpack --progress=false --config webpack/webpack.server.prod.config.js",
     "prod:client:build": "webpack --progress=false --config webpack/webpack.client.prod.config.js",
-    "prod:server:run": "cross-env NODE_ENV=production node ./dist_server/server",
+    "prod:build": "concurrently 'yarn prod:server:build' 'yarn prod:client:build'",
+    "prod:run": "cross-env NODE_ENV=production node ./build_server/server",
+    "prod": "yarn prod:build && yarn prod:run",
     "dev:server": "webpack --config webpack/webpack.server.config.js",
     "dev:client": "webpack-dev-server --config webpack/webpack.client.config.js",
+    "dev": "concurrently 'yarn dev:server' 'yarn dev:client'",
     "eject": "react-scripts eject"
   },
   "dependencies": {
@@ -42,7 +45,7 @@
     "@testing-library/dom": "7.2.1",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.2",
-    "@testing-library/user-event": "^10.0.1",
+    "@testing-library/user-event": "^10.0.2",
     "@types/classnames": "2.2.10",
     "@types/compression": "1.7.0",
     "@types/express": "4.17.6",
@@ -50,7 +53,7 @@
     "@types/helmet": "0.0.45",
     "@types/jest": "^25.2.1",
     "@types/lodash": "4.14.149",
-    "@types/node": "^13.11.1",
+    "@types/node": "13.11.1",
     "@types/object-assign-deep": "0.4.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
@@ -67,7 +70,9 @@
     "classnames": "2.2.6",
     "clean-webpack-plugin": "^3.0.0",
     "compression": "1.7.4",
+    "concurrently": "5.1.0",
     "copy-webpack-plugin": "5.1.1",
+    "dotenv-webpack": "1.7.0",
     "express": "4.17.1",
     "graphql": "15.0.0",
     "graphql-depth-limit": "1.1.0",
@@ -76,6 +81,7 @@
     "graphql-tools": "5.0.0",
     "helmet": "3.22.0",
     "html-webpack-harddisk-plugin": "1.0.1",
+    "imagemagick": "0.1.3",
     "lodash": "4.17.15",
     "node-sass": "4.13.1",
     "object-assign-deep": "0.4.0",
@@ -93,7 +99,8 @@
     "tsconfig-paths-webpack-plugin": "3.2.0",
     "typescript": "~3.8.3",
     "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack-cli": "3.3.11"
+    "webpack-cli": "3.3.11",
+    "webpack-dev-server": "3.10.3"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -1,9 +1,11 @@
-// const CleanWebpackPlugin = require("clean-webpack-plugin");
 // const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 // const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 // const webpack = require("webpack");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const path = require("path");
-const { appRoot, pathResolver, stats, webpackPaths, webpackFiles, babelOptions } = require("../config/webpack.config");
+const { appRoot, stats, webpackPaths, webpackFiles } = require("../config/webpack.config");
+const { pathResolver } = require("./webpack.shared");
+const Dotenv = require('dotenv-webpack');
 
 
 module.exports = {
@@ -36,7 +38,7 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: "ts-loader",
                 options: {
-                   configFile: path.join(appRoot, "tsconfig.server.json"),
+                    configFile: path.join(appRoot, "tsconfig.server.json"),
                 },
             },
             {
@@ -55,6 +57,8 @@ module.exports = {
     //     ],
     // },
     plugins: [
+        new CleanWebpackPlugin(),
+        new Dotenv({defaults: true, systemvars: true}),
         // new ForkTsCheckerWebpackPlugin({ checkSyntacticErrors: true }),
         // new CleanWebpackPlugin([webpackPaths.serverDest], {
         //     root: webpackPaths.appRoot,
