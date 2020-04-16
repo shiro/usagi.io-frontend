@@ -5,7 +5,7 @@ import GallerySite from "@/GallerySite/GallerySite";
 
 import "./App.module.scss";
 
-function App() {
+const App = () => {
     return (
         <Router>
             <Switch>

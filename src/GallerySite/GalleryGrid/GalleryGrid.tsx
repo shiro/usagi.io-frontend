@@ -5,23 +5,19 @@ import cn from "classnames";
 import css from "./GalleryGrid.module.scss";
 import GridTile from "@/GallerySite/GalleryGrid/GridTile";
 import {useWindowSize} from "@/hooks/useWindowSize";
+import {Picture} from "server/imageLoader";
 
 
 export interface IGalleryGrid {
-    onImageClick?: () => void;
+    onImageClick?: (picture: Picture) => void;
+    pictures: Picture[];
 }
 
 const tossCoin = () => !!Math.round(Math.random());
 
 
 const GalleryGrid: React.FC<IGalleryGrid> = (props) => {
-    const {onImageClick} = props;
-
-    // TODO get from props
-    let images = [];
-    for (let i = 0; i < 20; ++i)
-        images.push({});
-
+    const {onImageClick, pictures} = props;
 
     const [cols, setCols] = useState(3);
     const buckets = useRef([false, false, false]);
@@ -72,7 +68,7 @@ const GalleryGrid: React.FC<IGalleryGrid> = (props) => {
     let tiles = useRef<React.ReactElement[]>([]);
 
     // while not all images rendered
-    while (tiles.current.length < images.length) {
+    while (tiles.current.length < pictures.length) {
         if (colIndex.current >= cols)
             colIndex.current = 0;
 
@@ -106,7 +102,7 @@ const GalleryGrid: React.FC<IGalleryGrid> = (props) => {
         }
 
         // TODO derive keys from image data
-        tiles.current.push(<GridTile key={Math.random()} wide={wide} tall={tall} onClick={onImageClick}/>);
+        tiles.current.push(<GridTile key={Math.random()} wide={wide} tall={tall} picture={pictures[tiles.current.length]} onClick={onImageClick}/>);
 
         if (colIndex.current < cols)
             ++colIndex.current;
@@ -117,7 +113,6 @@ const GalleryGrid: React.FC<IGalleryGrid> = (props) => {
                 <div className={cn(css.container)}>
                     <div className={cn(css.grid)} style={{gridTemplateColumns: `repeat(auto-fill, ${100 / cols}%)`, width: containerWidth}}>
                         {tiles.current}
-                        {console.log('redraw')}
                     </div>
                 </div>
             , [cols, containerWidth])}

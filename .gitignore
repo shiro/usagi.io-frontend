@@ -28,3 +28,4 @@ yarn-error.log*
 docker-compose.override.yml
 
 assets/gallery/*
+local/

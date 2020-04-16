@@ -4,18 +4,20 @@ import cn from "classnames";
 import css from "./FullscreenGalleryImage.module.scss";
 import Modal from 'react-modal';
 import {useLockBodyScroll} from "@/hooks/useScrollLock";
+import {Picture} from "server/imageLoader";
 
 
 Modal.setAppElement('#root');
 
 export interface IFullscreenGalleryImage {
     isOpen?: boolean;
+    picture?: Picture,
     onClose?: () => void;
 }
 
 
 const FullscreenGalleryImage: React.FC<IFullscreenGalleryImage> = (props) => {
-    const {isOpen = false, onClose} = props;
+    const {isOpen = false, onClose, picture} = props;
 
     useLockBodyScroll(isOpen);
 
@@ -28,8 +30,8 @@ const FullscreenGalleryImage: React.FC<IFullscreenGalleryImage> = (props) => {
             overlayClassName={css.modalOverlay}
             onAfterClose={() => { onClose?.() }}
         >
-            {/* TODO alt text */}
-            <img className={cn(css.image)} src="/assets/gallery/sample4.jpg" alt="something" onClick={onClose}/>
+            {/* TODO alt text, handle no picture */}
+            <img className={cn(css.image)} src={picture?.source} alt="something" onClick={onClose}/>
         </Modal>
     );
 };

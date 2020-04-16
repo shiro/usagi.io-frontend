@@ -1,9 +1,8 @@
+// const CleanWebpackPlugin = require("clean-webpack-plugin");
+// const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+// const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+// const webpack = require("webpack");
 const path = require("path");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const webpack = require("webpack");
-
 const { appRoot, pathResolver, stats, webpackPaths, webpackFiles, babelOptions } = require("../config/webpack.config");
 
 
@@ -26,7 +25,7 @@ module.exports = {
         // net: "empty",
         // tls: "empty",
         // dns: "empty",
-        __dirname: true,
+        __dirname: false,
     },
     resolve: pathResolver,
     module: {
@@ -39,6 +38,10 @@ module.exports = {
                 options: {
                    configFile: path.join(appRoot, "tsconfig.server.json"),
                 },
+            },
+            {
+                test: /\.(svg|md|graphql)$/i,
+                loader: "raw-loader",
             },
         ],
     },

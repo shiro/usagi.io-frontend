@@ -9,7 +9,7 @@ const appRoot = path.join(__dirname, "..");
 module.exports.appRoot = appRoot;
 
 module.exports.pathResolver = {
-    extensions: [".tsx", ".ts", ".jsx", ".mjs", ".js", ".json"],
+    extensions: [".tsx", ".ts", ".jsx", ".mjs", ".js", ".json", ".graphql"],
     // alias: {
         // ["api"]: path.join(appRoot, "src/api"),
         // ["components"]: path.join(appRoot, "src/components"),

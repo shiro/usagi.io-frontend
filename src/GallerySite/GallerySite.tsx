@@ -8,8 +8,7 @@ import FullscreenGalleryImage from "@/GallerySite/FullscreenGalleryImage";
 import {useState} from "react"
 import {useQuery} from '@apollo/react-hooks';
 import gql from 'graphql-tag';
-
-;
+import {Picture} from "server/imageLoader";
 
 
 export interface IGallerySite {
@@ -17,26 +16,31 @@ export interface IGallerySite {
 
 
 const GET_HELLO = gql`
-query{
-  hello
-}
+  query{
+    images{
+      source
+    }
+  }
 `;
 
 const GallerySite: React.FC<IGallerySite> = (props) => {
-    const [isImageOpen, setIsImageOpen] = useState(true);
+    const [openPicture, setOpenPicture] = useState<Picture | undefined>(undefined);
 
 
     const {loading, error, data} = useQuery(GET_HELLO);
-    // if (loading) return <p>Loading ...</p>;
 
-    console.log(data);
+    // TODO handle error
+    if (error)
+        console.error(error);
 
     return (
         <div>
             <Header/>
             <GalleryDescriptionSection/>
-            <GalleryGrid onImageClick={() => {setIsImageOpen(true)}}/>
-            <FullscreenGalleryImage isOpen={isImageOpen} onClose={() => {setIsImageOpen(false)}}/>
+            {!loading &&
+            <GalleryGrid pictures={data.images} onImageClick={(picture) => {setOpenPicture(picture)}}/>
+            }
+            <FullscreenGalleryImage isOpen={!!openPicture} picture={openPicture} onClose={() => {setOpenPicture(undefined)}}/>
             <Footer/>
         </div>
     );

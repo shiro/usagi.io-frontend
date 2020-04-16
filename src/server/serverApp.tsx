@@ -5,34 +5,21 @@ import {ApolloServer, gql} from "apollo-server-express";
 import compression from 'compression';
 import helmet from "helmet";
 import expressPlayground from "graphql-playground-middleware-express";
-// import {serverConfig} from "@/index"
+import depthLimit from 'graphql-depth-limit';
 import {serverConfig} from "config/server.config"
+import schema from "server/schema";
 
 const appRoot = serverConfig.path.root;
 
 // create our app
 const serverApp: express.Application = express();
 
-
-// construct a schema, using GraphQL schema language
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
-
-// Provide resolver functions for your schema fields
-const resolvers = {
-    Query: {
-        hello: () => 'Hello world!',
-    },
-};
-
-
 serverApp.get('/playground', expressPlayground({endpoint: '/graphql'}))
 
 // serve the static files from the React app
 serverApp.use(express.static(path.join(appRoot, 'build')));
+
+serverApp.use('/gallery', express.static(serverConfig.path.gallery));
 
 serverApp.get('*', (req: express.Request, res: express.Response) => {
     res.sendFile("build/index.html", {root: appRoot});
@@ -50,7 +37,10 @@ serverApp.use(helmet())
 serverApp.use('/graphql', bodyParser.json());
 
 
-const apolloServer = new ApolloServer({typeDefs, resolvers});
+const apolloServer = new ApolloServer({
+    schema,
+    validationRules: [depthLimit(7)],
+});
 apolloServer.applyMiddleware({app: serverApp, path: '/graphql'});
 
 export default serverApp;

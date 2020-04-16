@@ -1,6 +1,7 @@
 import objectAssignDeep from "object-assign-deep";
 
-import { webpackPaths, webpackFiles } from "config/webpack.config.js";
+import {webpackPaths, webpackFiles} from "config/webpack.config.js";
+import path from "path";
 
 
 const prod = {};
@@ -15,10 +16,11 @@ export const serverConfig = objectAssignDeep(
         path: {
             root: webpackPaths.appRoot,
             // dist: webpackPaths.serverDest,
-            // assets: webpackPaths.clientDest,
+            assets: webpackPaths.clientDest,
+            gallery: path.join(webpackPaths.appRoot, "local/gallery"),
         },
         files: {
-        //     htmlTemplate: webpackFiles.htmlTemplateDest,
+            //     htmlTemplate: webpackFiles.htmlTemplateDest,
         },
     },
     envConfig
