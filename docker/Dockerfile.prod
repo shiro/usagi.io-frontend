@@ -24,6 +24,7 @@ RUN apk add --no-cache \
 
 WORKDIR /opt/app/
 COPY --from=0 /opt/app/package.json ./
+COPY --from=0 /opt/app/assets/server assets/server
 COPY --from=0 /opt/app/build build
 COPY --from=0 /opt/app/build_server build_server
 COPY --from=0 /opt/app/node_modules node_modules
