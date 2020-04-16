@@ -15,7 +15,8 @@ const appRoot = serverConfig.path.root;
 // create our app
 const serverApp: express.Application = express();
 
-serverApp.get('/playground', expressPlayground({endpoint: '/graphql'}))
+if (process.env.NODE_ENV !== "production")
+    serverApp.get('/playground', expressPlayground({endpoint: '/graphql'}))
 
 // serve the static files from the React app
 serverApp.use(express.static(path.join(appRoot, 'build')));
