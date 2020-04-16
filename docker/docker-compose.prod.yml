@@ -4,3 +4,5 @@ services:
   fe:
     build:
       dockerfile: ./docker/Dockerfile.prod
+    volumes:
+      - ./local/gallery:/opt/app/local/gallery
