@@ -56,7 +56,7 @@ module.exports = {
                         loader: "sass-loader",
                         options: {
                             sourceMap: devMode,
-                            // prependData: "@import \"~@/master\";",
+                            prependData: "@import \"~@/master\";",
                         },
                     },
                 ],
