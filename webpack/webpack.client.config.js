@@ -102,7 +102,7 @@ module.exports = {
         ],
     },
     optimization: {
-        minimizer: isDevelopment && [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})].filter(Boolean),
+        minimizer: isDevelopment ? [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})] : undefined,
         splitChunks: {
             cacheGroups: {
                 vendor: {
@@ -115,7 +115,7 @@ module.exports = {
             },
         },
     },
-    devServer: isDevelopment && {
+    devServer: isDevelopment ? {
         contentBase: webpackPaths.clientDest,
         hot: true,
         compress: true,
@@ -130,7 +130,7 @@ module.exports = {
         stats: stats,
         port: process.env.PORT,
         publicPath: "/", // wds resources url
-    },
+    } : {},
     plugins: [
         // new ForkTsCheckerWebpackPlugin({
         //     checkSyntacticErrors: true,
