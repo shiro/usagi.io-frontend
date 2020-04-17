@@ -12,6 +12,7 @@ const Dotenv = require("dotenv-webpack");
 const { appRoot, stats, webpackPaths, webpackFiles } = require("../config/webpack.config");
 const { pathResolver } = require("./webpack.shared");
 
+const devMode = process.env.NODE_ENV !== "production";
 
 module.exports = {
     name: "client",
@@ -39,29 +40,23 @@ module.exports = {
             {
                 test: /\.(sass|scss)$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    devMode ? "style-loader" : MiniCssExtractPlugin.loader,
                     {
                         loader: "css-loader",
                         options: {
                             modules: {
                                 localIdentName: "[local]_[hash:base64:5]",
                             },
-                            sourceMap: true,
+                            sourceMap: devMode,
+                            importLoaders: 2,
                         },
                     },
-                    {
-                        loader: "postcss-loader",
-                        options: {
-                            plugins: function(){
-                                return [postcssPresentEnv];
-                            }
-                        }
-                    },
+                    "postcss-loader",
                     {
                         loader: "sass-loader",
                         options: {
-                            sourceMap: true,
-                            prependData: '@import "~@/master";',
+                            sourceMap: devMode,
+                            // prependData: "@import \"~@/master\";",
                         },
                     },
                 ],
@@ -76,20 +71,17 @@ module.exports = {
                             sourceMap: true,
                         },
                     },
-                    {
-                        loader: "postcss-loader",
-                        options: {
-                            plugins: function(){
-                                return [postcssPresentEnv];
-                            }
-                        }
-                    },
+                    "postcss-loader",
                 ],
             },
             {
-                test: /\.(svg|md)$/i,
+                test: /\.md$/i,
                 loader: "raw-loader",
             },
+            {
+                test: /\.svg$/,
+                use: ["@svgr/webpack", "url-loader"],
+            }
         ],
     },
     optimization: {

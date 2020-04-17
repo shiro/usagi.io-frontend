@@ -1,7 +1,9 @@
 FROM node:13-alpine
 
+ENV NODE_ENV=development
+
 RUN apk add --no-cache \
-    python gcc make imagemagick \
+    python g++ make imagemagick \
     bash gawk curl sed grep bc coreutils
 
 WORKDIR /opt/app/

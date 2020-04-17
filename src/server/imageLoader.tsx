@@ -26,11 +26,7 @@ export const returnPictures = (baseUrl?: string) => {
     });
 }
 
-export const initImages = async (baseUrl?: string) => {
-    if (pictureCache.pictureFileNames.length) {
-        return returnPictures(baseUrl);
-    }
-
+export const indexImagePass = async (baseUrl?: string) => {
     const sourcePath = serverConfig.path.gallery;
 
     // TODO move
@@ -45,9 +41,19 @@ export const initImages = async (baseUrl?: string) => {
     if (!fsSync.existsSync(serverConfig.path.pictureCache))
         await fs.mkdir(serverConfig.path.pictureCache, {recursive: true});
 
-    const files = await fs.readdir(sourcePath);
+    const sourceImageFiles = await fs.readdir(sourcePath);
 
-    const processPictures = () => files.map(async file => {
+    for (const file of sourceImageFiles){
+        const pictureDestinationFile = path.join(serverConfig.path.pictureCache, file);
+        const thumbnailDestinationFIle = path.join(serverConfig.path.thumbnailCache, file);
+
+        // don't regenerate files if they exist already
+        if (fsSync.existsSync(pictureDestinationFile) &&
+            fsSync.existsSync(thumbnailDestinationFIle)) {
+            pictureCache.pictureFileNames.push(file);
+            continue
+        }
+
         const identify = util.promisify<string, ImageMagick.Features>(imageMagick.identify);
 
         const {width, height} = await identify(path.join(serverConfig.path.gallery, file));
@@ -58,10 +64,9 @@ export const initImages = async (baseUrl?: string) => {
         {
             const watermarkFile = serverConfig.files.watermark;
             const sourceFile = path.join(serverConfig.path.gallery, file);
-            const destinationFile = path.join(serverConfig.path.pictureCache, file);
             const command = [
                 'composite',
-                '-watermark', '40%',
+                '-watermark', '50%',
                 '-background', 'none',
                 '\\(',
                 watermarkFile,
@@ -69,30 +74,24 @@ export const initImages = async (baseUrl?: string) => {
                 '-gravity', 'center',
                 '\\)',
                 sourceFile,
-                destinationFile,
+                pictureDestinationFile,
             ];
 
             await util.promisify(exec)(command.join(' '));
         }
 
         {
-            const sourceFile = path.join(serverConfig.path.pictureCache, file);
-            const destinationPath =  path.join(serverConfig.path.thumbnailCache, file);
-
             const resize = util.promisify(imageMagick.resize);
             await resize({
-                srcPath: sourceFile,
-                dstPath: destinationPath,
+                srcPath: pictureDestinationFile,
+                dstPath: thumbnailDestinationFIle,
                 [width > height ? "width" : "height"]: 500,
             });
         }
 
+        // add to cache and finish pass
+        pictureCache.pictureFileNames.push(file);
+        console.log(`added image '${file}' to image cache`);
         return file;
-    });
-
-    pictureCache.pictureFileNames = await Promise.all(processPictures());
-
-    console.log("updated picture cache");
-
-    return returnPictures(baseUrl);
+    }
 }

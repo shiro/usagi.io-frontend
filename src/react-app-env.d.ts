@@ -70,8 +70,6 @@ declare module '*.scss' {
 
 
 // node-imagemagick
-/// <reference path="node.d.ts" />
-
 declare module "imagemagick" {
     import child_process = require("child_process");
 

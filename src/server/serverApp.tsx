@@ -8,7 +8,7 @@ import expressPlayground from "graphql-playground-middleware-express";
 import depthLimit from 'graphql-depth-limit';
 import {serverConfig} from "config/server.config"
 import schema from "server/schema";
-import {initImages} from "server/imageLoader";
+import {indexImagePass} from "server/imageLoader";
 
 const appRoot = serverConfig.path.root;
 
@@ -54,7 +54,14 @@ const apolloServer = new ApolloServer({
 });
 apolloServer.applyMiddleware({app: serverApp, path: '/graphql'});
 
-// TODO await this somewhere
-initImages().finally();
+// background image indexer
+const indexPassDelay = 1000 * 20;
+const scheudleIndexPass = () =>
+    setTimeout(async () => {
+        await indexImagePass();
+        scheudleIndexPass();
+    }, indexPassDelay);
+
+scheudleIndexPass();
 
 export default serverApp;
