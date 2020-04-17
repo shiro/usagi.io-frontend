@@ -43,14 +43,17 @@ export const indexImagePass = async (baseUrl?: string) => {
 
     const sourceImageFiles = await fs.readdir(sourcePath);
 
-    for (const file of sourceImageFiles){
+    for (const file of sourceImageFiles) {
         const pictureDestinationFile = path.join(serverConfig.path.pictureCache, file);
         const thumbnailDestinationFIle = path.join(serverConfig.path.thumbnailCache, file);
 
         // don't regenerate files if they exist already
         if (fsSync.existsSync(pictureDestinationFile) &&
             fsSync.existsSync(thumbnailDestinationFIle)) {
-            pictureCache.pictureFileNames.push(file);
+            // if not in cache yet add it
+            if (!pictureCache.pictureFileNames.includes(file))
+                pictureCache.pictureFileNames.push(file);
+
             continue
         }
 
