@@ -54,14 +54,22 @@ const apolloServer = new ApolloServer({
 });
 apolloServer.applyMiddleware({app: serverApp, path: '/graphql'});
 
+
+
 // background image indexer
 const indexPassDelay = 1000 * 20;
+
+const performIndexPass = async () => {
+    await indexImagePass();
+    scheudleIndexPass();
+};
+
 const scheudleIndexPass = () =>
     setTimeout(async () => {
-        await indexImagePass();
-        scheudleIndexPass();
+        await performIndexPass();
     }, indexPassDelay);
 
-scheudleIndexPass();
+performIndexPass().finally();
+
 
 export default serverApp;

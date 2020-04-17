@@ -2,7 +2,6 @@ import React, {ReactElement} from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import WrappedApp from '@/WrappedApp';
-// import * as serviceWorker from '@/serviceWorker';
 
 
 const renderApp = (app: ReactElement) => {
@@ -18,15 +17,11 @@ window.onload = () => {
     renderApp(<WrappedApp/>);
 };
 
-if (module.hot) {
-    module.hot.accept('@/WrappedApp', () => {
-        const nextApp = require('@/WrappedApp');
-        renderApp(nextApp);
-    })
-}
-
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-// serviceWorker.unregister();
+// not needed when using ReactRefreshWebpackPlugin
+// keep the code something breaks, since it's quite unstable
+// if (module.hot) {
+//     module.hot.accept('@/WrappedApp', () => {
+//         const nextApp = require('@/WrappedApp');
+//         renderApp(nextApp);
+//     })
+// }

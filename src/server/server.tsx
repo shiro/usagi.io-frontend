@@ -4,8 +4,10 @@ import http from "http";
 let currentApp = require("server/serverApp").default;
 const server = http.createServer(currentApp);
 
-server.listen(process.env.PORT);
-console.log(`server started on port ${process.env.PORT}`);
+const port = process.env.NODE_ENV === "production" ? process.env.PORT : process.env.DEV_PORT;
+
+server.listen(port);
+console.log(`server started on port ${port}`);
 
 if (module.hot) {
     console.log("hot reloading is enabled");

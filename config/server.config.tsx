@@ -10,8 +10,6 @@ const dev = {};
 
 const envConfig = process.env.NODE_ENV === "production" ? prod : dev;
 
-const {GALLERY_PATH, CACHE_PATH, WATERMARK_FILE} = process.env;
-
 const config = {
     path: (() => {
 
@@ -26,18 +24,18 @@ export const serverConfig = objectAssignDeep(
     (() => {
         return {
             path: (() => {
-                const cache = toAbsolutePath(CACHE_PATH);
+                const cache = toAbsolutePath(process.env.CACHE_PATH);
 
                 return {
                     root: webpackPaths.appRoot,
                     assets: webpackPaths.clientDest,
-                    gallery: toAbsolutePath(GALLERY_PATH),
+                    gallery: toAbsolutePath(process.env.GALLERY_PATH),
                     pictureCache: path.join(cache, "pictures"),
                     thumbnailCache: path.join(cache, "thumbnails"),
                 };
             })(),
             files: {
-                watermark: toAbsolutePath(WATERMARK_FILE),
+                watermark: toAbsolutePath(process.env.WATERMARK_FILE),
             },
         };
     })(),

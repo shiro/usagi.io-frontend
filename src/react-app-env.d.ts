@@ -18,6 +18,7 @@ declare namespace NodeJS {
         // readonly PUBLIC_URL: string;
 
         readonly PORT: number;
+        readonly DEV_PORT: number;
         readonly GALLERY_PATH: string;
         readonly CACHE_PATH: string;
         readonly WATERMARK_FILE: string;
