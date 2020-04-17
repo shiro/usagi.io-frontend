@@ -69,7 +69,7 @@ export const indexImagePass = async (baseUrl?: string) => {
             const sourceFile = path.join(serverConfig.path.gallery, file);
             const command = [
                 'composite',
-                '-watermark', '50%',
+                '-watermark', '70%',
                 '-background', 'none',
                 '\\(',
                 watermarkFile,
