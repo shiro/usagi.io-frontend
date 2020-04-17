@@ -3,8 +3,6 @@ FROM node:13-alpine
 RUN apk add --no-cache \
     python g++ make
 
-ENV NODE_ENV=production
-
 WORKDIR /opt/app/
 
 COPY package.json yarn.lock ./
@@ -12,6 +10,8 @@ COPY package.json yarn.lock ./
 # install dev dependencies
 RUN yarn --frozen-lockfile && \
     chmod -R 777 node_modules
+
+ENV NODE_ENV=production
 
 COPY . ./
 
