@@ -1,5 +1,5 @@
 import {useCallback, useEffect, useState} from "react";
-import _ from "lodash";
+import debounce from "lodash/debounce";
 
 export const useWindowSize = () => {
     const isClient = typeof window === 'object';
@@ -20,7 +20,7 @@ export const useWindowSize = () => {
             setWindowSize(getSize());
         }
 
-        window.addEventListener('resize', _.debounce(handleResize, 100));
+        window.addEventListener('resize', debounce(handleResize, 100));
 
         return () => {window.removeEventListener('resize', handleResize);};
     }, [getSize, isClient]); // Empty array ensures that effect is only run on mount and unmount

@@ -2,7 +2,7 @@ import * as React from "react";
 import cn from "classnames";
 
 import css from "./Footer.module.scss";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import {faGithub} from "@fortawesome/free-brands-svg-icons/faGithub";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
