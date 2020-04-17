@@ -5,6 +5,7 @@ import css from "./FullscreenGalleryImage.module.scss";
 import Modal from 'react-modal';
 import {useLockBodyScroll} from "@/hooks/useScrollLock";
 import {IPicture} from "server/imageLoader";
+import {LazyLoadImage} from "react-lazy-load-image-component";
 
 
 Modal.setAppElement('#root');
@@ -31,7 +32,15 @@ const FullscreenGalleryImage: React.FC<IFullscreenGalleryImage> = (props) => {
             onAfterClose={() => { onClose?.() }}
         >
             {/* TODO handle no picture */}
-            <img className={cn(css.image)} src={picture?.source} alt="gallery picture" onClick={onClose}/>
+
+            <LazyLoadImage
+                wrapperClassName={cn(css.imageWrapper)}
+                className={cn(css.image)}
+                src={picture?.source}
+                alt="gallery picture"
+                effect="blur"
+                onClick={onClose}
+            />
         </Modal>
     );
 };

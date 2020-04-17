@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const Dotenv = require('dotenv-webpack');
+const Dotenv = require("dotenv-webpack");
 
 const { appRoot, stats, webpackPaths, webpackFiles } = require("../config/webpack.config");
 const { pathResolver } = require("./webpack.shared");
@@ -21,7 +21,6 @@ module.exports = {
     entry: [
         // "@babel/polyfill",
         path.join(appRoot, "src/index"),
-        // path.join(appRoot, "src/master.scss"),
     ],
     output: {
         filename: "[name].js",
@@ -62,7 +61,28 @@ module.exports = {
                         loader: "sass-loader",
                         options: {
                             sourceMap: true,
+                            prependData: '@import "~@/master";',
                         },
+                    },
+                ],
+            },
+            {
+                test: /\.(css)$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: "css-loader",
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            plugins: function(){
+                                return [postcssPresentEnv];
+                            }
+                        }
                     },
                 ],
             },
@@ -88,7 +108,7 @@ module.exports = {
     },
     plugins: [
         // new ForkTsCheckerWebpackPlugin({ checkSyntacticErrors: true }),
-        new Dotenv({defaults: true, systemvars: true}),
+        new Dotenv({ defaults: true, systemvars: true }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin([
             { from: webpackPaths.assetSrc, to: "assets" },

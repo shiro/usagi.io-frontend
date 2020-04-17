@@ -17,6 +17,7 @@ declare namespace NodeJS {
         readonly NODE_ENV: 'development' | 'production' | 'test';
         // readonly PUBLIC_URL: string;
 
+        readonly PORT: number;
         readonly GALLERY_PATH: string;
         readonly CACHE_PATH: string;
         readonly WATERMARK_FILE: string;

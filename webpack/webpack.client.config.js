@@ -24,11 +24,11 @@ module.exports = {
         inline: true,
         proxy: [{
             context: ["**"],
-            target: "http://localhost:3000",
+            target: "http://localhost:3001",
         }],
         host: "0.0.0.0",
         stats: webpackBase.stats,
-        port: 4000,
+        port: 3000,
         // contentBase: path.join(appRoot, "assets") // proxy stuff url,
         publicPath: "/", // wds resources url
     },

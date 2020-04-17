@@ -5,7 +5,10 @@ services:
     build:
       dockerfile: ./docker/Dockerfile
     ports:
-      - 3000:4000
+      - 3000:3000
+      - 3001:3001
+    environment:
+      - PORT=3001
     volumes:
       - ./:/opt/app
       - node_modules:/opt/app/node_modules

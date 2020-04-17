@@ -23,10 +23,6 @@ module.exports = {
         path: webpackPaths.serverDest,
     },
     node: { // workaround for webpack bug
-        // fs: "empty",
-        // net: "empty",
-        // tls: "empty",
-        // dns: "empty",
         __dirname: false,
     },
     resolve: pathResolver,

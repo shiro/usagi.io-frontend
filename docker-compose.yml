@@ -5,7 +5,5 @@ services:
     image: shiro/home-fe:latest
     build:
       context: .
-    ports:
-      - 3000:3000
     stdin_open: true
 #    network_mode: "host"
