@@ -1,19 +1,20 @@
 services:
   - docker
 
-env:
-  COMPOSE_VERSION: 1.25.25
-
 dist: xenial
 os: linux
 language: bash
 
-#before_install:
-# - curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-# - chmod +x docker-compose
-# - mv docker-compose /usr/local/bin
-
 script:
   - ./setup.sh prod
   - docker-compose build
-  - docker-compose push
+
+after_success:
+  - if [[ "$TRAVIS_BRANCH" == "master" ]]; then
+    docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD;
+    docker-compose push;
+    fi
+
+# don't notify me when things fail
+notifications:
+  email: false
