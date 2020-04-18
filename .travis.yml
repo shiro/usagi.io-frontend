@@ -1,15 +1,18 @@
-sudo: required
 services:
   - docker
 
 env:
-  COMPOSE_VERSION: 1.4.1
+  COMPOSE_VERSION: 1.25.25
+
+dist: xenial
+os: linux
+language: bash
 
 before_install:
  - curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
  - chmod +x docker-compose
- - sudo mv docker-compose /usr/local/bin
- - ./setup.sh prod
+ - mv docker-compose /usr/local/bin
 
 script:
+  - ./setup.sh prod
   - docker-compose build
