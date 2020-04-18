@@ -3,6 +3,8 @@
 This is my portfolio website.
 
 
+[![Build Status](https://travis-ci.com/shiro/usagi.io-frontend.svg?branch=master)](https://travis-ci.com/shiro/usagi.io-frontend)
+
 ## Running
 
 First it is necessary to setup the environment.  
