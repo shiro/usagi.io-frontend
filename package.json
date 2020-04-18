@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "serve -s build -l 3000",
     "analyze": "source-map-explorer 'build/*.js'",
-    "prod:server:build": "cross-env NODE_ENV=production webpack --progress=false --config webpack/webpack.server.prod.config.js",
+    "prod:server:build": "cross-env NODE_ENV=production webpack --progress=false --config webpack/webpack.server.config.js",
     "prod:client:build": "cross-env NODE_ENV=production webpack --progress=false --config webpack/webpack.client.config.js",
     "prod:build": "concurrently 'yarn prod:server:build' 'yarn prod:client:build'",
     "prod:run": "cross-env NODE_ENV=production node ./build_server/server",

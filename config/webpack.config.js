@@ -36,4 +36,3 @@ module.exports.webpackFiles = {
     htmlTemplateSrc: "index.html", // html template file
     htmlTemplateDest: "index.html",
 };
-

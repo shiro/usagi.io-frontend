@@ -5,18 +5,13 @@ const HtmlWebpackHarddiskPlugin = require("html-webpack-harddisk-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+// const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 
 const { appRoot, stats, webpackPaths, webpackFiles } = require("../config/webpack.config");
-const { pathResolver } = require("./webpack.shared");
-
-// make env variables accessible in the webpack config
-require("dotenv-defaults").config({ path: path.join(appRoot, "/.env"), defaults: path.join(appRoot, "/.env.defaults"), });
-
-const isDevelopment = process.env.NODE_ENV !== "production";
+const { pathResolver, isDevelopment } = require("./webpack.shared");
 
 module.exports = {
     mode: isDevelopment ? "development" : "production",
@@ -38,23 +33,21 @@ module.exports = {
                 test: /\.tsx?$/,
                 include: path.join(appRoot, "src"),
                 exclude: /node_modules/,
-                use: [
-                    {
-                        loader: "babel-loader",
-                        options: {
-                            presets: [
-                                "@babel/preset-env",
-                                "@babel/preset-react",
-                                "@babel/preset-typescript"
-                            ],
-                            babelrc: false,
-                            configFile: false,
-                            plugins: [
-                                isDevelopment && require.resolve("react-refresh/babel"),
-                            ].filter(Boolean),
-                        },
+                use: [{
+                    loader: "babel-loader",
+                    options: {
+                        presets: [
+                            "@babel/preset-env",
+                            "@babel/preset-react",
+                            "@babel/preset-typescript"
+                        ],
+                        babelrc: false,
+                        configFile: false,
+                        plugins: [
+                            isDevelopment && require.resolve("react-refresh/babel"),
+                        ].filter(Boolean),
                     },
-                ],
+                }],
             },
             {
                 test: /\.(sass|scss)$/,

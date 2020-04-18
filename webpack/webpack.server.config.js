@@ -1,40 +1,74 @@
-const path = require("path");
 const webpack = require("webpack");
-const StartServerPlugin = require("start-server-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-// const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
-const Dotenv = require('dotenv-webpack');
+const path = require("path");
+const Dotenv = require("dotenv-webpack");
+const StartServerPlugin = require("start-server-webpack-plugin");
 
-const { appRoot, webpackFiles } = require("../config/webpack.config");
-
-const webpackBase = require("./webpack.server.prod.config");
+const { appRoot, stats, webpackPaths, webpackFiles } = require("../config/webpack.config");
+const { pathResolver, isDevelopment } = require("./webpack.shared");
 
 
 module.exports = {
-    ...webpackBase,
-    mode: "development",
-    devtool: "inline-source-map",
+    mode: isDevelopment ? "development" : "production",
+    target: "node",
+    devtool: isDevelopment ? "inline-source-map" : "source-map",
+    stats,
     entry: [
-        // "@babel/polyfill",
-        "webpack/hot/poll?1000", // poll for newly compiled bundles and load them at runtime
+        isDevelopment && "webpack/hot/poll?1000", // poll for newly compiled bundles and load them at runtime
         path.join(appRoot, "src/server/server.tsx"),
-    ],
-    watch: true,
-    optimization: {},
+    ].filter(Boolean),
+    output: {
+        filename: webpackFiles.serverDest,
+        path: webpackPaths.serverDest,
+    },
+    watch: isDevelopment,
+    node: { // workaround for webpack bug
+        __dirname: false,
+    },
+    resolve: pathResolver,
+    module: {
+        rules: [
+            // {
+            //     test: /\.tsx?$/,
+            //     include: path.join(appRoot, "src"),
+            //     exclude: /node_modules/,
+            //     use: [{
+            //         loader: "babel-loader",
+            //         options: {
+            //             presets: [
+            //                 "@babel/preset-env",
+            //                 "@babel/preset-react",
+            //                 "@babel/preset-typescript"
+            //             ],
+            //             babelrc: false,
+            //             configFile: false,
+            //         },
+            //     }],
+            // },
+            {
+                test: /\.tsx?$/,
+                include: appRoot,
+                exclude: /node_modules/,
+                loader: "ts-loader",
+                options: {
+                    configFile: path.join(appRoot, "tsconfig.server.json"),
+                },
+            },
+            {
+                test: /\.(svg|md|graphql)$/i,
+                loader: "raw-loader",
+            },
+        ],
+    },
     plugins: [
-        new Dotenv({defaults: true, systemvars: true}),
+        new Dotenv({ defaults: true, systemvars: true }),
         new CleanWebpackPlugin(),
-        // new CleanWebpackPlugin([webpackPaths.serverDest], {
-        //     root: webpackPaths.appRoot,
-        // }),
-        new webpack.HotModuleReplacementPlugin(),
-        new StartServerPlugin({
+        
+        isDevelopment && new webpack.HotModuleReplacementPlugin(),
+        isDevelopment && new StartServerPlugin({
             name: webpackFiles.serverDest,
             nodeArgs: ["--inspect=0.0.0.0:54985"], // allow debugging
         }),
-        // new webpack.DefinePlugin({
-        //     "process.env.NODE_ENV": JSON.stringify("development"),
-        //     "process.env.TARGET": JSON.stringify("server"),
-        // }),
-    ],
+    ].filter(Boolean),
 };
+

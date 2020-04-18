@@ -48,7 +48,8 @@ const apolloServer = new ApolloServer({
     schema,
     validationRules: [depthLimit(7)],
     context: ({req}) => {
-        const baseUrl = req.protocol + '://' + req.get('Host');
+        const protocol = +process.env.FORCE_HTTPS === 1 ? "https" : req.protocol;
+        const baseUrl = protocol + '://' + req.get('Host');
         return {baseUrl};
     }
 });
