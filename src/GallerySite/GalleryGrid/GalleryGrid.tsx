@@ -81,8 +81,9 @@ const GalleryGrid: React.FC<IGalleryGrid> = (props) => {
 
         let tall = false;
 
-        // if not in mobile mode and coin is true
-        if (cols !== 1 && !!Math.round(Math.random())) {
+        const remaining = pictures.length - tiles.current.length;
+        // if not in mobile mode and and not in last row and coin is true
+        if (cols !== 1 && remaining > cols && !!Math.round(Math.random())) {
             tall = true;
             buckets.current[colIndex.current] = true;
         }
