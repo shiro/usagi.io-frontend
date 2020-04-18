@@ -28,31 +28,20 @@ module.exports = {
     resolve: pathResolver,
     module: {
         rules: [
-            // {
-            //     test: /\.tsx?$/,
-            //     include: path.join(appRoot, "src"),
-            //     exclude: /node_modules/,
-            //     use: [{
-            //         loader: "babel-loader",
-            //         options: {
-            //             presets: [
-            //                 "@babel/preset-env",
-            //                 "@babel/preset-react",
-            //                 "@babel/preset-typescript"
-            //             ],
-            //             babelrc: false,
-            //             configFile: false,
-            //         },
-            //     }],
-            // },
             {
                 test: /\.tsx?$/,
                 include: appRoot,
                 exclude: /node_modules/,
-                loader: "ts-loader",
-                options: {
-                    configFile: path.join(appRoot, "tsconfig.server.json"),
-                },
+                use: [{
+                    loader: "babel-loader",
+                    options: {
+                        presets: [
+                            "@babel/preset-typescript"
+                        ],
+                        babelrc: false,
+                        configFile: false,
+                    },
+                }],
             },
             {
                 test: /\.(svg|md|graphql)$/i,
