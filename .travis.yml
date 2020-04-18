@@ -8,10 +8,10 @@ dist: xenial
 os: linux
 language: bash
 
-before_install:
- - curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
- - chmod +x docker-compose
- - mv docker-compose /usr/local/bin
+#before_install:
+# - curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+# - chmod +x docker-compose
+# - mv docker-compose /usr/local/bin
 
 script:
   - ./setup.sh prod
