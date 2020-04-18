@@ -2,7 +2,7 @@ version: "3"
 
 services:
   fe:
-    image: shiro/home-fe:latest
+    image: shirousagi/home-fe:latest
     build:
       context: .
     stdin_open: true
