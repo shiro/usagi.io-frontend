@@ -21,6 +21,15 @@ if (process.env.NODE_ENV !== "production")
 // serve the static files from the React app
 serverApp.use(express.static(path.join(appRoot, 'build')));
 
+
+{
+    const cacheTimeSeconds = 60 * 60 * 24 * 7;
+    serverApp.get(/\/gallery\/.+/, (req, res, next) => {
+        res.setHeader("Cache-Control", `public, max-age=${cacheTimeSeconds}`);
+        next();
+    });
+}
+
 serverApp.use('/gallery', express.static(serverConfig.path.pictureCache));
 serverApp.use('/gallery/thumb', express.static(serverConfig.path.thumbnailCache));
 
@@ -54,7 +63,6 @@ const apolloServer = new ApolloServer({
     }
 });
 apolloServer.applyMiddleware({app: serverApp, path: '/graphql'});
-
 
 
 // background image indexer
