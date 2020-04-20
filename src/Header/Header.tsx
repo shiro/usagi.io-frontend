@@ -3,7 +3,6 @@ import cn from "classnames";
 
 import css from "./Header.module.scss";
 // TODO unify assets
-import foo, {ReactComponent as Logo} from "@/logo.svg"
 import {Link, NavLink} from "react-router-dom";
 
 
@@ -15,8 +14,7 @@ const Header: React.FC<IHeader> = (props) => {
     return (
         <header className={cn(css.header)}>
             <Link className={cn(css.logoLink)} to="/">
-                {/*<Logo viewbox="0 0 1000 1000" className={cn(css.logo)} />*/}
-                <img className={cn(css.logo)} src={foo} alt="usagi.io logo"/>
+                <img className={cn(css.logo)} src="/assets/resources/static/logo.svg" alt="usagi.io logo"/>
             </Link>
             <nav className={cn(css.navigation)}>
                 <NavLink className={cn(css.navigationLink)} activeClassName={cn(css.selected)} to="/me">Me</NavLink>

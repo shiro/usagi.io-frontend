@@ -23,7 +23,7 @@ const PortraitSection: React.FC<IPortraitSection> = (props) => {
             <LazyLoadImage
                 wrapperClassName={cn(css.portraitContainer)}
                 className={cn(css.portrait)}
-                src="/assets/resources/portrait.png"
+                src="/assets/resources/static/portrait.png"
                 alt="portrait"
                 effect="blur"
             />

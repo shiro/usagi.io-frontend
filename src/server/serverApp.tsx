@@ -15,27 +15,37 @@ const appRoot = serverConfig.path.root;
 // create our app
 const serverApp: express.Application = express();
 
-if (process.env.NODE_ENV !== "production")
-    serverApp.get('/playground', expressPlayground({endpoint: '/graphql'}))
+// set cache headers on static resources
+{
+    const cacheTimeSeconds = 60 * 60 * 24 * 7;
+    serverApp.get([
+            /\/assets\/resources\/static\/.+/,
+            /\/gallery\/.+/,
+        ],
+        (req, res, next) => {
+            res.setHeader("Cache-Control", `public, max-age=${cacheTimeSeconds}`);
+            next();
+        });
+}
 
 // serve the static files from the React app
 serverApp.use(express.static(path.join(appRoot, 'build')));
 
+// grahpl testing environment
+if (process.env.NODE_ENV !== "production")
+    serverApp.get('/playground', expressPlayground({endpoint: '/graphql'}))
 
-{
-    const cacheTimeSeconds = 60 * 60 * 24 * 7;
-    serverApp.get(/\/gallery\/.+/, (req, res, next) => {
-        res.setHeader("Cache-Control", `public, max-age=${cacheTimeSeconds}`);
-        next();
-    });
-}
-
+// serve gallery
 serverApp.use('/gallery', express.static(serverConfig.path.pictureCache));
 serverApp.use('/gallery/thumb', express.static(serverConfig.path.thumbnailCache));
 
+
+// catch all other requests
 serverApp.get('*', (req: express.Request, res: express.Response) => {
     res.sendFile("build/index.html", {root: appRoot});
 });
+
+
 
 // todo improve error handling
 serverApp.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
