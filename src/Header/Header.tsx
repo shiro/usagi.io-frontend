@@ -17,6 +17,7 @@ const Header: React.FC<IHeader> = (props) => {
                 <img className={cn(css.logo)} src="/assets/resources/static/logo.svg" alt="usagi.io logo"/>
             </Link>
             <nav className={cn(css.navigation)}>
+                <NavLink className={cn(css.navigationLink)} activeClassName={cn(css.selected)} to="/blog">Blog</NavLink>
                 <NavLink className={cn(css.navigationLink)} activeClassName={cn(css.selected)} to="/me">Me</NavLink>
                 <NavLink className={cn(css.navigationLink)} activeClassName={cn(css.selected)} to="/gallery">Gallery</NavLink>
             </nav>

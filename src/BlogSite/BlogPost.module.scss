@@ -1,0 +1,37 @@
+.article {
+  background: #1E1E1E;
+  color: #C8C8C8;
+  padding: 5vw 9vh;
+
+  .time {
+    padding: 0 0 1.5vh;
+    display: inline-block;
+    color: #AAAAAA;
+  }
+
+  h1 {
+    @include fluid-type($width-min-point, $width-max-point, 25px, 50px);
+    color: #DEDEDE;
+  }
+
+  .paragraph {
+    padding: 3vh 0;
+    @include fluid-type($width-min-point, $width-max-point, 18px, 30px);
+    line-height: 1.4;
+  }
+
+
+  .figure {
+    padding: 3vh 0;
+  }
+  .image {
+    //max-width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .caption {
+    padding: 1.5vh 0 0;
+    color: #AAAAAA;
+  }
+}

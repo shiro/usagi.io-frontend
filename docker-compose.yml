@@ -7,3 +7,5 @@ services:
       context: .
     stdin_open: true
 #    network_mode: "host"
+#  db:
+#    image:
