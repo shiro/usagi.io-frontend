@@ -5,6 +5,9 @@ This is my portfolio website.
 
 [![Build Status](https://travis-ci.com/shiro/usagi.io-frontend.svg?branch=master)](https://travis-ci.com/shiro/usagi.io-frontend)
 
+[![Renovate](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com)
+
+
 ## Running
 
 First it is necessary to setup the environment.  
