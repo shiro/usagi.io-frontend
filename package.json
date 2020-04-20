@@ -12,6 +12,7 @@
     "prod": "yarn prod:build && yarn prod:run",
     "dev:server": "cross-env NODE_ENV=development webpack --config webpack/webpack.server.config.js",
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server --config webpack/webpack.client.config.js",
+    "generate":"yarn run graphql-codegen --config config/codegen.js",
     "dev": "concurrently 'yarn dev:server' 'yarn dev:client'"
   },
   "dependencies": {
@@ -39,6 +40,11 @@
     "@fortawesome/free-brands-svg-icons": "5.13.0",
     "@fortawesome/free-solid-svg-icons": "5.13.0",
     "@fortawesome/react-fontawesome": "0.1.9",
+    "@graphql-codegen/cli": "1.13.3",
+    "@graphql-codegen/introspection": "1.13.3",
+    "@graphql-codegen/typescript": "1.13.3",
+    "@graphql-codegen/typescript-operations": "1.13.3",
+    "@graphql-codegen/typescript-react-apollo": "1.13.3",
     "@pmmmwh/react-refresh-webpack-plugin": "0.2.0",
     "@svgr/webpack": "5.3.1",
     "@testing-library/dom": "7.2.1",
@@ -81,7 +87,6 @@
     "graphql": "15.0.0",
     "graphql-depth-limit": "1.1.0",
     "graphql-import-node": "0.0.4",
-    "graphql-playground-middleware-express": "1.7.14",
     "graphql-tools": "5.0.0",
     "helmet": "3.22.0",
     "html-webpack-harddisk-plugin": "1.0.1",

@@ -7,3 +7,11 @@ type Query {
   helloWorld: String!
   images: [Image]
 }
+
+query getAllImages{
+  images{
+    source,
+    thumb,
+  }
+}
+
