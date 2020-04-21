@@ -43,12 +43,12 @@ With traditional CSS this might look like this:
 ```css
 /* button.css */
 .button{
-  background: red;
+    background: red;
 }
 
 /* header.css */
 .header .button{
-  background: blue;
+    background: blue;
 }
 ```
 
@@ -61,12 +61,12 @@ The previous CSS code might become:
 ```css
 /* button.css */
 .kx7dxlg{
-  background: red;
+    background: red;
 }
 
 /* header.css */
 .b72saab .kx7dxlg{
-  background: blue;
+    background: blue;
 }
 ```
 
