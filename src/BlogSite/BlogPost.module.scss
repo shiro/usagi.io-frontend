@@ -1,18 +1,29 @@
 .article {
   background: #1E1E1E;
-  color: #C8C8C8;
-  padding: 5vw 9vw;
+  color: #C1C1C1;
+  //padding: 5vw 9vw;
+  margin: 6vh 20vw 8vh;
   line-height: 1.7;
+  @include fluid-type($width-min-point, $width-max-point, 18px, 30px);
+
+  @include size-xs {
+    $margin: 6vw;
+    margin-left: $margin;
+    margin-right: $margin;
+  }
+;
 
   .time {
     padding: 0 0 1.5vh;
     display: inline-block;
     color: #AAAAAA;
+    @include fluid-type($width-min-point, $width-max-point, 16px, 20px);
   }
 
-  .titleLink{
+  .titleLink {
     text-decoration: none !important;
-    &:hover{
+
+    &:hover {
       text-decoration: underline !important;
     }
   }
@@ -29,21 +40,24 @@
     color: #DEDEDE;
   }
 
-  pre {
-    background: black;
+  .blockQuote {
+    border-left: 1vh solid #D1D6EC;
+    padding: 0 0 0 3vh;
+    margin: 4vw 3vh;
+  }
+
+  .codeContainer {
+    background: #292F39;
+    color: #D1D6EC;
     padding: 1.5vh 2vw;
     border-radius: 7px;
     word-break: keep-all;
     white-space: pre-wrap;
-
-    code {
-      //white-space: pre-wrap;
-      //display: block;
-    }
   }
 
   ul {
-    margin: 0 5vw;
+    margin: 3vh 5vw;
+
     li {
       list-style-type: disc;
     }
@@ -51,7 +65,6 @@
 
   .paragraph {
     padding: 2vh 0;
-    @include fluid-type($width-min-point, $width-max-point, 18px, 30px);
   }
 
   .figure {

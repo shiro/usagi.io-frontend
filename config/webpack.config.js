@@ -27,6 +27,7 @@ module.exports.webpackPaths = {
     serverDest: path.join(appRoot, "build_server"),
     clientDest: path.join(appRoot, "build"),
     assetSrc: path.join(appRoot, "assets"),
+    resourcesSrc: path.join(appRoot, "assets/resources"),
     publicSrc: path.join(appRoot, "public"), // things like favicons, robots.txt and other static non-assets
     templateSrc: path.join(appRoot, "public"), // html template directory
 };
