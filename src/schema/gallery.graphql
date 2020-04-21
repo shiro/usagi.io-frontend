@@ -3,15 +3,26 @@ type Image{
   thumb: String!
 }
 
+type BlogPost{
+  body: String
+}
+
 type Query {
   helloWorld: String!
   images: [Image]
+  posts: [BlogPost]
 }
 
 query getAllImages{
   images{
     source,
     thumb,
+  }
+}
+
+query getAllBlogPosts{
+  posts{
+    body
   }
 }
 

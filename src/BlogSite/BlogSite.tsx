@@ -10,6 +10,8 @@ import ContactSection from "@/ContactSection/ContactSection";
 import PortraitSection from "@/AboutMe/PortraitSection/PortraitSection";
 import ProgrammingSection from "@/ProgrammingSection/ProgrammingSection";
 import BlogPost from "@/BlogSite/BlogPost";
+import {useQuery} from "@apollo/react-hooks";
+import {GetAllBlogPostsDocument, IBlogPost} from "@/generated/schema";
 
 
 export interface IBlogSite {
@@ -17,10 +19,23 @@ export interface IBlogSite {
 
 
 const BlogSite: React.FC<IBlogSite> = (props) => {
+    const {loading, error, data} = useQuery<>(GetAllBlogPostsDocument);
+
+    if (loading || error)
+        return null;
+
+    const posts = data.posts;
+
+    if (!posts.length)
+        return <span>No data</span>
+
+
     return (
         <div >
             <Header/>
-            <BlogPost />
+            {posts.map((post, i) =>
+                <BlogPost blogPost={post} key={i} />
+            )}
             <Footer />
         </div>
     );

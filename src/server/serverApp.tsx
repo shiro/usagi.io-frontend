@@ -8,6 +8,7 @@ import depthLimit from 'graphql-depth-limit';
 import {serverConfig} from "config/server.config"
 import schema from "server/schema";
 import {indexImagePass} from "server/imageLoader";
+import {indexBlogPostPass} from "server/blogPostLoader";
 
 const appRoot = serverConfig.path.root;
 
@@ -76,6 +77,7 @@ const indexPassDelay = 1000 * 20;
 
 const performIndexPass = async () => {
     await indexImagePass();
+    await indexBlogPostPass();
     scheudleIndexPass();
 };
 

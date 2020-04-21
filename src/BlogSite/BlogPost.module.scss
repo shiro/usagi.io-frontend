@@ -14,6 +14,11 @@
     color: #DEDEDE;
   }
 
+  h2 {
+    @include fluid-type($width-min-point, $width-max-point, 23px, 40px);
+    color: #DEDEDE;
+  }
+
   .paragraph {
     padding: 3vh 0;
     @include fluid-type($width-min-point, $width-max-point, 18px, 30px);

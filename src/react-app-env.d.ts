@@ -20,6 +20,7 @@ declare namespace NodeJS {
         readonly PORT: number;
         readonly DEV_PORT: number;
         readonly GALLERY_PATH: string;
+        readonly BLOG_PATH: string;
         readonly CACHE_PATH: string;
         readonly WATERMARK_FILE: string;
         readonly FORCE_HTTPS: string;

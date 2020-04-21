@@ -17,22 +17,17 @@ export type IImage = {
   thumb: Scalars['String'];
 };
 
+export type IBlogPost = {
+   __typename?: 'BlogPost';
+  body?: Maybe<Scalars['String']>;
+};
+
 export type IQuery = {
    __typename?: 'Query';
   helloWorld: Scalars['String'];
   images?: Maybe<Array<Maybe<IImage>>>;
+  posts?: Maybe<Array<Maybe<IBlogPost>>>;
 };
-
-export type IUnnamed_1_QueryVariables = {};
-
-
-export type IUnnamed_1_Query = (
-  { __typename?: 'Query' }
-  & { images?: Maybe<Array<Maybe<(
-    { __typename?: 'Image' }
-    & Pick<IImage, 'source' | 'thumb'>
-  )>>> }
-);
 
 export type IGetAllImagesQueryVariables = {};
 
@@ -42,6 +37,17 @@ export type IGetAllImagesQuery = (
   & { images?: Maybe<Array<Maybe<(
     { __typename?: 'Image' }
     & Pick<IImage, 'source' | 'thumb'>
+  )>>> }
+);
+
+export type IGetAllBlogPostsQueryVariables = {};
+
+
+export type IGetAllBlogPostsQuery = (
+  { __typename?: 'Query' }
+  & { posts?: Maybe<Array<Maybe<(
+    { __typename?: 'BlogPost' }
+    & Pick<IBlogPost, 'body'>
   )>>> }
 );
 
@@ -79,3 +85,35 @@ export function useGetAllImagesLazyQuery(baseOptions?: ApolloReactHooks.LazyQuer
 export type GetAllImagesQueryHookResult = ReturnType<typeof useGetAllImagesQuery>;
 export type GetAllImagesLazyQueryHookResult = ReturnType<typeof useGetAllImagesLazyQuery>;
 export type GetAllImagesQueryResult = ApolloReactCommon.QueryResult<IGetAllImagesQuery, IGetAllImagesQueryVariables>;
+export const GetAllBlogPostsDocument = gql`
+    query getAllBlogPosts {
+  posts {
+    body
+  }
+}
+    `;
+
+/**
+ * __useGetAllBlogPostsQuery__
+ *
+ * To run a query within a React component, call `useGetAllBlogPostsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllBlogPostsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllBlogPostsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetAllBlogPostsQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<IGetAllBlogPostsQuery, IGetAllBlogPostsQueryVariables>) {
+        return ApolloReactHooks.useQuery<IGetAllBlogPostsQuery, IGetAllBlogPostsQueryVariables>(GetAllBlogPostsDocument, baseOptions);
+      }
+export function useGetAllBlogPostsLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<IGetAllBlogPostsQuery, IGetAllBlogPostsQueryVariables>) {
+          return ApolloReactHooks.useLazyQuery<IGetAllBlogPostsQuery, IGetAllBlogPostsQueryVariables>(GetAllBlogPostsDocument, baseOptions);
+        }
+export type GetAllBlogPostsQueryHookResult = ReturnType<typeof useGetAllBlogPostsQuery>;
+export type GetAllBlogPostsLazyQueryHookResult = ReturnType<typeof useGetAllBlogPostsLazyQuery>;
+export type GetAllBlogPostsQueryResult = ApolloReactCommon.QueryResult<IGetAllBlogPostsQuery, IGetAllBlogPostsQueryVariables>;
