@@ -4,16 +4,17 @@
   width: 100%;
   padding: 0 5vw;
   @include debug-bg(rgba(orange, .3));
-  min-height: 60px;
+  min-height: 100px;
   height: 8vh;
 
   display: flex;
   flex-direction: row;
   align-items: center;
 
-
   .logoLink {
-    display: inline-block;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
     height: 60%;
     margin-right: 2vw;
 
@@ -23,9 +24,18 @@
     }
 
     .logo {
-      height: 100%;
-      padding: 30% 0;
-      fill: color(gray);
+      display: inline-block;
+      height: 70%;
+      padding: 7% 0 0;
+      vertical-align: center;
+      & > g {
+        fill: color(gray);
+      }
+
+      &.dark > g {
+        // TODO load as SVG instead of img, set fill color
+        fill: color(white);
+      }
     }
   }
 
@@ -47,7 +57,7 @@
     }
 
     // workaround until [text-underline-offset](https://developer.mozilla.org/en-US/docs/Web/CSS/text-underline-offset) is supported
-    &.selected{
+    &.selected {
       &:after {
         content: '';
         position: absolute;
@@ -58,6 +68,15 @@
         margin: 0 auto;
         border-bottom: 4px solid color(grey);
       }
+
+
+      &.dark:after {
+        border-color: color(white);
+      }
+    }
+
+    &.dark {
+      color: color(white);
     }
   }
 

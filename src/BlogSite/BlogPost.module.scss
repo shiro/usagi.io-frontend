@@ -2,6 +2,7 @@
   background: #1E1E1E;
   color: #C8C8C8;
   padding: 5vw 9vh;
+  line-height: 1.4;
 
   .time {
     padding: 0 0 1.5vh;
@@ -10,27 +11,47 @@
   }
 
   h1 {
+    padding: 0 0 2vh;
     @include fluid-type($width-min-point, $width-max-point, 25px, 50px);
     color: #DEDEDE;
   }
 
   h2 {
+    padding: 1vh 0;
     @include fluid-type($width-min-point, $width-max-point, 23px, 40px);
     color: #DEDEDE;
   }
 
-  .paragraph {
-    padding: 3vh 0;
-    @include fluid-type($width-min-point, $width-max-point, 18px, 30px);
-    line-height: 1.4;
+  pre {
+    background: black;
+    padding: 1.5vh 2vw;
+    border-radius: 7px;
+    word-break: keep-all;
+    white-space: pre-wrap;
+
+    code {
+      //white-space: pre-wrap;
+      //display: block;
+    }
   }
 
+  ul {
+    margin: 0 5vw;
+    li {
+      list-style-type: disc;
+    }
+  }
+
+  .paragraph {
+    padding: 2vh 0;
+    @include fluid-type($width-min-point, $width-max-point, 18px, 30px);
+  }
 
   .figure {
     padding: 3vh 0;
   }
+
   .image {
-    //max-width: 100%;
     max-width: 800px;
     margin: 0 auto;
   }

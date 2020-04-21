@@ -1,5 +1,4 @@
 {
-  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "target": "es6",
     "lib": [
@@ -22,6 +21,7 @@
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
+      "assets/*": ["assets/*"],
       "style/*": ["src/style/*"],
       "server/*": ["src/server/*"],
       "@/*": ["src/*"]

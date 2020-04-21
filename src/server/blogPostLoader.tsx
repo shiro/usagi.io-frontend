@@ -34,6 +34,9 @@ export const indexBlogPostPass = async (baseUrl?: string) => {
 
         const raw = await fs.readFile(path.join(blogPostsDirPath, fileName));
 
-        blogPostCache.blogPosts.push({contents: {body: raw.toString()}, filePath: fileName});
+        blogPostCache.blogPosts.push({
+            contents: {id: fileName, body: raw.toString()},
+            filePath: fileName
+        });
     }
 }

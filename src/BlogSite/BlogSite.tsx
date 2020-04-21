@@ -21,22 +21,24 @@ export interface IBlogSite {
 const BlogSite: React.FC<IBlogSite> = (props) => {
     const {loading, error, data} = useQuery<>(GetAllBlogPostsDocument);
 
-    if (loading || error)
+    if(loading)
         return null;
+
+    if (error)
+        console.error(error);
 
     const posts = data.posts;
 
-    if (!posts.length)
-        return <span>No data</span>
-
-
     return (
-        <div >
-            <Header/>
-            {posts.map((post, i) =>
-                <BlogPost blogPost={post} key={i} />
-            )}
-            <Footer />
+        <div className={cn(css.container)}>
+            <Header variant="dark"/>
+            {posts.map((post, i) => {
+                return (<React.Fragment key={i}>
+                    <BlogPost blogPost={post}/>
+                    {(i < posts.length - 1) ? <hr className={cn(css.separator)} /> : null}
+                </React.Fragment>);
+            })}
+            <Footer variant="dark"/>
         </div>
     );
 };

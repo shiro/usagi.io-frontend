@@ -4,6 +4,7 @@ type Image{
 }
 
 type BlogPost{
+  id: String
   body: String
 }
 
@@ -22,7 +23,8 @@ query getAllImages{
 
 query getAllBlogPosts{
   posts{
-    body
+    id,
+    body,
   }
 }
 

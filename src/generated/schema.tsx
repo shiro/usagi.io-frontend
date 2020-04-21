@@ -19,6 +19,7 @@ export type IImage = {
 
 export type IBlogPost = {
    __typename?: 'BlogPost';
+  id?: Maybe<Scalars['String']>;
   body?: Maybe<Scalars['String']>;
 };
 
@@ -47,7 +48,7 @@ export type IGetAllBlogPostsQuery = (
   { __typename?: 'Query' }
   & { posts?: Maybe<Array<Maybe<(
     { __typename?: 'BlogPost' }
-    & Pick<IBlogPost, 'body'>
+    & Pick<IBlogPost, 'id' | 'body'>
   )>>> }
 );
 
@@ -88,6 +89,7 @@ export type GetAllImagesQueryResult = ApolloReactCommon.QueryResult<IGetAllImage
 export const GetAllBlogPostsDocument = gql`
     query getAllBlogPosts {
   posts {
+    id
     body
   }
 }
