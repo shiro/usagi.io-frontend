@@ -5,12 +5,12 @@ import cn from "classnames";
 import css from "./GalleryGrid.module.scss";
 import GridTile from "@/GallerySite/GalleryGrid/GridTile";
 import {useWindowSize} from "@/hooks/useWindowSize";
-import {IPicture} from "server/imageLoader";
+import {IImage} from "@/generated/schema";
 
 
 export interface IGalleryGrid {
-    onImageClick?: (picture: IPicture) => void;
-    pictures: IPicture[];
+    onImageClick?: (picture: IImage) => void;
+    pictures: IImage[];
 }
 
 const tossCoin = () => !!Math.round(Math.random());

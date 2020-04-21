@@ -1,0 +1,84 @@
+.article {
+  background: #1E1E1E;
+  color: #C1C1C1;
+  //padding: 5vw 9vw;
+  margin: 6vh 20vw 8vh;
+  line-height: 1.7;
+  @include fluid-type($width-min-point, $width-max-point, 18px, 30px);
+
+  @include size-xs {
+    $margin: 6vw;
+    margin-left: $margin;
+    margin-right: $margin;
+  }
+;
+
+  .time {
+    padding: 0 0 1.5vh;
+    display: inline-block;
+    color: #AAAAAA;
+    @include fluid-type($width-min-point, $width-max-point, 16px, 20px);
+  }
+
+  .titleLink {
+    text-decoration: none !important;
+
+    &:hover {
+      text-decoration: underline !important;
+    }
+  }
+
+  h1 {
+    padding: 0 0 2vh;
+    @include fluid-type($width-min-point, $width-max-point, 30px, 50px);
+    color: #DEDEDE;
+  }
+
+  h2 {
+    padding: 3vh 0;
+    @include fluid-type($width-min-point, $width-max-point, 23px, 40px);
+    color: #DEDEDE;
+  }
+
+  .blockQuote {
+    border-left: 1vh solid #D1D6EC;
+    padding: 0 0 0 3vh;
+    margin: 2.5vw 3vh;
+  }
+
+  .codeContainer {
+    background: #292F39;
+    color: #D1D6EC;
+    padding: 1.5vh 2vw;
+    margin: 3vh 0;
+    border-radius: 7px;
+    word-break: keep-all;
+    white-space: pre-wrap;
+  }
+
+  ul {
+    margin: 3vh 5vw;
+
+    li {
+      list-style-type: disc;
+    }
+  }
+
+  .paragraph {
+    padding: 1.6vh 0;
+  }
+
+  .figure {
+    padding: 3vh 0;
+  }
+
+  .image {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .caption {
+    padding: 1.5vh 0 0;
+    color: #AAAAAA;
+  }
+}

@@ -4,15 +4,15 @@ import cn from "classnames";
 import css from "./FullscreenGalleryImage.module.scss";
 import Modal from 'react-modal';
 import {useLockBodyScroll} from "@/hooks/useScrollLock";
-import {IPicture} from "server/imageLoader";
 import {LazyLoadImage} from "react-lazy-load-image-component";
+import {IImage} from "@/generated/schema";
 
 
 Modal.setAppElement('#root');
 
 export interface IFullscreenGalleryImage {
     isOpen?: boolean;
-    picture?: IPicture,
+    picture?: IImage,
     onClose?: () => void;
 }
 

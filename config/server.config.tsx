@@ -30,6 +30,7 @@ export const serverConfig = objectAssignDeep(
                     root: webpackPaths.appRoot,
                     assets: webpackPaths.clientDest,
                     gallery: toAbsolutePath(process.env.GALLERY_PATH),
+                    blog: toAbsolutePath(process.env.BLOG_PATH),
                     pictureCache: path.join(cache, "pictures"),
                     thumbnailCache: path.join(cache, "thumbnails"),
                 };

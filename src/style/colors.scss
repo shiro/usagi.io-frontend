@@ -8,5 +8,9 @@ $colors: (
   @return map_get($colors, $key)
 }
 
-
+@mixin linkColor($color) {
+  &, &:visited, &:active, &:hover {
+    color: $color;
+  }
+}
 

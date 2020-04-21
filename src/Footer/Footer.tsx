@@ -6,13 +6,20 @@ import {faGithub} from "@fortawesome/free-brands-svg-icons/faGithub";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
-export interface IFooter {}
+export interface IFooterProps {
+    variant?: "dark" |"light";
+}
 
 
-const Footer: React.FC<IFooter> = (props) => {
+const Footer: React.FC<IFooterProps> = (props) => {
+    const {variant = "light"} = props;
+
     return (
-        <footer className={cn(css.section)}>
-            <a href="https://github.com/shiro/usagi.io-frontend" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub}/> Read my source code!</a>
+        <footer className={cn(css.section, css[variant])}>
+            <a className={cn(css[variant])}
+                href="https://github.com/shiro/usagi.io-frontend" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faGithub}/> Read my source code!
+            </a>
         </footer>
     );
 };

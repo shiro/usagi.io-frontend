@@ -8,11 +8,6 @@ import {exec} from "child_process";
 
 const fs = fsSync.promises;
 
-export interface IPicture {
-    source: string,
-    thumb: string,
-}
-
 const pictureCache = {
     pictureFileNames: [] as string[],
 }

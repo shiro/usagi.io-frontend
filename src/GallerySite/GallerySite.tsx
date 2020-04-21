@@ -8,27 +8,20 @@ import FullscreenGalleryImage from "@/GallerySite/FullscreenGalleryImage";
 import {useState} from "react"
 import {useQuery} from '@apollo/react-hooks';
 import gql from 'graphql-tag';
-import {IPicture} from "server/imageLoader";
+import {GetAllImagesDocument, IImage} from "@/generated/schema";
 
 
 export interface IGallerySite {
 }
 
+// class ImageQuery extends Query<Image, {}>{}
+// const foo  :Query= {images: undefined};
 
-const GET_HELLO = gql`
-  query{
-    images{
-      source,
-      thumb,
-    }
-  }
-`;
 
 const GallerySite: React.FC<IGallerySite> = (props) => {
-    const [openPicture, setOpenPicture] = useState<IPicture | undefined>(undefined);
+    const [openPicture, setOpenPicture] = useState<IImage | undefined>(undefined);
 
-
-    const {loading, error, data} = useQuery(GET_HELLO);
+    const {loading, error, data} = useQuery(GetAllImagesDocument);
 
     // TODO handle error
     if (error)

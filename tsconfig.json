@@ -1,5 +1,4 @@
 {
-  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "target": "es6",
     "lib": [
@@ -18,8 +17,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
+      "assets/*": ["assets/*"],
       "style/*": ["src/style/*"],
       "server/*": ["src/server/*"],
       "@/*": ["src/*"]

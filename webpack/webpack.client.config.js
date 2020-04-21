@@ -135,7 +135,7 @@ module.exports = {
         new Dotenv({ defaults: true, systemvars: true }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin([
-            { from: webpackPaths.assetSrc, to: "assets" },
+            { from: webpackPaths.resourcesSrc, to: "assets/resources" },
             { from: webpackPaths.publicSrc, ignore: [webpackFiles.htmlTemplateDest] }
         ]),
         new MiniCssExtractPlugin({

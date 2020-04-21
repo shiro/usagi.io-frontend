@@ -3,7 +3,16 @@ type Image{
   thumb: String!
 }
 
+type BlogPost{
+  id: String!
+  title: String!,
+  createdTime: String!,
+  body: String!
+}
+
 type Query {
   helloWorld: String!
   images: [Image]
+  posts: [BlogPost]
+  post(id: String!): BlogPost
 }

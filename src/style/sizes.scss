@@ -6,7 +6,13 @@ $size-s: 1366px;
 $size-l: 1920px;
 
 @mixin size-xs {
-  @media (min-width: #{$size-xs}) and (max-width: #{$desktop-width - 1px}) {
+  @media (max-width: #{$size-xs}) {
+    @content;
+  }
+}
+
+@mixin size-m {
+  @media (max-width: #{$size-xs}) and (max-width: #{$desktop-width - 1px}) {
     @content;
   }
 }
@@ -19,13 +25,12 @@ $size-l: 1920px;
 
 // todo check if useful
 @mixin retina {
-  @media
-    only screen and (-webkit-min-device-pixel-ratio: 2),
-    only screen and (min--moz-device-pixel-ratio: 2),
-    only screen and (-o-min-device-pixel-ratio: 2/1),
-    only screen and (min-device-pixel-ratio: 2),
-    only screen and (min-resolution: 192dpi),
-    only screen and (min-resolution: 2dppx) {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
     @content;
   }
 }
