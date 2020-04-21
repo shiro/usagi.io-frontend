@@ -1,0 +1,23 @@
+query getAllImages{
+  images{
+    source,
+    thumb,
+  }
+}
+
+query getAllBlogPosts{
+  posts{
+    id,
+    title,
+    createdTime,
+    body,
+  }
+}
+
+query getBlogPostById($id:String!){
+  post(id: $id){
+    title,
+    createdTime,
+    body,
+  }
+}

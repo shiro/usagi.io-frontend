@@ -4,27 +4,15 @@ type Image{
 }
 
 type BlogPost{
-  id: String
-  body: String
+  id: String!
+  title: String!,
+  createdTime: String!,
+  body: String!
 }
 
 type Query {
   helloWorld: String!
   images: [Image]
   posts: [BlogPost]
+  post(id: String!): BlogPost
 }
-
-query getAllImages{
-  images{
-    source,
-    thumb,
-  }
-}
-
-query getAllBlogPosts{
-  posts{
-    id,
-    body,
-  }
-}
-

@@ -6,7 +6,7 @@ import compression from 'compression';
 import helmet from "helmet";
 import depthLimit from 'graphql-depth-limit';
 import {serverConfig} from "config/server.config"
-import schema from "server/schema";
+import buildSchema from "server/schema";
 import {indexImagePass} from "server/imageLoader";
 import {indexBlogPostPass} from "server/blogPostLoader";
 
@@ -40,23 +40,27 @@ export interface IApolloContext {
     baseUrl: string;
 }
 
-const apolloServer = new ApolloServer({
-    schema,
-    validationRules: [depthLimit(7)],
-    context: ({req}) => {
-        const protocol = +process.env.FORCE_HTTPS === 1 ? "https" : req.protocol;
-        const baseUrl = protocol + '://' + req.get('Host');
-        return {baseUrl};
-    },
-});
-apolloServer.applyMiddleware({app: serverApp, path: '/graphql'});
+try {
+    const schema = buildSchema();
+    const apolloServer = new ApolloServer({
+        schema,
+        validationRules: [depthLimit(7)],
+        context: ({req}) => {
+            const protocol = +process.env.FORCE_HTTPS === 1 ? "https" : req.protocol;
+            const baseUrl = protocol + '://' + req.get('Host');
+            return {baseUrl};
+        },
+    });
+    apolloServer.applyMiddleware({app: serverApp, path: '/graphql'});
+} catch (e) {
+    console.error("appolo server failed to start: ", e);
+}
 
 
 // catch all other requests
 serverApp.get('*', (req: express.Request, res: express.Response) => {
     res.sendFile("build/index.html", {root: appRoot});
 });
-
 
 
 // todo improve error handling
@@ -71,13 +75,20 @@ serverApp.use(helmet())
 serverApp.use('/graphql', bodyParser.json());
 
 
-
 // background image indexer
 const indexPassDelay = 1000 * 20;
 
 const performIndexPass = async () => {
-    await indexImagePass();
-    await indexBlogPostPass();
+    try {
+        await indexImagePass();
+    } catch (e) {
+        console.error("image index error: ", e)
+    }
+    try {
+        await indexBlogPostPass();
+    } catch (e) {
+        console.error("blog index error: ", e)
+    }
     scheudleIndexPass();
 };
 

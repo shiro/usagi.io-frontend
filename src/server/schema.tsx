@@ -4,8 +4,11 @@ import {makeExecutableSchema} from 'graphql-tools';
 import {resolverMap} from 'server/resolverMap';
 import {GraphQLSchema} from 'graphql';
 
-const schema: GraphQLSchema = makeExecutableSchema({
-    typeDefs,
-    resolvers: resolverMap,
-});
-export default schema;
+
+const buildSchema = () : GraphQLSchema => (makeExecutableSchema({
+        typeDefs,
+        resolvers: resolverMap,
+    })
+);
+
+export default buildSchema;

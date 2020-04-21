@@ -1,13 +1,20 @@
 .article {
   background: #1E1E1E;
   color: #C8C8C8;
-  padding: 5vw 9vh;
-  line-height: 1.4;
+  padding: 5vw 9vw;
+  line-height: 1.7;
 
   .time {
     padding: 0 0 1.5vh;
     display: inline-block;
     color: #AAAAAA;
+  }
+
+  .titleLink{
+    text-decoration: none !important;
+    &:hover{
+      text-decoration: underline !important;
+    }
   }
 
   h1 {

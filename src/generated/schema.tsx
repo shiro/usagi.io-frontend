@@ -19,8 +19,10 @@ export type IImage = {
 
 export type IBlogPost = {
    __typename?: 'BlogPost';
-  id?: Maybe<Scalars['String']>;
-  body?: Maybe<Scalars['String']>;
+  id: Scalars['String'];
+  title: Scalars['String'];
+  createdTime: Scalars['String'];
+  body: Scalars['String'];
 };
 
 export type IQuery = {
@@ -28,6 +30,12 @@ export type IQuery = {
   helloWorld: Scalars['String'];
   images?: Maybe<Array<Maybe<IImage>>>;
   posts?: Maybe<Array<Maybe<IBlogPost>>>;
+  post?: Maybe<IBlogPost>;
+};
+
+
+export type IQueryPostArgs = {
+  id: Scalars['String'];
 };
 
 export type IGetAllImagesQueryVariables = {};
@@ -48,8 +56,21 @@ export type IGetAllBlogPostsQuery = (
   { __typename?: 'Query' }
   & { posts?: Maybe<Array<Maybe<(
     { __typename?: 'BlogPost' }
-    & Pick<IBlogPost, 'id' | 'body'>
+    & Pick<IBlogPost, 'id' | 'title' | 'createdTime' | 'body'>
   )>>> }
+);
+
+export type IGetBlogPostByIdQueryVariables = {
+  id: Scalars['String'];
+};
+
+
+export type IGetBlogPostByIdQuery = (
+  { __typename?: 'Query' }
+  & { post?: Maybe<(
+    { __typename?: 'BlogPost' }
+    & Pick<IBlogPost, 'title' | 'createdTime' | 'body'>
+  )> }
 );
 
 
@@ -90,6 +111,8 @@ export const GetAllBlogPostsDocument = gql`
     query getAllBlogPosts {
   posts {
     id
+    title
+    createdTime
     body
   }
 }
@@ -119,3 +142,38 @@ export function useGetAllBlogPostsLazyQuery(baseOptions?: ApolloReactHooks.LazyQ
 export type GetAllBlogPostsQueryHookResult = ReturnType<typeof useGetAllBlogPostsQuery>;
 export type GetAllBlogPostsLazyQueryHookResult = ReturnType<typeof useGetAllBlogPostsLazyQuery>;
 export type GetAllBlogPostsQueryResult = ApolloReactCommon.QueryResult<IGetAllBlogPostsQuery, IGetAllBlogPostsQueryVariables>;
+export const GetBlogPostByIdDocument = gql`
+    query getBlogPostById($id: String!) {
+  post(id: $id) {
+    title
+    createdTime
+    body
+  }
+}
+    `;
+
+/**
+ * __useGetBlogPostByIdQuery__
+ *
+ * To run a query within a React component, call `useGetBlogPostByIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetBlogPostByIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetBlogPostByIdQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useGetBlogPostByIdQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<IGetBlogPostByIdQuery, IGetBlogPostByIdQueryVariables>) {
+        return ApolloReactHooks.useQuery<IGetBlogPostByIdQuery, IGetBlogPostByIdQueryVariables>(GetBlogPostByIdDocument, baseOptions);
+      }
+export function useGetBlogPostByIdLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<IGetBlogPostByIdQuery, IGetBlogPostByIdQueryVariables>) {
+          return ApolloReactHooks.useLazyQuery<IGetBlogPostByIdQuery, IGetBlogPostByIdQueryVariables>(GetBlogPostByIdDocument, baseOptions);
+        }
+export type GetBlogPostByIdQueryHookResult = ReturnType<typeof useGetBlogPostByIdQuery>;
+export type GetBlogPostByIdLazyQueryHookResult = ReturnType<typeof useGetBlogPostByIdLazyQuery>;
+export type GetBlogPostByIdQueryResult = ApolloReactCommon.QueryResult<IGetBlogPostByIdQuery, IGetBlogPostByIdQueryVariables>;

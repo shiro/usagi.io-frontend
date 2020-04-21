@@ -23,8 +23,8 @@ const Header: React.FC<IHeader> = (props) => {
             </Link>
             <nav className={cn(css.navigation)}>
                 <NavLink className={cn(css.navigationLink, css[variant])} activeClassName={cn(css.selected)} to="/me">Me</NavLink>
-                <NavLink className={cn(css.navigationLink, css[variant])} activeClassName={cn(css.selected)} to="/blog">Blog</NavLink>
                 <NavLink className={cn(css.navigationLink, css[variant])} activeClassName={cn(css.selected)} to="/gallery">Gallery</NavLink>
+                <NavLink className={cn(css.navigationLink, css[variant])} activeClassName={cn(css.selected)} to="/blog">Blog</NavLink>
             </nav>
         </header>
     );
