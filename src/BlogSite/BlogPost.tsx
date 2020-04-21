@@ -43,9 +43,12 @@ const BlogPost: React.FC<IBlogPostProps> = (props) => {
             </figure>;
         },
         heading: (props) => {
+            console.log(removedFirstHeading)
             // remove first heading since it's rendered outside
-            if (!removedFirstHeading) return < React.Fragment/>;
-            removedFirstHeading = true;
+            if (!removedFirstHeading) {
+                removedFirstHeading = true;
+                return < React.Fragment/>;
+            }
 
             return (ReactMarkdown.renderers.heading as Renderer<any>)(props);
         },

@@ -102,7 +102,7 @@ that this feature is here to stay.
 
 ## Conclusion
 
-CSS modules has become a good alternative to global CSS and solves the name clashing issue rather well.  
+CSS modules has become a good alternative to global CSS and solves the name clashing issue rather well.
 Contextual overrides offer an easy way to override styles of nested components whose position in the
 hierarchy might change.
 

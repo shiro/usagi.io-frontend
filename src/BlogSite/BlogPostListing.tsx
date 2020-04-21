@@ -4,7 +4,7 @@ import cn from "classnames";
 import css from "./BlogPostListing.module.scss";
 import BlogPost from "@/BlogSite/BlogPost";
 import {useQuery} from "@apollo/react-hooks";
-import {GetAllBlogPostsDocument, IBlogPost} from "@/generated/schema";
+import {GetAllBlogPostsDocument} from "@/generated/schema";
 
 
 export interface IBlogPostListingProps {
@@ -27,7 +27,7 @@ const BlogPostListing: React.FC<IBlogPostListingProps> = (props) => {
             {posts?.map((post, i) => {
                 return (<React.Fragment key={i}>
                     <BlogPost blogPost={post}/>
-                    {/*{(i < posts.length - 1) ? <hr className={cn(css.separator)}/> : null}*/}
+                    {(i < posts.length - 1) ? <hr className={cn(css.separator)}/> : null}
                 </React.Fragment>);
             })}
         </div>
