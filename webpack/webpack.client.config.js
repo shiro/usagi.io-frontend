@@ -13,6 +13,30 @@ const Dotenv = require("dotenv-webpack");
 const { appRoot, stats, webpackPaths, webpackFiles } = require("../config/webpack.config");
 const { pathResolver, isDevelopment } = require("./webpack.shared");
 
+
+const makeStyleLoaders = (type) => {
+    return [
+        isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
+        {
+            loader: "css-loader",
+            options: {
+                modules: type === "css" ? false : {
+                    localIdentName: "[local]_[hash:base64:5]",
+                },
+                sourceMap: isDevelopment,
+                importLoaders: type === "css" ? 1 : 2,
+            },
+        },
+        {
+            loader: "postcss-loader",
+            options: {
+                config: { path: path.join(appRoot, "config/postcss.config.js") }
+            }
+        }
+    ];
+};
+
+
 module.exports = {
     mode: isDevelopment ? "development" : "production",
     devtool: "source-map",
@@ -52,18 +76,7 @@ module.exports = {
             {
                 test: /\.(sass|scss)$/,
                 use: [
-                    isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
-                    {
-                        loader: "css-loader",
-                        options: {
-                            modules: {
-                                localIdentName: "[local]_[hash:base64:5]",
-                            },
-                            sourceMap: isDevelopment,
-                            importLoaders: 2,
-                        },
-                    },
-                    "postcss-loader",
+                    ...makeStyleLoaders("scss"),
                     {
                         loader: "sass-loader",
                         options: {
@@ -75,16 +88,7 @@ module.exports = {
             },
             {
                 test: /\.(css)$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    {
-                        loader: "css-loader",
-                        options: {
-                            sourceMap: true,
-                        },
-                    },
-                    "postcss-loader",
-                ],
+                use: makeStyleLoaders("css"),
             },
             {
                 test: /\.md$/i,
