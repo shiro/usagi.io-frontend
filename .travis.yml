@@ -8,6 +8,7 @@ language: bash
 script:
 - "./setup.sh prod"
 - docker-compose build
+- "./test/testApp.sh prod"
 
 after_success:
 - if [[ "$TRAVIS_BRANCH" == "master" ]];
