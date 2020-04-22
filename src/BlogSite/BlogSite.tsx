@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Helmet } from "react-helmet"
 import cn from "classnames";
 import {Switch, Route, Redirect} from "react-router-dom";
 import css from "./BlogSite.module.scss";
@@ -15,6 +16,9 @@ const BlogSite: React.FC<IBlogSite> = (props) => {
 
     return (
         <div className={cn(css.container)}>
+            <Helmet>
+                <title>blog |  usagi.io</title>
+            </Helmet>
             <Header variant="dark"/>
             <Switch>
                 <Route path="/blog/:id" render={props => <SpecificBlogPost id={props.match.params.id}/>}/>

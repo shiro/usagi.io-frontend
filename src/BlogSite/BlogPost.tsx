@@ -1,5 +1,6 @@
 import * as React from "react";
 import cn from "classnames";
+import { Helmet } from "react-helmet"
 
 // import body from "@/BlogSite/exampleBlogPost.md";
 
@@ -69,6 +70,9 @@ const BlogPost: React.FC<IBlogPostProps> = (props) => {
 
     return (
         <article className={cn(css.article)}>
+            <Helmet>
+                <title>{blogPost.title} | usagi.io</title>
+            </Helmet>
 
             <time className={cn(css.time)} dateTime={blogPost.createdTime}>{blogPost.createdTime}</time>
 

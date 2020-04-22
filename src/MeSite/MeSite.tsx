@@ -7,6 +7,7 @@ import DesignSection from "@/DesignSection/DesignSection";
 import ContactSection from "@/ContactSection/ContactSection";
 import Footer from "@/Footer/Footer";
 import {Person} from "schema-dts";import {JsonLd} from "react-schemaorg";
+import { Helmet } from "react-helmet"
 
 // TODO consolidate all Ld
 const AuthorLd = () => <JsonLd<Person>
@@ -42,6 +43,9 @@ export interface IMeSite {
 const MeSite: React.FC<IMeSite> = (props) => {
     return (
         <div>
+            <Helmet>
+                <title>me | usagi.io</title>
+            </Helmet>
             <AuthorLd />
             <Header/>
             <PortraitSection/>

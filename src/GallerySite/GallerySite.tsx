@@ -7,8 +7,8 @@ import GalleryGrid from "@/GallerySite/GalleryGrid/GalleryGrid";
 import FullscreenGalleryImage from "@/GallerySite/FullscreenGalleryImage";
 import {useState} from "react"
 import {useQuery} from '@apollo/react-hooks';
-import gql from 'graphql-tag';
 import {GetAllImagesDocument, IImage} from "@/generated/schema";
+import { Helmet } from "react-helmet"
 
 
 export interface IGallerySite {
@@ -29,6 +29,9 @@ const GallerySite: React.FC<IGallerySite> = (props) => {
 
     return (
         <div>
+            <Helmet>
+                <title>gallery | usagi.io</title>
+            </Helmet>
             <Header/>
             <GalleryDescriptionSection/>
             {!loading &&
