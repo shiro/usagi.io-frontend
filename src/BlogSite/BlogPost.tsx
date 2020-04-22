@@ -73,7 +73,7 @@ const BlogPost: React.FC<IBlogPostProps> = (props) => {
             <time className={cn(css.time)} dateTime={blogPost.createdTime}>{blogPost.createdTime}</time>
 
             {linkTitle ?
-                <Link className={cn(css.titleLink)} to="/blog/2020-04-21 css module contextual overrides">
+                <Link className={cn(css.titleLink)} to={`/blog/${blogPost.id}`}>
                     <h1>{blogPost.title}</h1>
                 </Link> :
 
