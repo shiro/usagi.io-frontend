@@ -5,9 +5,11 @@ dist: xenial
 os: linux
 language: bash
 
-script:
+before_script:
 - "./setup.sh prod"
 - docker-compose build
+
+script:
 - "./test/testApp.sh prod"
 
 after_success:
