@@ -1,13 +1,5 @@
+import "config/loadEnvironment.js";
 import http from "http";
-import path from "path";
-import {serverConfig} from "config/server.config";
-
-// load env
-// require("dotenv-defaults").config({
-//     path: path.join(serverConfig.path.root, "/.env"),
-//     defaults: path.join(serverConfig.path.root, "/.env.production.defaults")
-// });
-
 
 let currentApp = require("server/serverApp").default;
 const server = http.createServer(currentApp);

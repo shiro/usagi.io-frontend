@@ -8,7 +8,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const Dotenv = require("dotenv-webpack");
 
 const { appRoot, stats, webpackPaths, webpackFiles } = require("../config/webpack.config");
 const { pathResolver, isDevelopment } = require("./webpack.shared");
@@ -136,7 +135,6 @@ module.exports = {
         //     async: isDevelopment,
         //     useTypescriptIncrementalApi: true,
         // }),
-        new Dotenv({ defaults: true, systemvars: true }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin([
             { from: webpackPaths.resourcesSrc, to: "assets/resources" },

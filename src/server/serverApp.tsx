@@ -1,7 +1,7 @@
 import {default as express} from "express";
 import path from "path";
 import bodyParser from "body-parser";
-import {ApolloServer, gql} from "apollo-server-express";
+import {ApolloServer} from "apollo-server-express";
 import compression from 'compression';
 import helmet from "helmet";
 import depthLimit from 'graphql-depth-limit';
@@ -46,11 +46,7 @@ try {
         schema,
         validationRules: [depthLimit(7)],
         context: ({req}) => {
-            let protocol = +process.env.FORCE_HTTPS === 1 ? "https" : req.protocol;
-
-            // FIXME use env
-            if (process.env.NODE_ENV === "production")
-                protocol = "https";
+            let protocol = process.env.FORCE_HTTPS ? "https" : req.protocol;
 
             const baseUrl = protocol + '://' + req.get('Host');
             return {baseUrl};

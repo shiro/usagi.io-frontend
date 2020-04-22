@@ -1,8 +1,6 @@
 import objectAssignDeep from "object-assign-deep";
-
 import {webpackPaths} from "config/webpack.config.js";
 import path from "path";
-
 
 const prod = {};
 

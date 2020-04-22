@@ -15,7 +15,8 @@ declare module '*.graphql' {
 declare namespace NodeJS {
     interface ProcessEnv {
         readonly NODE_ENV: 'development' | 'production' | 'test';
-        // readonly PUBLIC_URL: string;
+
+        readonly FORCE_HTTPS: boolean;
 
         readonly PORT: number;
         readonly DEV_PORT: number;
@@ -23,7 +24,6 @@ declare namespace NodeJS {
         readonly BLOG_PATH: string;
         readonly CACHE_PATH: string;
         readonly WATERMARK_FILE: string;
-        readonly FORCE_HTTPS: string;
     }
 }
 

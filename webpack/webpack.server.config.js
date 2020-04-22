@@ -1,7 +1,6 @@
 const webpack = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const path = require("path");
-const Dotenv = require("dotenv-webpack");
 const StartServerPlugin = require("start-server-webpack-plugin");
 
 const { appRoot, stats, webpackPaths, webpackFiles } = require("../config/webpack.config");
@@ -57,7 +56,6 @@ module.exports = {
         ],
     },
     plugins: [
-        new Dotenv({ defaults: true, systemvars: true }),
         new CleanWebpackPlugin(),
         
         isDevelopment && new webpack.HotModuleReplacementPlugin(),
