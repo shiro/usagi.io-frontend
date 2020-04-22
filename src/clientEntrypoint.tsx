@@ -1,7 +1,7 @@
 import React, {ReactElement} from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
-import WrappedApp from '@/WrappedApp';
+import ClientApp from '@/App/ClientApp';
+import './clientEntrypoint.scss';
 
 
 const renderApp = (app: ReactElement) => {
@@ -14,7 +14,7 @@ const renderApp = (app: ReactElement) => {
 };
 
 window.onload = () => {
-    renderApp(<WrappedApp/>);
+    renderApp(<ClientApp/>);
 };
 
 // not needed when using ReactRefreshWebpackPlugin

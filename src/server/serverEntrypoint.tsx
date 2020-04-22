@@ -6,6 +6,7 @@ const server = http.createServer(currentApp);
 
 const port = process.env.NODE_ENV === "production" ? process.env.PORT : process.env.DEV_PORT;
 
+server.listen(port);
 console.log(`server started on port ${port}`);
 
 if (module.hot) {

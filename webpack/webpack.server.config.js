@@ -14,7 +14,7 @@ module.exports = {
     stats,
     entry: [
         isDevelopment && "webpack/hot/poll?1000", // poll for newly compiled bundles and load them at runtime
-        path.join(appRoot, "src/server/server.tsx"),
+        path.join(appRoot, "src/server/serverEntrypoint.tsx"),
     ].filter(Boolean),
     output: {
         filename: webpackFiles.serverDest,
@@ -57,7 +57,7 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        
+        new webpack.EnvironmentPlugin([process.env.NODE_ENV]),
         isDevelopment && new webpack.HotModuleReplacementPlugin(),
         isDevelopment && new StartServerPlugin({
             name: webpackFiles.serverDest,

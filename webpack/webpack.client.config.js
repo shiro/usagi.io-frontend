@@ -42,7 +42,7 @@ module.exports = {
     stats,
     entry: [
         // "@babel/polyfill",
-        path.join(appRoot, "src/index"),
+        path.join(appRoot, "src/clientEntrypoint.tsx"),
     ],
     output: {
         filename: "[name].js",

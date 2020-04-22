@@ -1,0 +1,22 @@
+import React from 'react';
+import {Switch, Route, Redirect} from "react-router-dom";
+import MeSite from "@/MeSite/MeSite";
+import GallerySite from "@/GallerySite/GallerySite";
+
+import "./App.module.scss";
+import BlogSite from "@/BlogSite/BlogSite";
+
+const App = () => {
+    return (
+        <Switch>
+            <Route path="/blog" component={BlogSite}/>
+            <Route path="/me" exact={true} component={MeSite}/>
+            <Route path="/gallery" exact={true} component={GallerySite}/>
+            <Route>
+                <Redirect to="/me"/>
+            </Route>
+        </Switch>
+    );
+}
+
+export default App;
