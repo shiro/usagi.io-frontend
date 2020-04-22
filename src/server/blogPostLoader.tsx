@@ -4,6 +4,7 @@ import {serverConfig} from "config/server.config";
 import path from "path";
 import marked from "marked";
 import { customErrorFactory} from 'ts-custom-error'
+import slugify from "slugify";
 
 const fs = fsSync.promises;
 
@@ -57,7 +58,7 @@ export const indexBlogPostPass = async (baseUrl?: string) => {
 
         blogPostCache.blogPosts.push({
             contents: {
-                id: path.parse(fileName).name,
+                id: slugify(path.parse(title).name),
                 title,
                 createdTime,
                 body: raw,

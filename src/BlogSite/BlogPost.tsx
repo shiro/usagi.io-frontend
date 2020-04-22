@@ -1,6 +1,6 @@
 import * as React from "react";
 import cn from "classnames";
-import { Helmet } from "react-helmet"
+import {Helmet} from "react-helmet"
 
 // import body from "@/BlogSite/exampleBlogPost.md";
 
@@ -13,11 +13,12 @@ import {Link} from "react-router-dom";
 export interface IBlogPostProps {
     blogPost: IBlogPost;
     linkTitle?: boolean;
+    changePageTitle?: boolean;
 }
 
 
 const BlogPost: React.FC<IBlogPostProps> = (props) => {
-    const {blogPost, linkTitle = true} = props;
+    const {blogPost, linkTitle = true, changePageTitle = false} = props;
 
     let removedFirstHeading = false;
     const renderers: ReactMarkdown.Renderers = {
@@ -70,9 +71,10 @@ const BlogPost: React.FC<IBlogPostProps> = (props) => {
 
     return (
         <article className={cn(css.article)}>
+            {changePageTitle &&
             <Helmet>
                 <title>{blogPost.title} | usagi.io</title>
-            </Helmet>
+            </Helmet>}
 
             <time className={cn(css.time)} dateTime={blogPost.createdTime}>{blogPost.createdTime}</time>
 

@@ -30,7 +30,7 @@ const SpecificBlogPost: React.FC<ISpecificBlogPostProps> = (props) => {
         <div className={cn()}>
             <Link className={cn(css.backButton)} to="/blog">Back to all posts</Link>
 
-            <BlogPost blogPost={post} linkTitle={false} />
+            <BlogPost blogPost={post} linkTitle={false} changePageTitle />
         </div>
     );
 };
