@@ -22,6 +22,7 @@
 
   .titleLink {
     text-decoration: none !important;
+    display: table;
 
     &:hover {
       text-decoration: underline !important;
