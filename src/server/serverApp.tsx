@@ -47,6 +47,11 @@ try {
         validationRules: [depthLimit(7)],
         context: ({req}) => {
             const protocol = +process.env.FORCE_HTTPS === 1 ? "https" : req.protocol;
+
+            // FIXME use env
+            if (process.env.NODE_ENV === "production")
+                protocol = "https";
+
             const baseUrl = protocol + '://' + req.get('Host');
             return {baseUrl};
         },
