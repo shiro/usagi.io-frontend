@@ -10,8 +10,13 @@ export const link = createHttpLink({
     uri: "/graphql"
 });
 
+let cache  = new InMemoryCache();
+
+if (window.__APOLLO_STATE__)
+    cache.restore(window.__APOLLO_STATE__);
+
 const client = new ApolloClient({
-    cache: new InMemoryCache(),
+    cache,
     link,
 });
 

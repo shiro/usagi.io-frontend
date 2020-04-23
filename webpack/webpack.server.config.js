@@ -4,7 +4,7 @@ const path = require("path");
 const StartServerPlugin = require("start-server-webpack-plugin");
 
 const { appRoot, stats, webpackPaths, webpackFiles } = require("../config/webpack.config");
-const { pathResolver, isDevelopment } = require("./webpack.shared");
+const { pathResolver, isDevelopment, makeStyleLoaders, MiniCssExtractPlugin } = require("./webpack.shared");
 
 
 module.exports = {
@@ -36,6 +36,7 @@ module.exports = {
                     options: {
                         presets: [
                             "@babel/preset-env",
+                            "@babel/preset-react",
                             "@babel/preset-typescript"
                         ],
                         plugins: [
@@ -43,6 +44,7 @@ module.exports = {
                             ["@babel/plugin-transform-runtime", { "regenerator": true, }],
                             ["@babel/plugin-proposal-decorators", { "legacy": true }],
                             ["@babel/plugin-proposal-class-properties", { "loose": true }],
+                            "@loadable/babel-plugin",
                         ],
                         babelrc: false,
                         configFile: false,
@@ -50,12 +52,34 @@ module.exports = {
                 }],
             },
             {
-                test: /\.(svg|md|graphql)$/i,
+                test: /\.svg$/,
+                use: ["@svgr/webpack", "url-loader"],
+            },
+            {
+                test: /\.(md|graphql)$/i,
                 loader: "raw-loader",
+            },
+            {
+                test: /\.(sass|scss)$/,
+                use: [
+                    ...makeStyleLoaders("scss"),
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            sourceMap: isDevelopment,
+                            prependData: "@import \"~@/master\";",
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.(css)$/,
+                use: makeStyleLoaders("css"),
             },
         ],
     },
     plugins: [
+        MiniCssExtractPlugin,
         new CleanWebpackPlugin(),
         new webpack.EnvironmentPlugin([process.env.NODE_ENV]),
         isDevelopment && new webpack.HotModuleReplacementPlugin(),

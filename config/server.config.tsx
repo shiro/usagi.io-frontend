@@ -35,6 +35,7 @@ export const serverConfig = objectAssignDeep(
             })(),
             files: {
                 watermark: toAbsolutePath(process.env.WATERMARK_FILE),
+                loadableComponentsManifest:'loadable-stats.json',
             },
         };
     })(),

@@ -1,6 +1,13 @@
 import "config/loadEnvironment.js";
 import http from "http";
 
+// TODO move this in an init script
+// prepare fetch global
+const fetch = require('node-fetch');
+if (!globalThis.fetch) {
+    globalThis.fetch = fetch;
+}
+
 let currentApp = require("server/serverApp").default;
 const server = http.createServer(currentApp);
 

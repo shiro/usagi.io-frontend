@@ -4,36 +4,14 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackHarddiskPlugin = require("html-webpack-harddisk-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const LoadablePlugin = require("@loadable/webpack-plugin");
+const WriteFilePlugin = require("write-file-webpack-plugin");
 
 const { appRoot, stats, webpackPaths, webpackFiles } = require("../config/webpack.config");
-const { pathResolver, isDevelopment } = require("./webpack.shared");
-
-
-const makeStyleLoaders = (type) => {
-    return [
-        isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
-        {
-            loader: "css-loader",
-            options: {
-                modules: type === "css" ? false : {
-                    localIdentName: "[local]_[hash:base64:5]",
-                },
-                sourceMap: isDevelopment,
-                importLoaders: type === "css" ? 1 : 2,
-            },
-        },
-        {
-            loader: "postcss-loader",
-            options: {
-                config: { path: path.join(appRoot, "config/postcss.config.js") }
-            }
-        }
-    ];
-};
+const { pathResolver, isDevelopment, makeStyleLoaders, MiniCssExtractPlugin } = require("./webpack.shared");
 
 
 module.exports = {
@@ -68,6 +46,7 @@ module.exports = {
                         configFile: false,
                         plugins: [
                             isDevelopment && require.resolve("react-refresh/babel"),
+                            "@loadable/babel-plugin",
                         ].filter(Boolean),
                     },
                 }],
@@ -130,27 +109,25 @@ module.exports = {
         publicPath: "/", // wds resources url
     } : {},
     plugins: [
-        // new ForkTsCheckerWebpackPlugin({
-        //     checkSyntacticErrors: true,
-        //     async: isDevelopment,
-        //     useTypescriptIncrementalApi: true,
-        // }),
+        MiniCssExtractPlugin,
+        new LoadablePlugin(/*{ writeToDisk: true }*/),
+        new WriteFilePlugin({
+            // Write only files that have ".css" extension.
+            test: /^loadable-stats.json$/,
+            useHashIndex: true,
+        }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin([
             { from: webpackPaths.resourcesSrc, to: "assets/resources" },
             { from: webpackPaths.publicSrc, ignore: [webpackFiles.htmlTemplateDest] }
         ]),
-        new MiniCssExtractPlugin({
-            filename: "[name].[hash].css",
-            chunkFilename: "[id].[hash].css",
-        }),
-        new HtmlWebpackPlugin({
+        !process.env.SSR_ENABLED && new HtmlWebpackPlugin({
             template: path.join(webpackPaths.templateSrc, webpackFiles.htmlTemplateSrc),
             filename: webpackFiles.htmlTemplateDest,
             inject: "body",
             alwaysWriteToDisk: isDevelopment, // dev only
         }),
-        isDevelopment && new HtmlWebpackHarddiskPlugin(),
+        !process.env.SSR_ENABLED && isDevelopment && new HtmlWebpackHarddiskPlugin(),
         isDevelopment && new ReactRefreshWebpackPlugin({
             disableRefreshCheck: true, // TODO disable this and remove webpack-hot-middleware when the bugs are gone o.o
         }),

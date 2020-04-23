@@ -9,6 +9,7 @@ import {serverConfig} from "config/server.config"
 import buildSchema from "server/schema";
 import {indexImagePass} from "server/imageLoader";
 import {indexBlogPostPass} from "server/blogPostLoader";
+import {renderSSRPage} from "server/middleware/renderTemplateMiddleware";
 
 const appRoot = serverConfig.path.root;
 
@@ -28,12 +29,15 @@ const serverApp: express.Application = express();
         });
 }
 
-// serve the static files from the React app
-serverApp.use(express.static(path.join(appRoot, 'build')));
-
 // serve gallery
 serverApp.use('/gallery', express.static(serverConfig.path.pictureCache));
 serverApp.use('/gallery/thumb', express.static(serverConfig.path.thumbnailCache));
+
+
+serverApp.get('*', renderSSRPage);
+
+// serve the static files from the React app
+serverApp.use(express.static(path.join(appRoot, 'build')));
 
 
 export interface IApolloContext {
@@ -54,7 +58,7 @@ try {
     });
     apolloServer.applyMiddleware({app: serverApp, path: '/graphql'});
 } catch (e) {
-    console.error("appolo server failed to start: ", e);
+    console.error("apollo server failed to start: ", e);
 }
 
 

@@ -4,6 +4,8 @@ import ClientApp from '@/App/ClientApp';
 import './clientEntrypoint.scss';
 
 
+import { loadableReady } from '@loadable/component';
+
 const renderApp = (app: ReactElement) => {
     const root = document.getElementById("root");
 
@@ -13,15 +15,6 @@ const renderApp = (app: ReactElement) => {
     method.call(window, app as any, root);
 };
 
-window.onload = () => {
+loadableReady(() => {
     renderApp(<ClientApp/>);
-};
-
-// not needed when using ReactRefreshWebpackPlugin
-// keep the code something breaks, since it's quite unstable
-// if (module.hot) {
-//     module.hot.accept('@/WrappedApp', () => {
-//         const nextApp = require('@/WrappedApp');
-//         renderApp(nextApp);
-//     })
-// }
+});

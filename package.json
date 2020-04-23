@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@apollo/react-hooks": "3.1.5",
+    "@apollo/react-ssr": "3.1.5",
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "7.8.3",
@@ -46,6 +47,10 @@
     "@graphql-codegen/typescript": "1.13.3",
     "@graphql-codegen/typescript-operations": "1.13.3",
     "@graphql-codegen/typescript-react-apollo": "1.13.3",
+    "@loadable/babel-plugin": "5.12.0",
+    "@loadable/component": "5.12.0",
+    "@loadable/server": "5.12.0",
+    "@loadable/webpack-plugin": "5.12.0",
     "@pmmmwh/react-refresh-webpack-plugin": "0.2.0",
     "@svgr/webpack": "5.3.1",
     "@testing-library/dom": "7.2.1",
@@ -60,6 +65,7 @@
     "@types/graphql-depth-limit": "1.1.2",
     "@types/helmet": "0.0.45",
     "@types/jest": "^25.2.1",
+    "@types/loadable__server": "5.12.1",
     "@types/lodash": "4.14.149",
     "@types/marked": "0.7.4",
     "@types/node": "13.11.1",
@@ -99,7 +105,9 @@
     "lodash": "4.17.15",
     "marked": "1.0.0",
     "mini-css-extract-plugin": "0.9.0",
+    "node-fetch": "2.6.0",
     "node-sass": "4.13.1",
+    "null-loader": "4.0.0",
     "object-assign-deep": "0.4.0",
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "postcss-loader": "3.0.0",
@@ -129,7 +137,8 @@
     "webpack": "4.42.1",
     "webpack-cli": "3.3.11",
     "webpack-dev-server": "3.10.3",
-    "webpack-hot-middleware": "2.25.0"
+    "webpack-hot-middleware": "2.25.0",
+    "write-file-webpack-plugin": "4.5.1"
   },
   "eslintConfig": {
     "extends": "react-app"

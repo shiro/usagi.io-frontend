@@ -17,6 +17,7 @@ declare namespace NodeJS {
         readonly NODE_ENV: 'development' | 'production' | 'test';
 
         readonly FORCE_HTTPS: boolean;
+        readonly SSR_ENABLED: boolean;
 
         readonly PORT: number;
         readonly DEV_PORT: number;
@@ -25,6 +26,12 @@ declare namespace NodeJS {
         readonly CACHE_PATH: string;
         readonly WATERMARK_FILE: string;
     }
+}
+
+declare global {
+  interface Window {
+    __APOLLO_STATE__ : {};
+  }
 }
 
 declare module '*.bmp' {

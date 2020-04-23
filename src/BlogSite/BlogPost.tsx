@@ -45,7 +45,6 @@ const BlogPost: React.FC<IBlogPostProps> = (props) => {
             </figure>;
         },
         heading: (props) => {
-            console.log(removedFirstHeading)
             // remove first heading since it's rendered outside
             if (!removedFirstHeading) {
                 removedFirstHeading = true;

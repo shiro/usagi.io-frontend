@@ -18,7 +18,6 @@ const Header: React.FC<IHeader> = (props) => {
     return (
         <header className={cn(css.header)}>
             <Link className={cn(css.logoLink)} to="/">
-                {/*<img className={cn(css.logo, css[variant])} src="/assets/resources/static/logo.svg" alt="usagi.io logo"/>*/}
                 <Logo className={cn(css.logo, css[variant])} viewBox="0 0 60 94.564"  preserveAspectRatio="xMidYMid meet"/>
             </Link>
             <nav className={cn(css.navigation)}>
