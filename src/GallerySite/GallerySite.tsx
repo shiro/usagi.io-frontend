@@ -8,7 +8,7 @@ import FullscreenGalleryImage from "@/GallerySite/FullscreenGalleryImage";
 import {useState} from "react"
 import {useQuery} from '@apollo/react-hooks';
 import {GetAllImagesDocument, IImage} from "@/generated/schema";
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet-async"
 
 
 export interface IGallerySite {

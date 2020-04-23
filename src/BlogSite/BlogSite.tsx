@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet-async"
 import cn from "classnames";
 import {Switch, Route, Redirect} from "react-router-dom";
 import css from "./BlogSite.module.scss";

@@ -7,7 +7,7 @@ import DesignSection from "@/DesignSection/DesignSection";
 import ContactSection from "@/ContactSection/ContactSection";
 import Footer from "@/Footer/Footer";
 import {Person} from "schema-dts";import {JsonLd} from "react-schemaorg";
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet-async"
 
 // TODO consolidate all Ld
 const AuthorLd = () => <JsonLd<Person>

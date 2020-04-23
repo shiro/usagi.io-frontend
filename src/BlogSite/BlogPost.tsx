@@ -1,6 +1,6 @@
 import * as React from "react";
 import cn from "classnames";
-import {Helmet} from "react-helmet"
+import {Helmet} from "react-helmet-async"
 
 // import body from "@/BlogSite/exampleBlogPost.md";
 

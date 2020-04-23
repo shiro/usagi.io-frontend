@@ -10,7 +10,8 @@ import {ChunkExtractor} from "@loadable/server";
 import * as fsSync from 'fs';
 import {serverConfig} from "config/server.config";
 import {Response, Request} from "express";
-import { webpackPaths, webpackFiles } from "config/webpack.config.js";
+import {webpackPaths, webpackFiles} from "config/webpack.config.js";
+import {FilledContext} from "react-helmet-async";
 
 const fs = fsSync.promises;
 
@@ -29,7 +30,8 @@ export const renderSSRPage = async (req: Request, res: Response) => {
         });
 
         const url = req.originalUrl;
-        const app = <ServerApp url={url} apolloClient={client}/>;
+        let helmetContext = {};
+        const app = <ServerApp url={url} apolloClient={client} helmetContext={helmetContext}/>;
 
         const statsFile = path.join(serverConfig.path.assets, serverConfig.files.loadableComponentsManifest);
 
@@ -45,12 +47,14 @@ export const renderSSRPage = async (req: Request, res: Response) => {
         const initialState = client.extract();
         const apolloScript = `<script> window.__APOLLO_STATE__ = ${JSON.stringify(initialState)}; </script> `;
 
+        const title = (helmetContext as FilledContext).helmet.title;
+
         const templatePath = path.join(webpackPaths.templateSrc, webpackFiles.htmlTemplateSrc);
         let page = await fs.readFile(templatePath, "utf8");
 
         page = page
             .replace("<!-- app -->", markup)
-            .replace("<!-- head -->", "" + apolloScript + style);
+            .replace("<!-- head -->", "" + title + apolloScript + style);
 
         res.send(page);
     } catch (e) {

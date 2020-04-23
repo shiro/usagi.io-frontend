@@ -2,7 +2,7 @@ import React from 'react';
 import {Switch, Route, Redirect} from "react-router-dom";
 import MeSite from "@/MeSite/MeSite";
 import GallerySite from "@/GallerySite/GallerySite";
-import {Helmet} from "react-helmet"
+import {Helmet} from "react-helmet-async"
 import "@/App/configureFontAwesome"
 
 import "./App.module.scss";
