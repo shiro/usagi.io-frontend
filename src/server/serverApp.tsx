@@ -10,6 +10,7 @@ import buildSchema from "server/schema";
 import {indexImagePass} from "server/imageLoader";
 import {indexBlogPostPass} from "server/blogPostLoader";
 import {renderSSRPage} from "@/server/middleware/renderSSRPageMiddleware";
+import {webpackPaths, webpackFiles} from "config/webpack.config.js";
 
 const appRoot = serverConfig.path.root;
 
@@ -65,7 +66,7 @@ if (process.env.SSR_ENABLED)
     serverApp.get('*', renderSSRPage);
 
 serverApp.get('*', (req: express.Request, res: express.Response) => {
-    res.sendFile("build/index.html", {root: appRoot});
+    res.sendFile(path.join(webpackPaths.clientDest, webpackFiles.htmlTemplateDest), {root: appRoot});
 });
 
 

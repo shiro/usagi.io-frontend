@@ -29,7 +29,7 @@ module.exports.webpackPaths = {
     assetSrc: path.join(appRoot, "assets"),
     resourcesSrc: path.join(appRoot, "assets/resources"),
     publicSrc: path.join(appRoot, "public"), // things like favicons, robots.txt and other static non-assets
-    templateSrc: path.join(appRoot, "public"), // html template directory
+    templateSrc: path.join(appRoot, "assets/server"), // html template directory
 };
 
 module.exports.webpackFiles = {

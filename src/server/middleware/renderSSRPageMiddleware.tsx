@@ -10,6 +10,7 @@ import {ChunkExtractor} from "@loadable/server";
 import * as fsSync from 'fs';
 import {serverConfig} from "config/server.config";
 import {Response, Request} from "express";
+import { webpackPaths, webpackFiles } from "config/webpack.config.js";
 
 const fs = fsSync.promises;
 
@@ -44,7 +45,7 @@ export const renderSSRPage = async (req: Request, res: Response) => {
         const initialState = client.extract();
         const apolloScript = `<script> window.__APOLLO_STATE__ = ${JSON.stringify(initialState)}; </script> `;
 
-        const templatePath = path.join(appRoot, "public/index.html");
+        const templatePath = path.join(webpackPaths.templateSrc, webpackFiles.htmlTemplateSrc);
         let page = await fs.readFile(templatePath, "utf8");
 
         page = page
