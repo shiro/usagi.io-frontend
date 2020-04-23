@@ -12,9 +12,11 @@ module.exports.pathResolver = {
     plugins: [new TsconfigPathsPlugin({ configFile: path.join(appRoot, "tsconfig.json") })]
 };
 
-exports.makeStyleLoaders = (type) => {
+exports.makeStyleLoaders = (type, architecture) => {
     return [
-        MiniCssExtractPlugin.loader,
+        architecture === "server" || !exports.isDevelopment ?
+            MiniCssExtractPlugin.loader :
+            "style-loader",
         {
             loader: "css-loader",
             options: {

@@ -54,7 +54,7 @@ module.exports = {
             {
                 test: /\.(sass|scss)$/,
                 use: [
-                    ...makeStyleLoaders("scss"),
+                    ...makeStyleLoaders("scss", "client"),
                     {
                         loader: "sass-loader",
                         options: {
@@ -66,7 +66,7 @@ module.exports = {
             },
             {
                 test: /\.(css)$/,
-                use: makeStyleLoaders("css"),
+                use: makeStyleLoaders("css", "client"),
             },
             {
                 test: /\.md$/i,

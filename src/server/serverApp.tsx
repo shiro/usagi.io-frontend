@@ -9,7 +9,7 @@ import {serverConfig} from "config/server.config"
 import buildSchema from "server/schema";
 import {indexImagePass} from "server/imageLoader";
 import {indexBlogPostPass} from "server/blogPostLoader";
-import {renderSSRPage} from "server/middleware/renderTemplateMiddleware";
+import {renderSSRPage} from "@/server/middleware/renderSSRPageMiddleware";
 
 const appRoot = serverConfig.path.root;
 
@@ -33,8 +33,6 @@ const serverApp: express.Application = express();
 serverApp.use('/gallery', express.static(serverConfig.path.pictureCache));
 serverApp.use('/gallery/thumb', express.static(serverConfig.path.thumbnailCache));
 
-
-serverApp.get('*', renderSSRPage);
 
 // serve the static files from the React app
 serverApp.use(express.static(path.join(appRoot, 'build')));
@@ -62,7 +60,10 @@ try {
 }
 
 
-// catch all other requests
+// catch all other requests (SSR or client side)
+if (process.env.SSR_ENABLED)
+    serverApp.get('*', renderSSRPage);
+
 serverApp.get('*', (req: express.Request, res: express.Response) => {
     res.sendFile("build/index.html", {root: appRoot});
 });

@@ -1,3 +1,9 @@
 .container{
   background: #1E1E1E;
+
+  // TODO add proper loading states
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
