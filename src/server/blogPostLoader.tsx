@@ -3,16 +3,15 @@ import {IBlogPost} from "@/generated/schema";
 import {serverConfig} from "config/server.config";
 import path from "path";
 import marked from "marked";
-import { customErrorFactory} from 'ts-custom-error'
+import {customErrorFactory} from 'ts-custom-error'
 import slugify from "slugify";
 
 const fs = fsSync.promises;
 
 
-export const BlogMetaNotFoundError = customErrorFactory((fieldName :string, fileName: string) => {
+export const BlogMetaNotFoundError = customErrorFactory((fieldName: string, fileName: string) => {
     this.message = `meta '${fieldName}' not found in file '${fileName}'`;
 })
-
 
 
 type IBlogPostCacheEntry = {
