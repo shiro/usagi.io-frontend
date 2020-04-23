@@ -2,7 +2,7 @@
 
 set -e
 
-docker-compose up -d
+(docker-compose up) &
 sleep 20
 #docker-compose exec -T php composer req sensiolabs/security-checker
 #docker-compose exec -T php bin/console security:check
