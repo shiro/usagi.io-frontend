@@ -50,8 +50,9 @@ try {
         validationRules: [depthLimit(7)],
         context: ({req}) => {
             let protocol = process.env.FORCE_HTTPS ? "https" : req.protocol;
+            const port = protocol === "https" ? 443 : process.env.PORT;
 
-            const baseUrl = protocol + '://' + req.get('Host');
+            const baseUrl = `${protocol}://${process.env.PUBLIC_HOST}:${port}`;
             return {baseUrl};
         },
     });

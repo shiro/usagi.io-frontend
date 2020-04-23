@@ -18,6 +18,7 @@ declare namespace NodeJS {
 
         readonly FORCE_HTTPS: boolean;
         readonly SSR_ENABLED: boolean;
+        readonly PUBLIC_HOST: string;
 
         readonly PORT: number;
         readonly DEV_PORT: number;
