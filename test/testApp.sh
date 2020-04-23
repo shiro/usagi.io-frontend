@@ -1,3 +1,7 @@
+#!/bin/bash
+
+set -e
+
 docker-compose up -d
 sleep 20
 #docker-compose exec -T php composer req sensiolabs/security-checker
