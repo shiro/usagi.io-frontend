@@ -67,7 +67,7 @@ if (process.env.SSR_ENABLED)
     serverApp.get('*', renderSSRPage);
 
 serverApp.get('*', (req: express.Request, res: express.Response) => {
-    res.sendFile(path.join(webpackPaths.clientDest, webpackFiles.htmlTemplateDest), {root: appRoot});
+    res.sendFile(path.join(webpackPaths.clientDest, webpackFiles.htmlTemplateDest) );
 });
 
 
