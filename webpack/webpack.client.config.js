@@ -55,13 +55,6 @@ module.exports = {
                 test: /\.(sass|scss)$/,
                 use: [
                     ...makeStyleLoaders("scss", "client"),
-                    {
-                        loader: "sass-loader",
-                        options: {
-                            sourceMap: isDevelopment,
-                            prependData: "@import \"~@/master\";",
-                        },
-                    },
                 ],
             },
             {

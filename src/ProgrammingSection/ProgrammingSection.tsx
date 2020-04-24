@@ -1,11 +1,10 @@
 import * as React from "react";
 import cn from "classnames";
-
-import css from "./ProgrammingSection.module.scss";
 import SectionTitleComponent from "@/SectionTitleComponent/SectionTitleComponent";
 import body from "@/ProgrammingSection/programmingSectionBody.md";
 import SectionDescriptionComponent from "@/SectionDescriptionComponent/SectionDescriptionComponent";
-import Carousel from "@/MeSite/Carousel/Carousel";
+import IconGrid from "@/MeSite/IconGrid/IconGrid";
+import css from "./ProgrammingSection.module.scss";
 
 
 
@@ -22,7 +21,7 @@ const ProgrammingSection: React.FC<IProgrammingSection> = (props) => {
                 {body}
             </SectionDescriptionComponent>
 
-            <Carousel />
+            <IconGrid />
         </section>
     );
 };

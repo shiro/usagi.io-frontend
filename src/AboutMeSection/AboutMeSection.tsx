@@ -6,7 +6,7 @@ import SectionTitleComponent from "@/SectionTitleComponent/SectionTitleComponent
 /* eslint import/no-webpack-loader-syntax: off */
 import body from "@/AboutMeSection/aboutMeSectionBody.md";
 import SectionDescriptionComponent from "@/SectionDescriptionComponent/SectionDescriptionComponent";
-import Carousel from "@/MeSite/Carousel/Carousel";
+import IconGrid from "@/MeSite/IconGrid/IconGrid";
 
 
 export interface IAboutMeSection {
