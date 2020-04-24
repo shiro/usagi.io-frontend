@@ -1,7 +1,14 @@
 $colors: (
-        white: #fff,
-        black: #000,
-        gray: #858585,
+  white: #fff,
+  black: #000,
+  gray: #858585,
+
+  green: #2B884D,
+  blue: #4A82C2,
+  red: #C43E3E,
+  lightRed: #F6E2E2,
+  oragne: #D6955B,
+  purple: #787AC5,
 );
 
 @function color($key){
