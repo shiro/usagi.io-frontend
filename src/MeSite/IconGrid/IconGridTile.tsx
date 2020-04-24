@@ -16,21 +16,19 @@ const IconGridTile: React.FC<IIconGridTileProps> = (props) => {
     const text = textArr[Math.round(Math.random() * (textArr.length - 1))];
     const active = Math.round(Math.random());
 
-    const color = theme.colors.blue;
+    const color = theme.colors.red;
+    const colorMuted = theme.colors.redMuted;
+    const Icon = FontAwesomeIcon;
 
     return (
         <div className={cn(css.outerContainer)}>
-
-            {/*<div className={cn(css.container)}>*/}
             <div className={cn(css.tileContainer)}>
-                <div className={cn(css.tile, {[css.active]: active})} style={{backgroundColor: color}}>
-                    <FontAwesomeIcon className={cn(css.icon)} icon={faGithub} preserveAspectRatio="xMidYMid meet"/>
-
+                <div className={cn(css.tile, {[css.active]: active})} style={{backgroundColor: active ? color : colorMuted}}>
+                    <Icon className={cn(css.icon)} icon={faGithub} preserveAspectRatio="xMidYMid meet"/>
                 </div>
             </div>
-            {/*</div>*/}
             <span className={cn(css.textContainer, {[css.active]: active})}
-                style={{'&':{color: color}}}
+                style={{color: active ? color : colorMuted}}
             >{text}</span>
         </div>
     );
