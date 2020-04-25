@@ -25,7 +25,9 @@ const IconGrid: React.FC<IIconGridProps> = (props) => {
     return (
         <div className={cn(css.container)}>
             {tileData.map(({name, Icon, iconProps}, index) =>
-                <IconGridTile key={name} color={color} colorMuted={colorMuted} Icon={Icon}
+                <IconGridTile
+                    className={cn(css.item)}
+                    key={name} color={color} colorMuted={colorMuted} Icon={Icon}
                     iconProps={iconProps} name={name} active={index === activeItem}
                     onClick={() => {onItemClick?.(index)}}
                 />

@@ -1,4 +1,38 @@
 .container {
+  padding: 1vh 20vw 8vh;
+
+  .title {
+    color: color(red);
+    font-weight: 600;
+    @include fluid-type($width-min-point, $width-max-point, 20px, 40px);
+    text-align: left;
+    margin: 0 0 2vh;
+  }
+
+  .skillSectionContainer {
+    text-align: left;
+    display: flex;
+
+    .skillHeading {
+      white-space: nowrap;
+      margin: .7vh 0;
+    }
+    .skillContainer {
+      display: flex;
+      flex-wrap: wrap;
+
+      .skill {
+        background: color(red);
+        padding: .5vh;
+        margin: .2vh .7vw;
+        border-radius: 7px;
+        color: color(white);
+        font-weight: 700;
+        white-space: nowrap;
+      }
+    }
+  }
+
   p {
     @include fluid-type($width-min-point, $width-max-point, 14px, 30px);
     text-align: left;

@@ -12,13 +12,14 @@ export interface IIconGridTileProps {
     iconProps?: React.ComponentProps<any>,
     active?: boolean;
     onClick?: () => void;
+    className?: string;
 }
 
 const IconGridTile: React.FC<IIconGridTileProps> = (props) => {
-    const {name, color, colorMuted, Icon, iconProps, active, onClick} = props;
+    const {name, color, colorMuted, Icon, iconProps, active, onClick, className} = props;
 
     return (
-        <div className={cn(css.outerContainer)} onClick={onClick}>
+        <div className={cn(css.outerContainer, className)} onClick={onClick}>
             <div className={cn(css.tileContainer)}>
                 <div className={cn(css.tile, {[css.active]: active})} style={{backgroundColor: active ? color : colorMuted}}>
                     <Icon className={cn(css.icon)} {...iconProps} preserveAspectRatio="xMidYMid meet"/>

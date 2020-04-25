@@ -1,4 +1,6 @@
 .description {
+  padding: 6vh 20vw 8vh;
+
   p {
     @include fluid-type($width-min-point, $width-max-point, 14px, 30px);
     text-align: left;
