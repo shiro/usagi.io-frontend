@@ -14,7 +14,7 @@ export interface IGalleryDescriptionSection {
 const GalleryDescriptionSection: React.FC<IGalleryDescriptionSection> = (props) => {
     return (
         <div className={cn(css.section)}>
-            <SectionTitleComponent title="Pictures" variant="dark"/>
+            <SectionTitleComponent title="Pictures" variant="black"/>
 
             <SectionDescriptionComponent>
                 {body}

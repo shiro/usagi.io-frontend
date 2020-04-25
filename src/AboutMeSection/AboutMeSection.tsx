@@ -16,7 +16,7 @@ export interface IAboutMeSection {
 const AboutMeSection: React.FC<IAboutMeSection> = (props) => {
     return (
         <section className={cn(css.section)}>
-            <SectionTitleComponent title="About Me" variant="light"/>
+            <SectionTitleComponent title="About Me" variant="white"/>
 
             <SectionDescriptionComponent>
                 {body}

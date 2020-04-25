@@ -15,11 +15,9 @@ export interface IDesignSection {
 const DesignSection: React.FC<IDesignSection> = (props) => {
     return (
             <section className={cn(css.section)}>
-                <SectionTitleComponent title="Design" variant="light"/>
+                <SectionTitleComponent title="Design" variant="white"/>
 
-                <SectionDescriptionComponent>
-                    {body}
-                </SectionDescriptionComponent>
+                <SectionDescriptionComponent children={body} />
             </section>
     );
 };

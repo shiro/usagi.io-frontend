@@ -10,14 +10,18 @@ export interface ISectionAdditionalTextProps {
     children: string;
     title: string;
     skills?: string[];
+
+    containerElementRef: (element: HTMLElement | null) => void;
+    Wrapper?: React.ElementType;
+    wrapperProps?:React.ComponentProps<any>;
 }
 
 
 const SectionAdditionalText: React.FC<ISectionAdditionalTextProps> = (props) => {
-    const {children, className, title, skills = []} = props;
+    const {children, className, title, skills = [], containerElementRef, Wrapper = 'div', wrapperProps} = props;
 
     return (
-        <div className={cn(css.container, className)}>
+        <Wrapper className={cn(css.container, className)} ref={containerElementRef} {...wrapperProps}>
             <h1 className={cn(css.title)}>{title}</h1>
             <ReactMarkdown source={children} escapeHtml={false}/>
 
@@ -25,10 +29,10 @@ const SectionAdditionalText: React.FC<ISectionAdditionalTextProps> = (props) => 
                 <span className={cn(css.skillHeading)}>Relevant skills:</span>
 
                 <div className={cn(css.skillContainer)}>
-                {skills.map((skill) => <span className={cn(css.skill)}>{skill}</span>)}
+                    {skills.map((skill) => <span key={skill} className={cn(css.skill)}>{skill}</span>)}
                 </div>
             </div>}
-        </div>
+        </Wrapper>
     );
 };
 
