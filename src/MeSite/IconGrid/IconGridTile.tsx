@@ -2,34 +2,31 @@ import * as React from "react";
 import cn from "classnames";
 
 import css from "./IconGridTile.module.scss";
-import {faGithub} from "@fortawesome/free-brands-svg-icons/faGithub";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import theme from "config/theme.js";
 
 
 export interface IIconGridTileProps {
+    color: string;
+    colorMuted: string;
+    name: string;
+    Icon: React.ElementType;
+    iconProps?: React.ComponentProps<any>,
+    active?: boolean;
+    onClick?: () => void;
 }
 
-
 const IconGridTile: React.FC<IIconGridTileProps> = (props) => {
-    const textArr = ["Software Design", "Git", "Game Dev", "Rust"];
-    const text = textArr[Math.round(Math.random() * (textArr.length - 1))];
-    const active = Math.round(Math.random());
-
-    const color = theme.colors.red;
-    const colorMuted = theme.colors.redMuted;
-    const Icon = FontAwesomeIcon;
+    const {name, color, colorMuted, Icon, iconProps, active, onClick} = props;
 
     return (
-        <div className={cn(css.outerContainer)}>
+        <div className={cn(css.outerContainer)} onClick={onClick}>
             <div className={cn(css.tileContainer)}>
                 <div className={cn(css.tile, {[css.active]: active})} style={{backgroundColor: active ? color : colorMuted}}>
-                    <Icon className={cn(css.icon)} icon={faGithub} preserveAspectRatio="xMidYMid meet"/>
+                    <Icon className={cn(css.icon)} {...iconProps} preserveAspectRatio="xMidYMid meet"/>
                 </div>
             </div>
             <span className={cn(css.textContainer, {[css.active]: active})}
                 style={{color: active ? color : colorMuted}}
-            >{text}</span>
+            >{name}</span>
         </div>
     );
 };
