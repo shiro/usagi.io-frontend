@@ -33,7 +33,10 @@ const ProgrammingSection: React.FC<IProgrammingSectionProps> = (props) => {
 
     return (
         <section className={cn(css.section)}>
-            <SectionBackgroundImage Image={GitBackground} imageProps={{preserveAspectRatio: "xMinYMin meet"}}/>
+            {/*<SectionBackgroundImage Image={skills[activeTile][1]} imageProps={{preserveAspectRatio: "xMinYMin meet"}}*/}
+            {/*    color={theme.colors.red} opacity={.1}*/}
+            {/*/>*/}
+
             <SectionTitleComponent title="Software Engineering" color={theme.colors.red}/>
             <SectionDescriptionComponent children={body}/>
 

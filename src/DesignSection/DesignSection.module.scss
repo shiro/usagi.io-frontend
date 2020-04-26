@@ -5,4 +5,10 @@
   background: color(black);
   color: color(white);
   text-align: center;
+  position: relative;
+  //z-index: -2;
+
+  //& > * {
+  //  z-index: 5;
+  //}
 }

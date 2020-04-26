@@ -13,6 +13,7 @@ import {useState} from "react";
 import useMeasure from "react-use-measure";
 import {animated, useSpring} from "react-spring";
 import SectionAdditionalText from "@/SectionDescriptionComponent/SectionAdditionalText";
+import SectionBackgroundImage from "@/MeSite/SectionBackgroundImage";
 
 
 export interface IDesignSection {
@@ -36,6 +37,11 @@ const DesignSection: React.FC<IDesignSection> = (props) => {
 
     return (
             <section className={cn(css.section)}>
+                {/*<SectionBackgroundImage*/}
+                {/*    Image={skills[activeTile][1]} imageProps={{preserveAspectRatio: "xMinYMin meet"}}*/}
+                {/*    color={theme.colors.blue} opacity={.3}*/}
+                {/*/>*/}
+
                 <SectionTitleComponent title="Design" color={theme.colors.blue} />
 
                 <SectionDescriptionComponent children={body}/>

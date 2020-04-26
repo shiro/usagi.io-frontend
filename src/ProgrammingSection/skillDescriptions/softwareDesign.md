@@ -1,6 +1,3 @@
-Building **big and scalable** systems is difficult, therefore early planning is necessary
-to avoid big code and infrastructure changes later.
-
 Designing **complex systems** and thinking about how to **structure code** in a way
 that supports future extensions is a fun challenge. Through my work I've built
 several systems that provide **web services**, **handle email** and **load balance

@@ -1,7 +1,3 @@
-Developing native applications that work on a range of different devices
-can often be challenging. There are many different programming languages and
-frameworks, but their use is usually limited to a specific device type or operating system.
-
 Through the years I've worked with **WPF** to build
 Windows tools that support users' workflows and used **Rust** together with **GTK** for
 some simple high-performance applications that run on Linux.
