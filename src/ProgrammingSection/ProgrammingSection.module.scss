@@ -1,5 +1,3 @@
-@import "~@/master";
-
 .section {
   padding: 6vh 0 8vh;
   text-align: center;
@@ -9,9 +7,4 @@
 .additionalText {
   //transition: all 3s ease-in-out;
   margin: 3vh 0 0;
-
-  strong {
-    color: color(red);
-    font-weight: 900;
-  }
 }

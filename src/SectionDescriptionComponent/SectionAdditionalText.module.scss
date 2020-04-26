@@ -2,7 +2,7 @@
   padding: 1vh 20vw 8vh;
 
   .title {
-    color: color(red);
+    color: var(--color);
     font-weight: 600;
     @include fluid-type($width-min-point, $width-max-point, 20px, 40px);
     text-align: left;
@@ -22,7 +22,7 @@
       flex-wrap: wrap;
 
       .skill {
-        background: color(red);
+        background: var(--color);
         padding: .5vh;
         margin: .2vh .7vw;
         border-radius: 7px;
@@ -41,6 +41,11 @@
     &:not(:last-child) {
       padding-bottom: 3vh;
     }
+  }
+
+  strong {
+    color: var(--color);
+    font-weight: 900;
   }
 
   code {
