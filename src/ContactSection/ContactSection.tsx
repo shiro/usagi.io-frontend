@@ -17,7 +17,6 @@ const ContactSection: React.FC<IContactSection> = (props) => {
         <section className={cn(css.section)}>
             <SectionTitleComponent title="Contact" color={theme.colors.red}/>
 
-            <br />
             <div className={cn(css.rowContainer)}>
 
             <p className={cn(css.row)}>
