@@ -14,9 +14,6 @@ import { Helmet } from "react-helmet-async"
 export interface IGallerySite {
 }
 
-// class ImageQuery extends Query<Image, {}>{}
-// const foo  :Query= {images: undefined};
-
 
 const GallerySite: React.FC<IGallerySite> = (props) => {
     const [openPicture, setOpenPicture] = useState<IImage | undefined>(undefined);

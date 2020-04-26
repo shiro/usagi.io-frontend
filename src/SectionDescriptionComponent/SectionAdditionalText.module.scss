@@ -12,6 +12,7 @@
   .skillSectionContainer {
     text-align: left;
     display: flex;
+    @include fluid-type($width-min-point, $width-max-point, 14px, 30px);
     $pillBorderMarginY: .7vh;
     $pillBorderMarginX: 1vw;
 

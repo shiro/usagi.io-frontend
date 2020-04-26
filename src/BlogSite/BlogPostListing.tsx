@@ -3,16 +3,15 @@ import cn from "classnames";
 
 import css from "./BlogPostListing.module.scss";
 import BlogPost from "@/BlogSite/BlogPost";
-import {useQuery} from "@apollo/react-hooks";
-import {GetAllBlogPostsDocument} from "@/generated/schema";
+import {useGetAllBlogPostsQuery} from "@/generated/schema";
 
 
-export interface IBlogPostListingProps {
-}
+export interface IBlogPostListingProps {}
 
 
 const BlogPostListing: React.FC<IBlogPostListingProps> = (props) => {
-    const {loading, error, data} = useQuery<>(GetAllBlogPostsDocument);
+    const {loading, error, data} = useGetAllBlogPostsQuery();
+    console.log(data)
 
     if (loading)
         return null;

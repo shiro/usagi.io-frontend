@@ -7,9 +7,14 @@
   justify-content: space-between;
   padding: 0 5vw;
 
+  @include size-m {
+    padding-left: 20vw;
+    padding-right: 20vw;
+  }
+
   @include size-xl {
-    padding-left: 7vw;
-    padding-right: 7vw;
+    padding-left: 20vw;
+    padding-right: 20vw;
   }
 
   .item {

@@ -12,7 +12,7 @@ type BlogPost{
 
 type Query {
   helloWorld: String!
-  images: [Image]
-  posts: [BlogPost]
+  images: [Image!]!
+  posts: [BlogPost!]!
   post(id: String!): BlogPost
 }
