@@ -1,8 +1,48 @@
 @import "~@/master";
 
-.section{
+.section {
+  width: 100%;
   padding: 6vh 20vw 8vh;
   text-align: center;
+  @include fluid-type($width-min-point, $width-max-point, 20px, 30px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  @include fluid-type($width-min-point, $width-max-point, 14px, 30px);
+  & a {
+    text-decoration: none !important;
+  }
+
+
+  .rowContainer {
+    text-align: left;
+
+    .row {
+      margin: 0 0 3vh;
+      width: 100%;
+      vertical-align: center;
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      color: color(lightBlack);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .sideText {
+        color: color(grayMutedDarker);
+      }
+
+      .icon {
+        margin: 0 2.5vw 0 0;
+        height: 2em;
+        width: 2em;
+
+        path {
+          fill: color(red);
+        }
+      }
+    }
+  }
 }

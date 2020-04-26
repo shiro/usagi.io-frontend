@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  //flex-direction: row;
+  margin: 3vh 0;
+  justify-content: space-between;
+  padding: 0 5vw;
+
+  @include size-m {
+    padding-left: 20vw;
+    padding-right: 20vw;
+  }
+
+  @include size-xl {
+    padding-left: 20vw;
+    padding-right: 20vw;
+  }
+
+  .item {
+    $itemsPerRow: 5;
+    $width: 11%;
+
+    width: $width;
+    margin: 1vh ((100% / $itemsPerRow) - $width) /2;
+  }
+}

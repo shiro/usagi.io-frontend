@@ -6,13 +6,13 @@ $size-s: 1366px;
 $size-l: 1920px;
 
 @mixin size-xs {
-  @media (max-width: #{$size-xs}) {
+  @media (max-width: #{$size-xs - 1px}) {
     @content;
   }
 }
 
 @mixin size-m {
-  @media (max-width: #{$size-xs}) and (max-width: #{$desktop-width - 1px}) {
+  @media (min-width: #{$size-xs}) and (max-width: #{$size-l - 1px}) {
     @content;
   }
 }

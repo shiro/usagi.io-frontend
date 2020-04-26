@@ -1,11 +1,84 @@
-$colors: (
-        white: #fff,
-        black: #000,
-        gray: #858585,
-);
+$colors: get("colors");
 
-@function color($key){
-  @return map_get($colors, $key)
+//$colors: (
+//  white: #fff,
+//  black: #000,
+//  gray: #858585,
+//
+//  green: #2B884D,
+//  blue: #4A82C2,
+//  red-muted: #DBB6B6,
+//  red: #C43E3E,
+//  lightRed: #F6E2E2,
+//  oragne: #D6955B,
+//  purple: #787AC5,
+//);
+@function _hex-to-dec($string) {
+  $hex: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9" "a" "b" "c" "d" "e" "f";
+  $string: to-lower-case($string);
+  $length: str-length($string);
+
+  $dec: 0;
+  @for $i from 1 through $length {
+    $factor: 1 + (15 * ($length - $i));
+    $index: index($hex, str-slice($string, $i, $i));
+    $dec: $dec + $factor * ($index - 1);
+  }
+
+  @return $dec;
+}
+
+@function _from-hex($string) {
+  $string-lower: to-lower-case($string);
+  $r: "";
+  $g: "";
+  $b: "";
+  $hex: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9" "a" "b" "c" "d" "e" "f";
+  $length: str-length($string);
+  $max: if($length == 4, 1, 2);
+
+  // Check for length accuracy
+  @if $length != 4 and $length != 7 {
+    @return $string;
+  }
+
+  // Loop from the second character (omitting #)
+  @for $i from 2 through $length {
+    $c: str-slice($string-lower, $i, $i);
+
+    // If wrong character, return
+    @if index($hex, $c) == null {
+      @return $string;
+    }
+
+    @if str-length($r) < $max {
+      $r: $r + $c;
+    } @else if str-length($g) < $max {
+      $g: $g + $c;
+    } @else if str-length($b) < $max {
+      $b: $b + $c;
+    }
+  }
+
+  @if $length == 4 {
+    $r: $r + $r;
+    $g: $g + $g;
+    $b: $b + $b;
+  }
+
+  @return rgb(_hex-to-dec($r), _hex-to-dec($g), _hex-to-dec($b));
+}
+
+
+@function color($key) {
+  $foo: map_get($colors, quote($key));
+
+  @if not $key or not $foo {
+    @warn "cannot find color with key: '" + $key+"', skipping";
+    @return null;
+  }
+
+  @return _from-hex(map_get($colors, quote($key)));
 }
 
 @mixin linkColor($color) {

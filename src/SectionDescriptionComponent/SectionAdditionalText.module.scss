@@ -1,0 +1,57 @@
+.container {
+  padding: 1vh 20vw 3vh;
+
+  .title {
+    color: var(--color);
+    font-weight: 600;
+    @include fluid-type($width-min-point, $width-max-point, 20px, 40px);
+    text-align: left;
+    margin: 0 0 2vh;
+  }
+
+  .skillSectionContainer {
+    text-align: left;
+    display: flex;
+    @include fluid-type($width-min-point, $width-max-point, 14px, 30px);
+    $pillBorderMarginY: .7vh;
+    $pillBorderMarginX: 1vw;
+
+    .skillHeading {
+      white-space: nowrap;
+      margin: $pillBorderMarginY 0;
+    }
+    .skillContainer {
+      display: flex;
+      flex-wrap: wrap;
+
+      .skill {
+        background: var(--pillBackgroundColor);
+        padding: $pillBorderMarginY $pillBorderMarginX;
+        margin: .2vh .7vw;
+        border-radius: 7px;
+        color: color(white);
+        font-weight: 700;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  p {
+    @include fluid-type($width-min-point, $width-max-point, 14px, 30px);
+    text-align: left;
+    line-height: 1.7;
+
+    &:not(:last-child) {
+      padding-bottom: 3vh;
+    }
+  }
+
+  strong {
+    color: var(--color);
+    font-weight: 900;
+  }
+
+  code {
+    font-weight: 900;
+  }
+}

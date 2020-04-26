@@ -55,13 +55,6 @@ module.exports = {
                 test: /\.(sass|scss)$/,
                 use: [
                     ...makeStyleLoaders("scss", "client"),
-                    {
-                        loader: "sass-loader",
-                        options: {
-                            sourceMap: isDevelopment,
-                            prependData: "@import \"~@/master\";",
-                        },
-                    },
                 ],
             },
             {
@@ -74,7 +67,16 @@ module.exports = {
             },
             {
                 test: /\.svg$/,
-                use: ["@svgr/webpack", "url-loader"],
+                use: [{
+                    loader: "@svgr/webpack",
+                    options: {
+                        svgoConfig: {
+                            plugins: {
+                                removeViewBox: false,
+                            }
+                        }
+                    }
+                }, "url-loader"],
             }
         ],
     },
