@@ -4,7 +4,7 @@ const path = require("path");
 const StartServerPlugin = require("start-server-webpack-plugin");
 
 const { appRoot, stats, webpackPaths, webpackFiles } = require("../config/webpack.config");
-const { pathResolver, isDevelopment, makeStyleLoaders, MiniCssExtractPlugin } = require("./webpack.shared");
+const { pathResolver, isDevelopment, makeStyleLoaders, makeSvgLoaders, MiniCssExtractPlugin } = require("./webpack.shared");
 
 
 module.exports = {
@@ -53,7 +53,7 @@ module.exports = {
             },
             {
                 test: /\.svg$/,
-                use: ["@svgr/webpack", "url-loader"],
+                use: makeSvgLoaders(),
             },
             {
                 test: /\.(md|graphql)$/i,

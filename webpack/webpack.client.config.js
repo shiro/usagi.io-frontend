@@ -11,7 +11,7 @@ const LoadablePlugin = require("@loadable/webpack-plugin");
 const WriteFilePlugin = require("write-file-webpack-plugin");
 
 const { appRoot, stats, webpackPaths, webpackFiles } = require("../config/webpack.config");
-const { pathResolver, isDevelopment, makeStyleLoaders, MiniCssExtractPlugin } = require("./webpack.shared");
+const { pathResolver, isDevelopment, makeStyleLoaders, makeSvgLoaders, MiniCssExtractPlugin } = require("./webpack.shared");
 
 
 module.exports = {
@@ -67,16 +67,7 @@ module.exports = {
             },
             {
                 test: /\.svg$/,
-                use: [{
-                    loader: "@svgr/webpack",
-                    options: {
-                        svgoConfig: {
-                            plugins: {
-                                removeViewBox: false,
-                            }
-                        }
-                    }
-                }, "url-loader"],
+                use: makeSvgLoaders(),
             }
         ],
     },

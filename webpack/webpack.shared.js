@@ -59,6 +59,18 @@ exports.makeStyleLoaders = (type, architecture) => {
     ].filter(Boolean);
 };
 
+exports.makeSvgLoaders = () => [{
+    loader: "@svgr/webpack",
+    options: {
+        svgoConfig: {
+            plugins: {
+                removeViewBox: false,
+            }
+        }
+    }
+}, "url-loader"];
+
+
 exports.MiniCssExtractPlugin = new MiniCssExtractPlugin({
     filename: "[name].[hash].css",
     chunkFilename: "[id].[hash].css",
