@@ -17,6 +17,10 @@
     $pillBorderMarginY: .7vh;
     $pillBorderMarginX: 1vw;
 
+    @include size-xs {
+      flex-direction: column;
+    }
+
     .skillHeading {
       white-space: nowrap;
       margin: $pillBorderMarginY 0;
