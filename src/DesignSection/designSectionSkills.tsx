@@ -1,6 +1,8 @@
-import gamedevMd from "@/ProgrammingSection/gamedev.md";
-import gitMd from "@/ProgrammingSection/git.md";
-import softwareDesignMd from "@/ProgrammingSection/softwareDesign.md";
+import digitalPhotoEditingMd from "@/DesignSection/skillDescriptions/digitalPhotoEditing.md";
+import photographyMd from "@/DesignSection/skillDescriptions/photography.md";
+import pixelArtMd from "@/DesignSection/skillDescriptions/pixelArt.md";
+import UIDesignMd from "@/DesignSection/skillDescriptions/UIDesign.md";
+import webDesignMd from "@/DesignSection/skillDescriptions/webDesign.md";
 
 import {ReactComponent as uiDesignIcon} from "assets/resources/static/icons/ui-design-icon.svg";
 import {ReactComponent as pixelArtIcon} from "assets/resources/static/icons/pixel-art-icon.svg";
@@ -9,9 +11,9 @@ import {ReactComponent as webDesignIcon} from "assets/resources/static/icons/web
 import {ReactComponent as digitalPhotoEditingIcon} from "assets/resources/static/icons/digital-photo-editing-icon.svg";
 
 export const designSectionSkills = [
-    ["Web design", webDesignIcon, softwareDesignMd, ["Photoshop", "Illustrator", "XD", "Java Script"]],
-    ["UI/UX design", uiDesignIcon, gamedevMd, ["Photoshop", "Illustrator", "XD"]],
-    ["Photography", photographyIcon, gamedevMd, ["foo"]],
-    ["Pixel art", pixelArtIcon, softwareDesignMd, ["Sketching", "Animation", "Krita"]],
-    ["Digital photo editing", digitalPhotoEditingIcon, gamedevMd, ["Photoshop", "Lightroom", "Darktable"]],
+    ["Web design", webDesignIcon, webDesignMd, ["Photoshop", "Illustrator", "XD", "Java Script", "Figma", "Sketching"]],
+    ["UI/UX design", uiDesignIcon, UIDesignMd, ["Photoshop", "Illustrator", "XD", "Figma", "Prototyping", "Design evaluation", "User studies"]],
+    ["Photography", photographyIcon, photographyMd, ["Light theory", "Work with modern tools", "Flashlight photography", "Digital image editing"]],
+    ["Pixel art", pixelArtIcon, pixelArtMd, ["Sketching", "Minimalist thinking", "Imagination", "Animation", "Krita"]],
+    ["Digital photo editing", digitalPhotoEditingIcon, digitalPhotoEditingMd, ["Photoshop", "Lightroom", "Darktable", "Light theory"]],
 ];
