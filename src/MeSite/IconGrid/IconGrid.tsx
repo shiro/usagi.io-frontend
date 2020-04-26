@@ -6,11 +6,16 @@ import IconGridTile from "@/MeSite/IconGrid/IconGridTile";
 
 
 export interface IIconGridProps {
-    color: string;
-    colorMuted: string;
+    tileColor: string;
+    tileColorInactive: string;
+    textColor: string;
+    textColorInactive: string;
+    iconColor: string;
+    iconColorInactive: string;
+
     tileData: ITileData[];
     activeItem: number;
-    onItemClick?:(item: number) => void;
+    onItemClick?: (item: number) => void;
 }
 
 export interface ITileData {
@@ -20,17 +25,29 @@ export interface ITileData {
 }
 
 const IconGrid: React.FC<IIconGridProps> = (props) => {
-    const {color, colorMuted, tileData, activeItem, onItemClick} = props;
+    const {
+        tileColor, tileColorInactive, textColor, textColorInactive, iconColor, iconColorInactive,
+        tileData, activeItem, onItemClick
+    } = props;
 
     return (
         <div className={cn(css.container)}>
-            {tileData.map(({name, Icon, iconProps}, index) =>
-                <IconGridTile
-                    className={cn(css.item)}
-                    key={name} color={color} colorMuted={colorMuted} Icon={Icon}
-                    iconProps={iconProps} name={name} active={index === activeItem}
-                    onClick={() => {onItemClick?.(index)}}
-                />
+            {tileData.map(({name, Icon, iconProps}, index) => {
+                    const isActive = index === activeItem;
+
+                    return <IconGridTile
+                        className={cn(css.item)}
+                        key={name}
+                        tileColor={isActive ? tileColor : tileColorInactive}
+                        iconColor={isActive ? iconColor : iconColorInactive}
+                        textColor={isActive ? textColor : textColorInactive}
+                        Icon={Icon}
+                        iconProps={iconProps}
+                        name={name}
+                        active={isActive}
+                        onClick={() => {onItemClick?.(index)}}
+                    />;
+                }
             )}
         </div>
     );

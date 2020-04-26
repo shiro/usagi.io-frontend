@@ -11,13 +11,6 @@
 
     // pad container for hr
     padding: 0 30px;
-
-    &.white {
-      color: color(white);
-    }
-    &.red {
-      color: color(red);
-    }
   }
 
   .spacer {
@@ -25,12 +18,5 @@
     width: 100%;
     border: none;
     border-bottom: 5px solid color(black);
-
-    &.white {
-      border-color: color(white);
-    }
-    &.red {
-      border-color: color(red);
-    }
   }
 }

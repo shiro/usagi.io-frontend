@@ -21,9 +21,6 @@ export interface IProgrammingSectionProps {}
 
 
 const ProgrammingSection: React.FC<IProgrammingSectionProps> = (props) => {
-    const color = theme.colors.red;
-    const colorMuted = theme.colors.redMuted;
-
     const skills = programmingSectionSkills;
     const skillTileData: ITileData[] = skills.map(([name, Icon]) => ({name, Icon}));
 
@@ -37,19 +34,27 @@ const ProgrammingSection: React.FC<IProgrammingSectionProps> = (props) => {
     return (
         <section className={cn(css.section)}>
             <SectionBackgroundImage Image={GitBackground} imageProps={{preserveAspectRatio: "xMinYMin meet"}}/>
-            <SectionTitleComponent title="Software Engineering" variant="red"/>
+            <SectionTitleComponent title="Software Engineering" color={theme.colors.red}/>
             <SectionDescriptionComponent children={body}/>
 
             <animated.div style={{overflow: "hidden", ...springStyle}}>
                 <SectionAdditionalText
-                    color={color}
+                    color={theme.colors.red}
+                    pillBackgroundColor={theme.colors.red}
                     containerElementRef={ref}
                     className={cn(css.additionalText)} title={skills[activeTile][0]} children={skills[activeTile][2]}
                     skills={skills[activeTile][3]}
                 />
             </animated.div>
 
-            <IconGrid color={color} colorMuted={colorMuted}
+            <IconGrid
+                iconColor={theme.colors.white}
+                iconColorInactive={theme.colors.white}
+                textColor={theme.colors.red}
+                textColorInactive={theme.colors.lightBlack}
+                tileColor={theme.colors.red}
+                tileColorInactive={theme.colors.redMuted}
+
                 tileData={skillTileData} activeItem={activeTile}
                 onItemClick={handleItemClick}
             />

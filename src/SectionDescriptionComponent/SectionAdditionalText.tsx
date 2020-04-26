@@ -11,6 +11,7 @@ export interface ISectionAdditionalTextProps {
     title: string;
     skills?: string[];
     color: string;
+    pillBackgroundColor: string;
 
     containerElementRef: (element: HTMLElement | null) => void;
     Wrapper?: React.ElementType;
@@ -19,11 +20,11 @@ export interface ISectionAdditionalTextProps {
 
 
 const SectionAdditionalText: React.FC<ISectionAdditionalTextProps> = (props) => {
-    const {children, className, color, title, skills = [], containerElementRef, Wrapper = 'div', wrapperProps} = props;
+    const {children, className, color, pillBackgroundColor, title, skills = [], containerElementRef, Wrapper = 'div', wrapperProps} = props;
 
     return (
         <Wrapper className={cn(css.container, className)}
-            style={{'--color': color}}
+            style={{'--color': color, "--pillBackgroundColor":pillBackgroundColor}}
             ref={containerElementRef} {...wrapperProps}>
             <h1 className={cn(css.title)}>{title}</h1>
             <ReactMarkdown source={children} escapeHtml={false}/>

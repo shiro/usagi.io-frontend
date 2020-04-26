@@ -3,9 +3,14 @@
   flex-wrap: wrap;
   width: 100%;
   //flex-direction: row;
-  margin: 5vh 0;
+  margin: 3vh 0;
   justify-content: space-between;
   padding: 0 5vw;
+
+  @include size-xl {
+    padding-left: 7vw;
+    padding-right: 7vw;
+  }
 
   .item {
     $itemsPerRow: 5;

@@ -5,8 +5,10 @@ import css from "./IconGridTile.module.scss";
 
 
 export interface IIconGridTileProps {
-    color: string;
-    colorMuted: string;
+    tileColor: string;
+    iconColor: string;
+    textColor: string;
+
     name: string;
     Icon: React.ElementType;
     iconProps?: React.ComponentProps<any>,
@@ -16,17 +18,22 @@ export interface IIconGridTileProps {
 }
 
 const IconGridTile: React.FC<IIconGridTileProps> = (props) => {
-    const {name, color, colorMuted, Icon, iconProps, active, onClick, className} = props;
+    const {name, tileColor, iconColor, textColor, Icon, iconProps, active, onClick, className} = props;
 
     return (
         <div className={cn(css.outerContainer, className)} onClick={onClick}>
             <div className={cn(css.tileContainer)}>
-                <div className={cn(css.tile, {[css.active]: active})} style={{backgroundColor: active ? color : colorMuted}}>
-                    <Icon className={cn(css.icon)} {...iconProps} preserveAspectRatio="xMidYMid meet"/>
+                <div className={cn(css.tile, {[css.active]: active})} style={{backgroundColor: tileColor}}>
+                    <Icon
+                        className={cn(css.icon)}
+                        style={{"--iconColor": iconColor}}
+                        preserveAspectRatio="xMidYMid meet"
+                        {...iconProps}
+                    />
                 </div>
             </div>
             <span className={cn(css.textContainer, {[css.active]: active})}
-                style={{color: active ? color : colorMuted}}
+                style={{color: textColor}}
             >{name}</span>
         </div>
     );

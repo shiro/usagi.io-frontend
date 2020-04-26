@@ -1,5 +1,5 @@
 .container {
-  padding: 1vh 20vw 8vh;
+  padding: 1vh 20vw 3vh;
 
   .title {
     color: var(--color);
@@ -12,18 +12,20 @@
   .skillSectionContainer {
     text-align: left;
     display: flex;
+    $pillBorderMarginY: .7vh;
+    $pillBorderMarginX: 1vw;
 
     .skillHeading {
       white-space: nowrap;
-      margin: .7vh 0;
+      margin: $pillBorderMarginY 0;
     }
     .skillContainer {
       display: flex;
       flex-wrap: wrap;
 
       .skill {
-        background: var(--color);
-        padding: .5vh;
+        background: var(--pillBackgroundColor);
+        padding: $pillBorderMarginY $pillBorderMarginX;
         margin: .2vh .7vw;
         border-radius: 7px;
         color: color(white);

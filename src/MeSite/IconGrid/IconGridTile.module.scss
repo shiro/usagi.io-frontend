@@ -1,10 +1,11 @@
 .outerContainer {
   flex-direction: column;
-  //margin: 0 1vw;
   color: color(white);
   font-family: 'Noto Sans JP', sans-serif !important;
   font-weight: 700;
   cursor: pointer;
+  // limit tile to screen height fraction
+  max-width: 15vh;
 
   .tileContainer {
     padding-top: 100%;
@@ -17,22 +18,20 @@
       left: 0;
       width: 100%;
       height: 100%;
-
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      //padding: 3%;
 
       .icon {
-        //display: inline-block;
-        //height: 30%;
         width: 50%;
         height: 50%;
         overflow: hidden;
-        //padding: 30%;
-      }
 
+        path {
+          fill: var(--iconColor);
+        }
+      }
     }
   }
 
@@ -47,6 +46,7 @@
     @include fluid-type($width-min-point, $width-max-point, 10px, 40px);
     line-height: 1.2;
     margin: 1.5vh 0 0;
+    font-weight: 500;
 
     &.active {
       font-weight: 900;

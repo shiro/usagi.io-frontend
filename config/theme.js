@@ -23,6 +23,11 @@ module.exports = {
     white: "#fff",
     black: "#000",
     gray: "#858585",
+    
+    // new colors
+    grayMutedDark:"#BDBDBD",
+    grayMutedDarker:"#8D8D8D",
+    lightBlack: "#1E1E1E",
   
     green: "#2B884D",
     blue: "#4A82C2",
