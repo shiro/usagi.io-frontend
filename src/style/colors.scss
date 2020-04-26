@@ -1,18 +1,5 @@
 $colors: get("colors");
 
-//$colors: (
-//  white: #fff,
-//  black: #000,
-//  gray: #858585,
-//
-//  green: #2B884D,
-//  blue: #4A82C2,
-//  red-muted: #DBB6B6,
-//  red: #C43E3E,
-//  lightRed: #F6E2E2,
-//  oragne: #D6955B,
-//  purple: #787AC5,
-//);
 @function _hex-to-dec($string) {
   $hex: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9" "a" "b" "c" "d" "e" "f";
   $string: to-lower-case($string);
@@ -71,14 +58,14 @@ $colors: get("colors");
 
 
 @function color($key) {
-  $foo: map_get($colors, quote($key));
+  $lookup: map_get($colors, inspect($key));
 
-  @if not $key or not $foo {
+  @if not $key or not $lookup {
     @warn "cannot find color with key: '" + $key+"', skipping";
     @return null;
   }
 
-  @return _from-hex(map_get($colors, quote($key)));
+  @return _from-hex($lookup);
 }
 
 @mixin linkColor($color) {

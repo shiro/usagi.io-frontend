@@ -42,7 +42,7 @@ exports.makeStyleLoaders = (type, architecture) => {
                 prependData: "@import \"~@/master\";",
                 sassOptions: {
                     functions: {
-                        "get($keys)": function(keys){
+                        "get($keys)": (keys) => {
                             keys = keys.getValue().split(".");
                             let result = require(path.join(appRoot, "config/theme.js"));
                             let i;
