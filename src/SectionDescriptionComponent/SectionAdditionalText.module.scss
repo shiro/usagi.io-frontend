@@ -1,5 +1,6 @@
 .container {
-  padding: 1vh 20vw 3vh;
+  padding: 3vh 0 6vh;
+  @include sectionPadding;
 
   .title {
     color: var(--color);
@@ -20,6 +21,7 @@
       white-space: nowrap;
       margin: $pillBorderMarginY 0;
     }
+
     .skillContainer {
       display: flex;
       flex-wrap: wrap;

@@ -1,5 +1,6 @@
 .description {
-  padding: 3vh 20vw 3vh;
+  padding: 3vh 0 3vh;
+  @include sectionPadding;
 
   p {
     @include fluid-type($width-min-point, $width-max-point, 14px, 30px);
