@@ -9324,11 +9324,6 @@ pkg-up@2.0.0, pkg-up@^2.0.0:
   dependencies:
     find-up "^2.1.0"
 
-polyfill-io-feature-detection@1.1.15:
-  version "1.1.15"
-  resolved "https://registry.yarnpkg.com/polyfill-io-feature-detection/-/polyfill-io-feature-detection-1.1.15.tgz#6716274f744fd28d735641ac3f819fddd2ae7c65"
-  integrity sha512-7idtcnFyDlYWku2nY4kUn6g/QEEwyRXocvXuQFCeGUIZNQogzEhgp5OkB1Oab0szW4sgpLMbX7nNmJYVrx0UIA==
-
 portfinder@^1.0.25:
   version "1.0.25"
   resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.25.tgz#254fd337ffba869f4b9d37edc298059cb4d35eca"
@@ -10719,6 +10714,11 @@ requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
+
+resize-observer-polyfill@1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
+  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
 
 resolve-cwd@^2.0.0:
   version "2.0.0"
