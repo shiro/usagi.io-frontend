@@ -9324,6 +9324,11 @@ pkg-up@2.0.0, pkg-up@^2.0.0:
   dependencies:
     find-up "^2.1.0"
 
+polyfill-io-feature-detection@1.1.15:
+  version "1.1.15"
+  resolved "https://registry.yarnpkg.com/polyfill-io-feature-detection/-/polyfill-io-feature-detection-1.1.15.tgz#6716274f744fd28d735641ac3f819fddd2ae7c65"
+  integrity sha512-7idtcnFyDlYWku2nY4kUn6g/QEEwyRXocvXuQFCeGUIZNQogzEhgp5OkB1Oab0szW4sgpLMbX7nNmJYVrx0UIA==
+
 portfinder@^1.0.25:
   version "1.0.25"
   resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.25.tgz#254fd337ffba869f4b9d37edc298059cb4d35eca"

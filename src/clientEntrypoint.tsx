@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import ClientApp from '@/App/ClientApp';
 import './clientEntrypoint.scss';
 import {loadableReady} from '@loadable/component';
+import {polyfillLoader} from 'polyfill-io-feature-detection';
 
 const renderApp = (app: ReactElement) => {
     const root = document.getElementById("root");
@@ -13,6 +14,14 @@ const renderApp = (app: ReactElement) => {
     method.call(window, app as any, root);
 };
 
-loadableReady(() => {
-    renderApp(<ClientApp/>);
+const loadApp = () =>
+    loadableReady(() => {
+        renderApp(<ClientApp/>);
+    });
+
+
+// This function load polyfills only if needed. By default it uses polyfill.io
+polyfillLoader({
+    "features": "Promise,fetch,ResizeObserver,Array.prototype.includes",
+    "onCompleted": loadApp
 });
