@@ -11,7 +11,6 @@ export interface IBlogPostListingProps {}
 
 const BlogPostListing: React.FC<IBlogPostListingProps> = (props) => {
     const {loading, error, data} = useGetAllBlogPostsQuery();
-    console.log(data)
 
     if (loading)
         return null;
