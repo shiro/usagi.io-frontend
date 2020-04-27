@@ -8,6 +8,7 @@ export interface IIconGridTileProps {
     tileColor: string;
     tileHoverColor: string;
     iconColor: string;
+    iconHoverColor: string;
     textColor: string;
 
     name: string;
@@ -19,7 +20,7 @@ export interface IIconGridTileProps {
 }
 
 const IconGridTile: React.FC<IIconGridTileProps> = (props) => {
-    const {name, tileColor, tileHoverColor, iconColor, textColor, Icon, iconProps, active, onClick, className} = props;
+    const {name, tileColor, tileHoverColor, iconColor, iconHoverColor, textColor, Icon, iconProps, active, onClick, className} = props;
 
     return (
         <div className={cn(css.outerContainer, className)} onClick={onClick}>
@@ -28,7 +29,7 @@ const IconGridTile: React.FC<IIconGridTileProps> = (props) => {
                     style={{"--backgroundColor": tileColor, "--backgroundHoverColor": tileHoverColor}}>
                     <Icon
                         className={cn(css.icon)}
-                        style={{"--iconColor": iconColor}}
+                        style={{"--iconColor": iconColor, "--iconHoverColor": iconHoverColor}}
                         preserveAspectRatio="xMidYMid meet"
                         {...iconProps}
                     />

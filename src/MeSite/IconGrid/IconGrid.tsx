@@ -41,6 +41,7 @@ const IconGrid: React.FC<IIconGridProps> = (props) => {
                         tileColor={isActive ? tileColor : tileColorInactive}
                         tileHoverColor={tileColor}
                         iconColor={isActive ? iconColor : iconColorInactive}
+                        iconHoverColor={iconColor}
                         textColor={isActive ? textColor : textColorInactive}
                         Icon={Icon}
                         iconProps={iconProps}
