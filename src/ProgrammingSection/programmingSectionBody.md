@@ -6,4 +6,4 @@ Like there exist many beautiful languages in the world, there are various progra
 each with their good and bad parts.
 
 I'm interested to work with many technologies and stumbling upon new ones as they emerge.
-Constant learning is required to expand our horizon and keep track of the bigger picture.
+Constant learning is required to expand our horizons and keep track of the bigger picture.
