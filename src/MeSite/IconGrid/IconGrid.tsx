@@ -39,6 +39,7 @@ const IconGrid: React.FC<IIconGridProps> = (props) => {
                         className={cn(css.item)}
                         key={name}
                         tileColor={isActive ? tileColor : tileColorInactive}
+                        tileHoverColor={tileColor}
                         iconColor={isActive ? iconColor : iconColorInactive}
                         textColor={isActive ? textColor : textColorInactive}
                         Icon={Icon}

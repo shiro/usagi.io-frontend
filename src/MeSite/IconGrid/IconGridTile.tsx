@@ -6,6 +6,7 @@ import css from "./IconGridTile.module.scss";
 
 export interface IIconGridTileProps {
     tileColor: string;
+    tileHoverColor: string;
     iconColor: string;
     textColor: string;
 
@@ -18,12 +19,13 @@ export interface IIconGridTileProps {
 }
 
 const IconGridTile: React.FC<IIconGridTileProps> = (props) => {
-    const {name, tileColor, iconColor, textColor, Icon, iconProps, active, onClick, className} = props;
+    const {name, tileColor, tileHoverColor, iconColor, textColor, Icon, iconProps, active, onClick, className} = props;
 
     return (
         <div className={cn(css.outerContainer, className)} onClick={onClick}>
             <div className={cn(css.tileContainer)}>
-                <div className={cn(css.tile, {[css.active]: active})} style={{backgroundColor: tileColor}}>
+                <div className={cn(css.tile, {[css.active]: active})}
+                    style={{"--backgroundColor": tileColor, "--backgroundHoverColor": tileHoverColor}}>
                     <Icon
                         className={cn(css.icon)}
                         style={{"--iconColor": iconColor}}
