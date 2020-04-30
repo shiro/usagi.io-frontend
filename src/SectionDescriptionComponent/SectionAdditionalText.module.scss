@@ -5,7 +5,7 @@
   .title {
     color: var(--color);
     font-weight: 600;
-    @include fluid-type($width-min-point, $width-max-point, 20px, 40px);
+    @include h2FontSize;
     text-align: left;
     margin: 0 0 2vh;
   }
@@ -43,7 +43,7 @@
   }
 
   p {
-    @include fluid-type($width-min-point, $width-max-point, 14px, 30px);
+    @include textFontSize;
     text-align: left;
     line-height: 1.7;
 

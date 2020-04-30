@@ -1,11 +1,8 @@
-@import "~@/master";
-//@import "~@/foo/master";
-
 .titleContainer {
   display: inline-block;
 
   .title {
-    @include fluid-type($width-min-point, $width-max-point, 18px, 70px);
+    @include h1FontSize;
     font-weight: 900;
     color: color(black);
 

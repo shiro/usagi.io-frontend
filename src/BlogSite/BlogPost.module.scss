@@ -4,7 +4,7 @@
   //padding: 5vw 9vw;
   margin: 6vh 20vw 8vh;
   line-height: 1.7;
-  @include fluid-type($width-min-point, $width-max-point, 18px, 30px);
+  @include textFontSize;
 
   @include size-xs {
     $margin: 6vw;
@@ -31,13 +31,13 @@
 
   h1 {
     padding: 0 0 2vh;
-    @include fluid-type($width-min-point, $width-max-point, 30px, 50px);
     color: #DEDEDE;
+    @include h1FontSize;
   }
 
   h2 {
     padding: 3vh 0;
-    @include fluid-type($width-min-point, $width-max-point, 23px, 40px);
+    @include h2FontSize;
     color: #DEDEDE;
   }
 

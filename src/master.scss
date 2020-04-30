@@ -4,3 +4,18 @@
 @import "~@/style/colors";
 @import "~@/style/sizes";
 @import "~@/sectionVariables";
+
+@mixin textFontSize{
+  @include fluid-type($width-min-point, $width-max-point, 14px, 30px);
+  line-height: 1.7;
+}
+
+@mixin h1FontSize{
+  @include fluid-type($width-min-point, $width-max-point, 18px, 70px);
+  //line-height: 1.7;
+}
+
+@mixin h2FontSize{
+  @include fluid-type($width-min-point, $width-max-point, 20px, 40px);
+  line-height: 1.7;
+}

@@ -3,9 +3,8 @@
   @include sectionPadding;
 
   p {
-    @include fluid-type($width-min-point, $width-max-point, 14px, 30px);
+    @include textFontSize;
     text-align: left;
-    line-height: 1.7;
 
     &:not(:last-child) {
       padding-bottom: 3vh;
