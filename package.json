@@ -89,7 +89,7 @@
     "compression": "1.7.4",
     "concurrently": "5.1.0",
     "copy-webpack-plugin": "5.1.1",
-    "css-loader": "3.5.2",
+    "css-loader": "3.5.3",
     "dotenv-extended": "2.8.0",
     "dotenv-parse-variables": "0.2.3",
     "express": "4.17.1",
