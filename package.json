@@ -76,7 +76,7 @@
     "@types/react-modal": "3.10.5",
     "@types/react-router-dom": "5.1.5",
     "@types/webpack-env": "1.15.1",
-    "apollo": "2.27.0",
+    "apollo": "2.27.4",
     "apollo-boost": "0.4.7",
     "apollo-client": "2.6.8",
     "apollo-server-express": "2.12.0",
