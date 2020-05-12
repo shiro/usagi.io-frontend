@@ -1,5 +1,5 @@
 {
-  "schedule": ["before 8am on Friday"],
+  "schedule": ["before 2am"],
   "packageRules": [
     {
       "updateTypes": ["minor", "patch", "pin", "digest"],
