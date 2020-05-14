@@ -139,7 +139,7 @@
     "url-loader": "4.1.0",
     "webpack": "4.42.1",
     "webpack-cli": "3.3.11",
-    "webpack-dev-server": "3.10.3",
+    "webpack-dev-server": "3.11.0",
     "webpack-hot-middleware": "2.25.0",
     "write-file-webpack-plugin": "4.5.1"
   },
