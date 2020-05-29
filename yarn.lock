@@ -2262,10 +2262,10 @@
     "@svgr/plugin-svgo" "^5.4.0"
     loader-utils "^2.0.0"
 
-"@testing-library/dom@7.5.8":
-  version "7.5.8"
-  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.5.8.tgz#35eb20f1cfd90629a09728954fd916ea142e5de5"
-  integrity sha512-aEK4GDeIk3sHuuF8NNvZrmZg5xfF7llvdlVfjely/fPg/GE4yLa0cVZEBWpS6oVUBk2tEXjwTDPFnMOe/M0GTQ==
+"@testing-library/dom@7.6.0":
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.6.0.tgz#bce422f3b69d01ced6e8f883c3b018e8f36b283e"
+  integrity sha512-CvriTIYAzmo/wo6kr6vPXZXHR4XDTrrp6jgrAnXeb4VTVu6UE0ldsS2y1blSB8z8NnGkkrsDcRG7aHFQ0QQd/Q==
   dependencies:
     "@babel/runtime" "^7.9.6"
     aria-query "^4.0.2"
