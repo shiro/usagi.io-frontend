@@ -46,7 +46,7 @@
     "@graphql-codegen/introspection": "1.15.0",
     "@graphql-codegen/typescript": "1.15.0",
     "@graphql-codegen/typescript-operations": "1.15.0",
-    "@graphql-codegen/typescript-react-apollo": "1.14.0",
+    "@graphql-codegen/typescript-react-apollo": "1.15.0",
     "@loadable/babel-plugin": "5.12.0",
     "@loadable/component": "5.12.0",
     "@loadable/server": "5.12.0",
