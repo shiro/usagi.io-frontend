@@ -131,7 +131,7 @@
     "source-map-explorer": "2.4.2",
     "start-server-webpack-plugin": "2.2.5",
     "style-loader": "1.2.1",
-    "terser-webpack-plugin": "3.0.4",
+    "terser-webpack-plugin": "3.0.5",
     "ts-custom-error": "3.1.1",
     "tsconfig-paths-webpack-plugin": "3.2.0",
     "typescript": "~3.9.0",
