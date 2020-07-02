@@ -96,7 +96,7 @@
     "graphql": "15.2.0",
     "graphql-depth-limit": "1.1.0",
     "graphql-import-node": "0.0.4",
-    "graphql-tools": "5.0.0",
+    "graphql-tools": "6.0.12",
     "helmet": "3.23.3",
     "html-webpack-harddisk-plugin": "1.0.2",
     "html-webpack-plugin": "4.3.0",
