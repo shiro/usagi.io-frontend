@@ -1,7 +1,7 @@
 // returning false here prevents Cypress from failing the test
 Cypress.on("uncaught:exception", (err, runnable) => {
     // the following error can be safely ignored
-    if(err.message.includes("ResizeObserver loop completed with undelivered notifications."))
+    if(err.message.includes("ResizeObserver loop"))
         return false;
     
     return true;
