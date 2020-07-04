@@ -12,4 +12,4 @@ docker-compose up --abort-on-container-exit --exit-code-from e2e
 #curl http://localhost:3000
 #curl -k https://localhost:3000
 
-docker-compose logs
+#docker-compose logs
