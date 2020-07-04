@@ -6,6 +6,14 @@ services:
     build:
       context: .
     stdin_open: true
-#    network_mode: "host"
+  # network_mode: "host"
+  e2e:
+    image: cypress
+    build:
+      context: ./e2e
+    depends_on:
+      - fe
+    environment:
+      - CYPRESS_baseUrl=http://fe:3000
 #  db:
 #    image:

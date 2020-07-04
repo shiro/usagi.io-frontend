@@ -14,13 +14,6 @@ services:
       - ./:/opt/app
       - node_modules_fe:/opt/app/node_modules
   e2e:
-    image: cypress
-    build:
-      context: ./e2e
-    depends_on:
-      - fe
-    environment:
-      - CYPRESS_baseUrl=http://fe:3000
     volumes:
       - ./e2e/cypress:/app/cypress
       - ./e2e/cypress.json:/app/cypress.json
