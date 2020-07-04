@@ -46,6 +46,7 @@ module.exports = {
                             ["@babel/plugin-proposal-decorators", { "legacy": true }],
                             ["@babel/plugin-proposal-class-properties", { "loose": true }],
                             "@loadable/babel-plugin",
+                            "@babel/plugin-proposal-optional-chaining",
                         ],
                         babelrc: false,
                         configFile: false,

@@ -48,6 +48,7 @@ module.exports = {
                         plugins: [
                             isDevelopment && require.resolve("react-refresh/babel"),
                             "@loadable/babel-plugin",
+                            "@babel/plugin-proposal-optional-chaining",
                         ].filter(Boolean),
                     },
                 }],
