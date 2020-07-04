@@ -7,11 +7,13 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 describe('My First Test', () => {
   it('Does not do much!', () => {
     // expect(true).to.equal(true)
-    cy.visit('http://localhost:3000');
+    cy.visit("");
     
     // check redirect
     cy.location('pathname').should('eq', '/me');
     
     cy.contains('Matic Gačar');
+    
+    cy.screenshot();
   })
 })

@@ -1,7 +1,7 @@
 {
   "name": "home",
   "version": "0.1.0",
-  "private": true,
+  "license": "MIT",
   "scripts": {
     "serve": "serve -s build -l 3000",
     "analyze": "source-map-explorer 'build/*.js'",
@@ -12,6 +12,7 @@
     "prod": "yarn prod:build && yarn prod:run",
     "dev:server": "cross-env NODE_ENV=development webpack --config webpack/webpack.server.config.js",
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server --config webpack/webpack.client.config.js",
+    "test": "docker-compose up --abort-on-container-exit --exit-code-from e2e",
     "generate": "yarn run graphql-codegen --config config/codegen.js",
     "dev": "concurrently 'yarn dev:server' 'yarn dev:client'"
   },
