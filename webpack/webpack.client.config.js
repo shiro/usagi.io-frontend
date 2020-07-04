@@ -111,10 +111,17 @@ module.exports = {
             useHashIndex: true,
         }),
         new CleanWebpackPlugin(),
-        new CopyWebpackPlugin([
-            { from: webpackPaths.resourcesSrc, to: "assets/resources" },
-            { from: webpackPaths.publicSrc, ignore: [webpackFiles.htmlTemplateDest] }
-        ]),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: webpackPaths.resourcesSrc, to: "assets/resources" },
+                {
+                    from: webpackPaths.publicSrc,
+                    globOptions: {
+                        ignore: [webpackFiles.htmlTemplateDest],
+                    }
+                }
+            ]
+        }),
         !process.env.SSR_ENABLED && new HtmlWebpackPlugin({
             template: path.join(webpackPaths.templateSrc, webpackFiles.htmlTemplateSrc),
             filename: webpackFiles.htmlTemplateDest,

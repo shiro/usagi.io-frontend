@@ -39,7 +39,7 @@ exports.makeStyleLoaders = (type, architecture) => {
             loader: "sass-loader",
             options: {
                 sourceMap: exports.isDevelopment,
-                prependData: "@import \"~@/master\";",
+                additionalData: "@import \"~@/master.scss\";",
                 sassOptions: {
                     functions: {
                         "get($keys)": (keys) => {

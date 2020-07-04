@@ -1,9 +1,9 @@
-@import "~@/style/fluidType";
-@import "~@/style/sassRem";
-@import "~@/style/debug";
-@import "~@/style/colors";
-@import "~@/style/sizes";
-@import "~@/sectionVariables";
+@import "~@/style/fluidType.scss";
+@import "~@/style/sassRem.scss";
+@import "~@/style/debug.scss";
+@import "~@/style/colors.scss";
+@import "~@/style/sizes.scss";
+@import "~@/sectionVariables.scss";
 
 @mixin textFontSize{
   @include fluid-type($width-min-point, $width-max-point, 14px, 30px);
