@@ -24,6 +24,7 @@ module.exports = {
     node: { // workaround for webpack bug
         __dirname: false,
     },
+    externals: ["bufferutil", "utf-8-validate"],
     resolve: pathResolver,
     module: {
         rules: [
@@ -74,7 +75,7 @@ module.exports = {
     plugins: [
         MiniCssExtractPlugin,
         new CleanWebpackPlugin(),
-        new webpack.EnvironmentPlugin([process.env.NODE_ENV]),
+        new webpack.EnvironmentPlugin(['NODE_ENV']),
         isDevelopment && new webpack.HotModuleReplacementPlugin(),
         isDevelopment && new StartServerPlugin({
             name: webpackFiles.serverDest,

@@ -27,6 +27,7 @@ module.exports = {
         path: webpackPaths.clientDest,
         publicPath: "/",
     },
+    externals: ["bufferutil", "utf-8-validate"],
     resolve: pathResolver,
     module: {
         rules: [
@@ -121,9 +122,7 @@ module.exports = {
             alwaysWriteToDisk: isDevelopment, // dev only
         }),
         !process.env.SSR_ENABLED && isDevelopment && new HtmlWebpackHarddiskPlugin(),
-        isDevelopment && new ReactRefreshWebpackPlugin({
-            disableRefreshCheck: true, // TODO disable this and remove webpack-hot-middleware when the bugs are gone o.o
-        }),
+        isDevelopment && new ReactRefreshWebpackPlugin(),
     ].filter(Boolean),
 };
 
