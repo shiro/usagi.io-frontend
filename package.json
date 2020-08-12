@@ -44,7 +44,7 @@
     "@fortawesome/free-solid-svg-icons": "5.14.0",
     "@fortawesome/react-fontawesome": "0.1.11",
     "@graphql-codegen/cli": "1.17.7",
-    "@graphql-codegen/introspection": "1.17.7",
+    "@graphql-codegen/introspection": "1.17.8",
     "@graphql-codegen/typescript": "1.17.7",
     "@graphql-codegen/typescript-operations": "1.17.7",
     "@graphql-codegen/typescript-react-apollo": "2.0.5",
