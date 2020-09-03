@@ -1145,6 +1145,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.11.2":
+  version "7.11.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.11.2.tgz#f549c13c754cc40b87644b9fa9f09a6a95fe0736"
+  integrity sha512-TeWkU52so0mPtDcaCTxNBI/IHiz0pZgr8VEFqXFtZWpYD08ZB6FaSwVAS8MKRQAP3bYKiVjwysOJgMFY28o6Tw==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/template@^7.10.4":
   version "7.10.4"
   resolved "https://registry.npmjs.org/@babel/template/-/template-7.10.4.tgz#3251996c4200ebc71d1a8fc405fba940f36ba278"
@@ -2330,7 +2337,7 @@
     "@svgr/plugin-svgo" "^5.4.0"
     loader-utils "^2.0.0"
 
-"@testing-library/dom@7.24.0":
+"@testing-library/dom@7.24.0", "@testing-library/dom@^7.23.0":
   version "7.24.0"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.24.0.tgz#b50066100947e4d1bd0f2f6855c7ff3f2a8770e2"
   integrity sha512-Q83bQctoBse3NbHrUHlLypSp+cIchmpLCtVTG2rgVL2RhzgNOjlYgqH/gmwg3ztHVPADSD3PwtoXRhgU6dfTxQ==
@@ -2342,17 +2349,6 @@
     chalk "^4.1.0"
     dom-accessibility-api "^0.5.1"
     pretty-format "^26.4.2"
-
-"@testing-library/dom@^7.17.1":
-  version "7.20.0"
-  resolved "https://registry.npmjs.org/@testing-library/dom/-/dom-7.20.0.tgz#2bab85e90f0221a56256c5d4741c2a36b7c45f4d"
-  integrity sha512-TywaC+qDGm/Ro34kRYkFQPdT+pxSF4UjZGLIqcGfFQH5IGR43Y7sGLPnkieIW/GNsu337oxNsLUAgpI0JWhXHw==
-  dependencies:
-    "@babel/runtime" "^7.10.3"
-    "@types/aria-query" "^4.2.0"
-    aria-query "^4.2.2"
-    dom-accessibility-api "^0.4.5"
-    pretty-format "^25.5.0"
 
 "@testing-library/jest-dom@^5.11.0":
   version "5.11.0"
@@ -2370,13 +2366,13 @@
     lodash "^4.17.15"
     redent "^3.0.0"
 
-"@testing-library/react@^10.4.3":
-  version "10.4.3"
-  resolved "https://registry.npmjs.org/@testing-library/react/-/react-10.4.3.tgz#c6f356688cffc51f6b35385583d664bb11a161f4"
-  integrity sha512-A/ydYXcwAcfY7vkPrfUkUTf9HQLL3/GtixTefcu3OyGQtAYQ7XBQj1S9FWbLEhfWa0BLwFwTBFS3Ao1O0tbMJg==
+"@testing-library/react@^11.0.0":
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-11.0.1.tgz#6aa0b861cb5c72948d2c11fdb2f72840d17b53a6"
+  integrity sha512-dpN8pNLncmDX97NIVPjdpj4qYra7+ODk/JeWF4F+qaL7pU84YX7YVHK0pM4zbqTKKPypc0aoL8hrhJ31qYRmVA==
   dependencies:
-    "@babel/runtime" "^7.10.3"
-    "@testing-library/dom" "^7.17.1"
+    "@babel/runtime" "^7.11.2"
+    "@testing-library/dom" "^7.23.0"
 
 "@testing-library/user-event@^12.0.11":
   version "12.0.11"
@@ -5729,11 +5725,6 @@ dns-txt@^2.0.2:
   integrity sha1-uR2Ab10nGI5Ks+fRB9iBocxGQrY=
   dependencies:
     buffer-indexof "^1.0.0"
-
-dom-accessibility-api@^0.4.5:
-  version "0.4.5"
-  resolved "https://registry.npmjs.org/dom-accessibility-api/-/dom-accessibility-api-0.4.5.tgz#d9c1cefa89f509d8cf132ab5d250004d755e76e3"
-  integrity sha512-HcPDilI95nKztbVikaN2vzwvmv0sE8Y2ZJFODy/m15n7mGXLeOKGiys9qWVbFbh+aq/KYj2lqMLybBOkYAEXqg==
 
 dom-accessibility-api@^0.5.1:
   version "0.5.1"
