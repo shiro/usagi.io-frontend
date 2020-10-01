@@ -92,7 +92,7 @@
     "copy-webpack-plugin": "6.1.1",
     "css-loader": "4.3.0",
     "cypress": "5.3.0",
-    "dotenv-extended": "2.8.0",
+    "dotenv-extended": "2.9.0",
     "dotenv-parse-variables": "1.0.1",
     "express": "4.17.1",
     "graphql": "15.3.0",
