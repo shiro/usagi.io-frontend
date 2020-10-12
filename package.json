@@ -67,7 +67,7 @@
     "@types/helmet": "0.0.48",
     "@types/jest": "^26.0.3",
     "@types/loadable__server": "5.12.3",
-    "@types/lodash": "4.14.161",
+    "@types/lodash": "4.14.162",
     "@types/marked": "1.1.0",
     "@types/node": "14.11.8",
     "@types/object-assign-deep": "0.4.0",
