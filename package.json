@@ -127,7 +127,7 @@
     "react-spring": "8.0.27",
     "react-use-measure": "2.0.3",
     "resize-observer-polyfill": "1.5.1",
-    "sass-loader": "10.0.5",
+    "sass-loader": "10.1.0",
     "schema-dts": "0.7.1",
     "slugify": "1.4.6",
     "source-map-explorer": "2.5.0",
