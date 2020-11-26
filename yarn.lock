@@ -12648,10 +12648,10 @@ scheduler@^0.20.0:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
 
-schema-dts@0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/schema-dts/-/schema-dts-0.7.1.tgz#9c7e978e958ce331e927b63030575c47b6a7d795"
-  integrity sha512-BCbdw1DtSJErERmKrTyu8K+nyuEwfKgRwSTctlklBqnAAkt9+w//Xg8vgRSzknGNBne+DUGLtL372KlLuI002w==
+schema-dts@0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/schema-dts/-/schema-dts-0.8.0.tgz#e7243393ecbbf33ef565eacdca5f195374f9fe34"
+  integrity sha512-WFNeC7IsVEgD/vUvOqRnBvbG1c66q+Ft85UDPNVoA/1682AU7QNa4I6cDCVXnLONEiHGbNMkNMEGaOkioVAI3Q==
 
 schema-utils@^1.0.0:
   version "1.0.0"
