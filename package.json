@@ -95,7 +95,7 @@
     "dotenv-extended": "2.9.0",
     "dotenv-parse-variables": "1.0.1",
     "express": "4.17.1",
-    "graphql": "15.4.0",
+    "graphql": "15.8.0",
     "graphql-depth-limit": "1.1.0",
     "graphql-import-node": "0.0.4",
     "graphql-tools": "6.2.6",
