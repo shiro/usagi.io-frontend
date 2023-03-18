@@ -128,7 +128,7 @@
     "react-use-measure": "2.0.3",
     "resize-observer-polyfill": "1.5.1",
     "sass-loader": "10.1.0",
-    "schema-dts": "0.8.1",
+    "schema-dts": "1.1.2",
     "slugify": "1.4.6",
     "source-map-explorer": "2.5.0",
     "start-server-webpack-plugin": "2.2.5",
