@@ -130,7 +130,7 @@
     "sass-loader": "10.1.0",
     "schema-dts": "0.8.1",
     "slugify": "1.4.6",
-    "source-map-explorer": "2.5.0",
+    "source-map-explorer": "2.5.3",
     "start-server-webpack-plugin": "2.2.5",
     "style-loader": "2.0.0",
     "terser-webpack-plugin": "4.2.3",
