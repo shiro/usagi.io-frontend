@@ -52,7 +52,7 @@
     "@loadable/component": "5.14.1",
     "@loadable/server": "5.14.0",
     "@loadable/webpack-plugin": "5.14.0",
-    "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
+    "@pmmmwh/react-refresh-webpack-plugin": "0.5.11",
     "@svgr/webpack": "5.5.0",
     "@testing-library/dom": "7.28.1",
     "@testing-library/jest-dom": "^5.11.0",
