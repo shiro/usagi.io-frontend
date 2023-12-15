@@ -2740,10 +2740,10 @@
     hoist-non-react-statics "^3.3.1"
     react-is "^16.12.0"
 
-"@loadable/server@5.14.0":
-  version "5.14.0"
-  resolved "https://registry.yarnpkg.com/@loadable/server/-/server-5.14.0.tgz#8aa83166aaad7401a14d8a1b04a7e1cc169ca6c4"
-  integrity sha512-oiZiHzUdkOsDzZNXU6fsZ7U0W3+nWZRljVCFCeR8CZSXEKUfXAllUf8tx5G385q7vapAQpXM7U8EzgDns3Q4vQ==
+"@loadable/server@5.16.2":
+  version "5.16.2"
+  resolved "https://registry.yarnpkg.com/@loadable/server/-/server-5.16.2.tgz#1e85c336873f5fd2f13e1949000978773b96d7b8"
+  integrity sha512-6xDWO1H/xh4WhuYsUsrWgYSvIc9PCFSuZobOjAMrXN6pQLt6GEqPb7R0ZHt7w90ITQGV+xoXoNKo5tES03TdqA==
   dependencies:
     lodash "^4.17.15"
 
