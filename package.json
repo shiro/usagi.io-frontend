@@ -142,7 +142,7 @@
     "webpack": "4.44.2",
     "webpack-cli": "3.3.12",
     "webpack-dev-server": "3.11.0",
-    "webpack-hot-middleware": "2.25.0",
+    "webpack-hot-middleware": "2.26.1",
     "write-file-webpack-plugin": "4.5.1"
   },
   "eslintConfig": {
